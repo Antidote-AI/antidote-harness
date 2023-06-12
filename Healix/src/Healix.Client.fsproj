@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <DefineConstants>FABLE_COMPILER</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- GENERATED CSS -->
+    <Compile Include="CssModules.fs" />
+
+    <!-- COMPONENTS -->
+    <Compile Include="Components/Sample.fs" />
+
+    <!-- TOP LEVEL APP -->
+    <!-- <Compile Include="App.fs" /> -->
+    <Compile Include="Main.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../Shared/Antidote.Core.V2/Antidote.Core.V2.fsproj" />
+    <ProjectReference Include="../../Shared/Feliz.Bulma.Antidote.Extension/Feliz.Bulma.Antidote.Extension.fsproj" />
+  </ItemGroup>
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
+</Project>

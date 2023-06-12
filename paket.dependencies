@@ -1,0 +1,91 @@
+source https://api.nuget.org/v3/index.json
+
+storage: none
+framework: net6.0
+
+nuget Antidote.uFuzzy
+nuget ExcelProvider 2.0.0
+nuget Fable.Browser.Navigator
+nuget Fable.Core
+nuget Fable.I18Next
+nuget Fable.Promise
+nuget Fable.Remoting.Client
+nuget Feliz ~> 1
+nuget Feliz.Bulma.Checkradio
+nuget Feliz.Plotly
+nuget Feliz.Popover 2.4.0
+# Don't use official NuGet because Fast refresh is broken
+# I will, send a PR to fix the official NuGet when I have time
+# nuget Feliz.UseElmish
+nuget Feliz.CompilerPlugins ~> 1
+nuget Feliz.Bulma
+nuget Feliz.UseElmish
+nuget Feliz.UseListener
+nuget Fable.FontAwesome.Free
+nuget Fable.Elmish ~> 3
+nuget Fable.Form
+nuget Fable.Form.Simple
+nuget Fable.Form.Simple.Bulma
+nuget Fable.SimpleHttp
+nuget Feliz.UseDeferred 1.5.0
+nuget Glutinum.Feliz.Iconify
+nuget Glutinum.IconifyIcons.AntDesign
+nuget Glutinum.IconifyIcons.Mdi
+nuget Glutinum.IconifyIcons.Emojione
+nuget Glutinum.IconifyIcons.EmojioneMonotone
+nuget Glutinum.IconifyIcons.Fluent
+nuget Glutinum.Fuse
+nuget Fable.Browser.Css
+# nuget Microsoft.Extensions.Identity.Core 6.0.9
+nuget Microsoft.IdentityModel.Abstractions 6.27
+nuget SendGrid 9.28.1
+nuget Thoth.Json 10.1.0
+nuget Fable.React ~> 8 # Fable.React 9 contains breaking changes
+nuget Thoth.Json.Net
+nuget FSharp.Data 3.3.3
+nuget Fable.Browser.Url
+nuget Fable.Browser.Dom
+
+# Server
+nuget Fable.Remoting.Giraffe
+nuget Npgsql
+nuget SqlHydra.Query
+nuget Azure.Communication.Identity
+nuget Azure.Communication.Chat 1.1.0
+nuget Azure.Communication.Sms 1.0.0
+nuget FsToolkit.ErrorHandling
+nuget BCrypt.Net-Next
+nuget jose-jwt
+nuget Giraffe
+nuget dotenv.net
+
+# Related to the tests
+nuget Expecto
+nuget Expecto.FsCheck
+
+# Makes the tests discoverable by VSCode, Rider, etc.
+nuget Microsoft.NET.Test.Sdk
+nuget Twilio 6.2.4
+nuget YoloDev.Expecto.TestSdk
+
+# Allow to create a proxy for testing Fable.Remoting
+nuget Microsoft.AspNetCore.TestHost ~> 6
+nuget Fable.Remoting.DotnetClient
+nuget Fable.Remoting.AspNetCore
+
+# Migrations
+nuget Microsoft.Extensions.Logging.Debug
+
+group Build
+    source https://api.nuget.org/v3/index.json
+    framework: net6.0
+    storage: none
+
+    nuget FSharp.Core
+    nuget Fake.Core.Environment
+    nuget Fake.IO.FileSystem
+    nuget Fake.DotNet.Cli
+    nuget BlackFox.Fake.BuildTask
+    nuget BlackFox.PathEnvironment
+    nuget BlackFox.CommandLine
+    nuget Npgsql

@@ -1,0 +1,877 @@
+[
+    {
+        "Step": 1,
+        "Label": "Are you Hispanic or Latino?",
+        "Type": "One",
+        "Options": [
+            {
+                "Description": "Yes, Hispanic or Latino",
+                "Value": "Yes, Hispanic or Latino"
+            },
+            {
+                "Description": "No, not Hispanic or Latino",
+                "Value": "No, not Hispanic or Latino"
+            },
+            {
+                "Description": "I choose not to answer this question",
+                "Value": "I choose not to answer this question"
+            }
+        ]
+    },
+    {
+        "Step": 2,
+        "Label": "What language are you most comfortable speaking?",
+        "Type": "One",
+        "Options": [
+            { "Description": "English", "Value": "English" },
+            {
+                "Description": "Language other than English",
+                "Value": "Language other than English"
+            },
+            {
+                "Description": "I choose not to answer this question",
+                "Value": "I choose not to answer this question"
+            }
+        ]
+    },
+    {
+        "Step": 3,
+        "Label": "Which race(s) are you? Check all that apply.",
+        "Type": "Many",
+        "Options": [
+            { "Description": "Asian", "Value": "Asian" },
+            { "Description": "Native Hawaiian", "Value": "Native Hawaiian" },
+            { "Description": "Pacific Islander", "Value": "Pacific Islander" },
+            {
+                "Description": "Black/African American",
+                "Value": "Black/African American"
+            },
+            { "Description": "White", "Value": "White" },
+            {
+                "Description": "American Indian/Alaskan Native",
+                "Value": "American Indian/Alaskan Native"
+            },
+            { "Description": "Other", "Value": "Other" },
+            {
+                "Description": "I choose not to answer this question",
+                "Value": "I choose not to answer this question"
+            }
+        ]
+    },
+    {
+        "Step": 4,
+        "Label": "Are you a refugee?",
+        "Type": "One",
+        "Options": [
+            { "Description": "Yes", "Value": "Yes" },
+            { "Description": "No", "Value": "No" },
+            {
+                "Description": "I choose not to answer this question",
+                "Value": "I choose not to answer this question"
+            }
+        ]
+    },
+    {
+        "Step": 5,
+        "Label": "Please select all relevant ICD 10 Codes for Cultural Considerations:",
+        "Type": "Many",
+        "Options": [
+            {
+                "Description": " Z55.0 Illiteracy and low-level literacy ",
+                "Value": " Z55.0 Illiteracy and low-level literacy "
+            },
+            {
+                "Description": " Z60 Problems related to social environment ",
+                "Value": " Z60 Problems related to social environment "
+            },
+            {
+                "Description": " Z60.0 Problems of adjustment to life-cycle transitions ",
+                "Value": " Z60.0 Problems of adjustment to life-cycle transitions "
+            },
+            {
+                "Description": " Z60.3 Acculturation difficulty ",
+                "Value": " Z60.3 Acculturation difficulty "
+            },
+            {
+                "Description": " Z60.4 Social exclusion and rejection ",
+                "Value": " Z60.4 Social exclusion and rejection "
+            },
+            {
+                "Description": " Z60.5 Target of (perceived) adverse discrimination/persecution ",
+                "Value": " Z60.5 Target of (perceived) adverse discrimination/persecution "
+            },
+            {
+                "Description": " Z60.8 Other problems related to social environment ",
+                "Value": " Z60.8 Other problems related to social environment "
+            },
+            {
+                "Description": " Z62.2 Upbringing away from parents ",
+                "Value": " Z62.2 Upbringing away from parents "
+            },
+            {
+                "Description": " Z62.22 Institutional upbringing ",
+                "Value": " Z62.22 Institutional upbringing "
+            },
+            {
+                "Description": " Z65.4 Victim of crime and terrorism ",
+                "Value": " Z65.4 Victim of crime and terrorism "
+            },
+            {
+                "Description": " Z65.5 Exposure to disaster, war, and other hostilities",
+                "Value": " Z65.5 Exposure to disaster, war, and other hostilities"
+            }
+        ]
+    },
+    {
+        "Step": 6,
+        "Label": "What is the highest level of school that you have finished?",
+        "Type": "One",
+        "Options": [
+            {
+                "Description": "Less than high school degree",
+                "Value": "Less than high school degree"
+            },
+            {
+                "Description": "High school degree or GED",
+                "Value": "High school degree or GED"
+            },
+            {
+                "Description": "More than high school degree",
+                "Value": "More than high school degree"
+            },
+            {
+                "Description": "I choose not to answer this question",
+                "Value": "I choose not to answer this question"
+            }
+        ]
+    },
+    {
+        "Step": 7,
+        "Label": "Please select all relevant ICD 10 Codes for Education:",
+        "Type": "Many",
+        "Options": [
+            {
+                "Description": "Z55.0 Illiteracy and low-level literacy ",
+                "Value": "Z55.0 Illiteracy and low-level literacy "
+            },
+            {
+                "Description": " Z55.1 Schooling unavailable or unattainable ",
+                "Value": " Z55.1 Schooling unavailable or unattainable "
+            },
+            {
+                "Description": " Z55.2 Failed School Examinations ",
+                "Value": " Z55.2 Failed School Examinations "
+            },
+            {
+                "Description": " Z55.3 Underachievement in School ",
+                "Value": " Z55.3 Underachievement in School "
+            },
+            {
+                "Description": " Z55.4 Educational maladjustment and discord with teachers and classmates ",
+                "Value": " Z55.4 Educational maladjustment and discord with teachers and classmates "
+            },
+            {
+                "Description": " Z55.8 Other problems related to education and literacy",
+                "Value": " Z55.8 Other problems related to education and literacy"
+            }
+        ]
+    },
+    {
+        "Step": 8,
+        "Label": "What is your current work situation?",
+        "Type": "One",
+        "Options": [
+            { "Description": "Unemployed", "Value": "Unemployed" },
+            {
+                "Description": "Part-time or temporary work",
+                "Value": "Part-time or temporary work"
+            },
+            { "Description": "Full-time work", "Value": "Full-time work" },
+            {
+                "Description": "Otherwise unemployed but not seeking work (ex: student, retired, disabled, unpaid primary care giver)",
+                "Value": "Otherwise unemployed but not seeking work (ex: student, retired, disabled, unpaid primary care giver)"
+            },
+            {
+                "Description": "I choose not to answer this question",
+                "Value": "I choose not to answer this question"
+            }
+        ]
+    },
+    {
+        "Step": 9,
+        "Label": "Please select all relevant ICD 10 Codes for Employment:",
+        "Type": "Many",
+        "Options": [
+            {
+                "Description": " Z56 Problems related to employment/ unemployment ",
+                "Value": " Z56 Problems related to employment/ unemployment "
+            },
+            {
+                "Description": " Z56.0 Unemployment ",
+                "Value": " Z56.0 Unemployment "
+            },
+            {
+                "Description": " Z56.1 Change of job ",
+                "Value": " Z56.1 Change of job "
+            },
+            {
+                "Description": " Z56.2 Threat of job loss ",
+                "Value": " Z56.2 Threat of job loss "
+            },
+            {
+                "Description": " Z56.3 Stressful work schedule ",
+                "Value": " Z56.3 Stressful work schedule "
+            },
+            {
+                "Description": " Z56.4 Discord with boss and workmates ",
+                "Value": " Z56.4 Discord with boss and workmates "
+            },
+            {
+                "Description": " Z56.5 Uncongenial work environment ",
+                "Value": " Z56.5 Uncongenial work environment "
+            },
+            {
+                "Description": " Z56.6 Other physical and mental strain related to work ",
+                "Value": " Z56.6 Other physical and mental strain related to work "
+            },
+            {
+                "Description": " Z56.9 Unspecified problems related to employment ",
+                "Value": " Z56.9 Unspecified problems related to employment "
+            },
+            {
+                "Description": " Z57 Occupational exposure to risk factors ",
+                "Value": " Z57 Occupational exposure to risk factors "
+            },
+            {
+                "Description": " Z59.5 Extreme poverty (100% FPL or below) ",
+                "Value": " Z59.5 Extreme poverty (100% FPL or below) "
+            },
+            {
+                "Description": " Z59.6 Low income (200% FPL or below)",
+                "Value": " Z59.6 Low income (200% FPL or below)"
+            }
+        ]
+    },
+    {
+        "Step": 10,
+        "Label": "In the past year, have you or any family members you live with been unable to get any of the following when it was really needed? Check all that apply.",
+        "Type": "Many",
+        "Options": [
+            { "Description": "Food", "Value": "Food" },
+            { "Description": "Clothing", "Value": "Clothing" },
+            { "Description": "Utilities", "Value": "Utilities" },
+            { "Description": "Childcare", "Value": "Childcare" },
+            {
+                "Description": "Medicine or any health care (medical, dental, mental health, vision)",
+                "Value": "Medicine or any health care (medical, dental, mental health, vision)"
+            },
+            { "Description": "Phone", "Value": "Phone" },
+            { "Description": "Other", "Value": "Other" },
+            {
+                "Description": "I choose not to answer this question",
+                "Value": "I choose not to answer this question"
+            }
+        ]
+    },
+    {
+        "Step": 11,
+        "Label": "Please select all relevant ICD 10 Codes for Food Insecurity:",
+        "Type": "Many",
+        "Options": [
+            {
+                "Description": "Z59.4 Lack of adequate food and safe drinking water ",
+                "Value": "Z59.4 Lack of adequate food and safe drinking water "
+            },
+            {
+                "Description": " Z72.4 Inappropriate diet and eating habits ",
+                "Value": " Z72.4 Inappropriate diet and eating habits "
+            },
+            {
+                "Description": " Z91.120 Patient’s intentional under dosing of medication regimen due to financial hardship ",
+                "Value": " Z91.120 Patient’s intentional under dosing of medication regimen due to financial hardship "
+            },
+            {
+                "Description": " Z59.5 Extreme Poverty (100% FPL or below) ",
+                "Value": " Z59.5 Extreme Poverty (100% FPL or below) "
+            },
+            {
+                "Description": " Z59.6 Low income (200% FPL or below)",
+                "Value": " Z59.6 Low income (200% FPL or below)"
+            }
+        ]
+    },
+    {
+        "Step": 12,
+        "Label": "What is your housing situation today?",
+        "Type": "Many",
+        "Options": [
+            { "Description": "I have housing", "Value": "I have housing" },
+            {
+                "Description": "I do not have housing (staying with others, in a hotel, in a shelter, living outside on the street, on a beach, in a car, or in a park)",
+                "Value": "I do not have housing (staying with others, in a hotel, in a shelter, living outside on the street, on a beach, in a car, or in a park)"
+            },
+            {
+                "Description": "I choose not to answer this question",
+                "Value": "I choose not to answer this question"
+            }
+        ]
+    },
+    {
+        "Step": 13,
+        "Label": "Are you worried about losing your housing?",
+        "Type": "One",
+        "Options": [
+            { "Description": "Yes", "Value": "Yes" },
+            { "Description": "No", "Value": "No" },
+            {
+                "Description": "I choose not to answer this question",
+                "Value": "I choose not to answer this question"
+            }
+        ]
+    },
+    {
+        "Step": 14,
+        "Label": "Please select all relevant ICD 10 Codes for Housing Status:",
+        "Type": "Many",
+        "Options": [
+            {
+                "Description": " Z59 Problems related to housing and economic circumstances ",
+                "Value": " Z59 Problems related to housing and economic circumstances "
+            },
+            {
+                "Description": " Z59.0 Homelessness ",
+                "Value": " Z59.0 Homelessness "
+            },
+            {
+                "Description": " Z59.1 Inadequate housing ",
+                "Value": " Z59.1 Inadequate housing "
+            },
+            {
+                "Description": " Z59.2 Discord with neighbors, lodgers, and/or landlord ",
+                "Value": " Z59.2 Discord with neighbors, lodgers, and/or landlord "
+            },
+            {
+                "Description": " Z59.5 Extreme poverty (100% FPL or below) ",
+                "Value": " Z59.5 Extreme poverty (100% FPL or below) "
+            },
+            {
+                "Description": " Z59.6 Low income (200% FPL or below) ",
+                "Value": " Z59.6 Low income (200% FPL or below) "
+            },
+            {
+                "Description": " Z59.8 Other problems related to housing and economic circumstances",
+                "Value": " Z59.8 Other problems related to housing and economic circumstances"
+            }
+        ]
+    },
+    {
+        "Step": 15,
+        "Label": "In the past year, what was the total combined income for you and the family members you live with?",
+        "Type": "One",
+        "Options": [
+            { "Description": "0-10k", "Value": "0-10k" },
+            { "Description": "10k-30k", "Value": "10k-30k" },
+            { "Description": "30k-50k", "Value": "30k-50k" },
+            { "Description": "50k-80k", "Value": "50k-80k" },
+            { "Description": "80k-100k", "Value": "80k-100k" },
+            { "Description": "100k+", "Value": "100k+" }
+        ]
+    },
+    {
+        "Step": 16,
+        "Label": "Please select all relevant ICD 10 Codes for Income:",
+        "Type": "Many",
+        "Options": [
+            {
+                "Description": "Z59.5 Extreme poverty (100% FPL or below) ",
+                "Value": "Z59.5 Extreme poverty (100% FPL or below) "
+            },
+            {
+                "Description": " Z59.6 Low income (200% FPL or below) ",
+                "Value": " Z59.6 Low income (200% FPL or below) "
+            },
+            {
+                "Description": " Z59.7 Insufficient social insurance and welfare support ",
+                "Value": " Z59.7 Insufficient social insurance and welfare support "
+            },
+            {
+                "Description": " Z72.4 Inappropriate diet and eating habits",
+                "Value": " Z72.4 Inappropriate diet and eating habits"
+            }
+        ]
+    },
+    {
+        "Step": 17,
+        "Label": "What is your main insurance?",
+        "Type": "One",
+        "Options": [
+            { "Description": "None/uninsured", "Value": "None/uninsured" },
+            { "Description": "Medicaid", "Value": "Medicaid" },
+            { "Description": "CHIP Medicaid", "Value": "CHIP Medicaid" },
+            { "Description": "Medicare", "Value": "Medicare" },
+            {
+                "Description": "Other public insurance (not CHIP)",
+                "Value": "Other public insurance (not CHIP)"
+            },
+            {
+                "Description": "Other public insurance (CHIP)",
+                "Value": "Other public insurance (CHIP)"
+            },
+            { "Description": "Private Insurance", "Value": "Private Insurance" }
+        ]
+    },
+    {
+        "Step": 18,
+        "Label": "Please select all relevant ICD 10 Codes for Insurance Status:",
+        "Type": "Many",
+        "Options": [
+            {
+                "Description": "Z59.7 Insufficient social insurance and welfare support",
+                "Value": "Z59.7 Insufficient social insurance and welfare support"
+            }
+        ]
+    },
+    {
+        "Step": 19,
+        "Label": "In the past year, have you spent more than 2 nights in a row in a jail, prison, detention center, or juvenile correctional facility?",
+        "Type": "One",
+        "Options": [
+            { "Description": "Yes", "Value": "Yes" },
+            { "Description": "No", "Value": "No" },
+            {
+                "Description": "I choose not to answer this question",
+                "Value": "I choose not to answer this question"
+            }
+        ]
+    },
+    {
+        "Step": 20,
+        "Label": "Please select all relevant ICD 10 Codes for Legal Needs:",
+        "Type": "Many",
+        "Options": [
+            {
+                "Description": "Z56.0 Conviction in civil and criminal proceedings without imprisonment",
+                "Value": "Z56.0 Conviction in civil and criminal proceedings without imprisonment"
+            },
+            {
+                "Description": "Z65.1 Imprisonment and other incarcerations",
+                "Value": "Z65.1 Imprisonment and other incarcerations"
+            }
+        ]
+    },
+    {
+        "Step": 21,
+        "Label": "At any point in the past 2 years has seasonal or migrant farm work been your or your family’s\\nmain source of income?",
+        "Type": "One",
+        "Options": [
+            { "Description": "Yes", "Value": "Yes" },
+            { "Description": "No", "Value": "No" },
+            {
+                "Description": "I choose not to answer this question",
+                "Value": "I choose not to answer this question"
+            }
+        ]
+    },
+    {
+        "Step": 22,
+        "Label": "Please select all relevant ICD 10 Codes for Migrant, Seasonal, and Agricultural Work:",
+        "Type": "Many",
+        "Options": [
+            {
+                "Description": "Z57 Occupational exposure to risk factors ",
+                "Value": "Z57 Occupational exposure to risk factors "
+            },
+            {
+                "Description": " Z57.0 Occupational exposure to noise ",
+                "Value": " Z57.0 Occupational exposure to noise "
+            },
+            {
+                "Description": " Z57.2 Occupational exposure to dust ",
+                "Value": " Z57.2 Occupational exposure to dust "
+            },
+            {
+                "Description": " Z57.3 Occupational exposure to other air contaminants ",
+                "Value": " Z57.3 Occupational exposure to other air contaminants "
+            },
+            {
+                "Description": " Z57.4 Occupational exposure to toxic agents in agriculture ",
+                "Value": " Z57.4 Occupational exposure to toxic agents in agriculture "
+            },
+            {
+                "Description": " Z57.6 Occupational exposure to extreme temperature ",
+                "Value": " Z57.6 Occupational exposure to extreme temperature "
+            },
+            {
+                "Description": " Z57.8 Occupational exposure to other risk factors ",
+                "Value": " Z57.8 Occupational exposure to other risk factors "
+            },
+            {
+                "Description": " Z56.2 Threat of job loss ",
+                "Value": " Z56.2 Threat of job loss "
+            },
+            {
+                "Description": " Z59.7 Insufficient social insurance and welfare support ",
+                "Value": " Z59.7 Insufficient social insurance and welfare support "
+            },
+            {
+                "Description": " Z60.2 Problems related to living alone ",
+                "Value": " Z60.2 Problems related to living alone "
+            },
+            {
+                "Description": " Z60.3 Acculturation difficulty ",
+                "Value": " Z60.3 Acculturation difficulty "
+            },
+            {
+                "Description": " Z60.5 Target of (perceived adverse discrimination and persecution ",
+                "Value": " Z60.5 Target of (perceived adverse discrimination and persecution "
+            },
+            {
+                "Description": " Z59.5 Extreme poverty (100% FPL and below) ",
+                "Value": " Z59.5 Extreme poverty (100% FPL and below) "
+            },
+            {
+                "Description": " Z55.0 Illiteracy and low-level literacy",
+                "Value": " Z55.0 Illiteracy and low-level literacy"
+            }
+        ]
+    },
+    {
+        "Step": 23,
+        "Label": "Neighborhood Conditions",
+        "Type": "One",
+        "Options": [
+            { "Description": "** Placeholder **", "Value": "** Placeholder **" }
+        ]
+    },
+    {
+        "Step": 24,
+        "Label": "Do you feel physically and emotionally safe where you currently live?",
+        "Type": "One",
+        "Options": [
+            { "Description": "Yes", "Value": "Yes" },
+            { "Description": "No", "Value": "No" },
+            { "Description": "Unsure", "Value": "Unsure" },
+            {
+                "Description": "I choose not to answer this question",
+                "Value": "I choose not to answer this question"
+            }
+        ]
+    },
+    {
+        "Step": 25,
+        "Label": "In the past year, have you been afraid of your partner or ex-partner?",
+        "Type": "One",
+        "Options": [
+            { "Description": "Yes", "Value": "Yes" },
+            { "Description": "No", "Value": "No" },
+            {
+                "Description": "I have not had a partner in the past year",
+                "Value": "I have not had a partner in the past year"
+            },
+            {
+                "Description": "I choose not to answer this question",
+                "Value": "I choose not to answer this question"
+            }
+        ]
+    },
+    {
+        "Step": 26,
+        "Label": "Please select all relevant ICD 10 Codes for Safety and Domestic Violence:",
+        "Type": "Many",
+        "Options": [
+            {
+                "Description": " Z63 Problems related to primary support group, includes family circumstances ",
+                "Value": " Z63 Problems related to primary support group, includes family circumstances "
+            },
+            {
+                "Description": " Z63.9 Problems in relationship with spouse or partner ",
+                "Value": " Z63.9 Problems in relationship with spouse or partner "
+            },
+            {
+                "Description": " Z91.41 Personal history of adult abuse ",
+                "Value": " Z91.41 Personal history of adult abuse "
+            },
+            {
+                "Description": " Z91.410 Personal history of adult physical and sexual abuse ",
+                "Value": " Z91.410 Personal history of adult physical and sexual abuse "
+            },
+            {
+                "Description": " Z62.81 Personal history of abuse in childhood ",
+                "Value": " Z62.81 Personal history of abuse in childhood "
+            },
+            {
+                "Description": " Z62.810 Personal history of physical and sexual abuse in childhood ",
+                "Value": " Z62.810 Personal history of physical and sexual abuse in childhood "
+            },
+            {
+                "Description": " Z62.811 Personal history of psychological abuse in childhood ",
+                "Value": " Z62.811 Personal history of psychological abuse in childhood "
+            },
+            {
+                "Description": " Z62.812 Personal history of neglect in childhood",
+                "Value": " Z62.812 Personal history of neglect in childhood"
+            }
+        ]
+    },
+    {
+        "Step": 27,
+        "Label": "How often do you see or talk to people that you care about and feel close to? (For example: talking to friends on the phone, visiting friends or family, going to church or club meetings)",
+        "Type": "One",
+        "Options": [
+            {
+                "Description": "Less than once a week",
+                "Value": "Less than once a week"
+            },
+            {
+                "Description": "1 or 2 times a week",
+                "Value": "1 or 2 times a week"
+            },
+            {
+                "Description": "3 to 5 times a week",
+                "Value": "3 to 5 times a week"
+            },
+            {
+                "Description": "5 or more times a week",
+                "Value": "5 or more times a week"
+            },
+            {
+                "Description": "I choose not to answer this question",
+                "Value": "I choose not to answer this question"
+            }
+        ]
+    },
+    {
+        "Step": 28,
+        "Label": "Please select all relevant ICD 10 Codes for Social Integration:",
+        "Type": "Many",
+        "Options": [
+            {
+                "Description": " Z60 Problems related to social environment ",
+                "Value": " Z60 Problems related to social environment "
+            },
+            {
+                "Description": " Z60.0 Problems of adjustment to life-cycle transitions ",
+                "Value": " Z60.0 Problems of adjustment to life-cycle transitions "
+            },
+            {
+                "Description": " Z60.3 Acculturation difficulty ",
+                "Value": " Z60.3 Acculturation difficulty "
+            },
+            {
+                "Description": " Z60.4 Social exclusion and rejection ",
+                "Value": " Z60.4 Social exclusion and rejection "
+            },
+            {
+                "Description": " Z60.5 Target of (perceived) adverse discrimination/persecution ",
+                "Value": " Z60.5 Target of (perceived) adverse discrimination/persecution "
+            },
+            {
+                "Description": " Z60.8 Other problems related to social environment ",
+                "Value": " Z60.8 Other problems related to social environment "
+            },
+            {
+                "Description": " Z62.2 Upbringing away from parents ",
+                "Value": " Z62.2 Upbringing away from parents "
+            },
+            {
+                "Description": " Z62.22 Institutional upbringing ",
+                "Value": " Z62.22 Institutional upbringing "
+            },
+            {
+                "Description": " Z59.2 Discord with neighbors, lodgers, and landlord",
+                "Value": " Z59.2 Discord with neighbors, lodgers, and landlord"
+            }
+        ]
+    },
+    {
+        "Step": 29,
+        "Label": "Stress is when someone feels tense, nervous, anxious, or can’t sleep at night because their mind is troubled. How stressed are you?",
+        "Type": "One",
+        "Options": [
+            { "Description": "Not at all", "Value": "Not at all" },
+            { "Description": "A little bit", "Value": "A little bit" },
+            { "Description": "Somewhat", "Value": "Somewhat" },
+            { "Description": "Quite a bit", "Value": "Quite a bit" },
+            { "Description": "Very much", "Value": "Very much" },
+            {
+                "Description": "I choose not to answer this question",
+                "Value": "I choose not to answer this question"
+            }
+        ]
+    },
+    {
+        "Step": 30,
+        "Label": "Please select all relevant ICD 10 Codes for Stress:",
+        "Type": "Many",
+        "Options": [
+            {
+                "Description": "Z72.4 Inappropriate diet and eating habits ",
+                "Value": "Z72.4 Inappropriate diet and eating habits "
+            },
+            {
+                "Description": " Z56 Problems related to employment/ unemployment ",
+                "Value": " Z56 Problems related to employment/ unemployment "
+            },
+            {
+                "Description": " Z56.0 Unemployment ",
+                "Value": " Z56.0 Unemployment "
+            },
+            {
+                "Description": " Z56.1 Change of job ",
+                "Value": " Z56.1 Change of job "
+            },
+            {
+                "Description": " Z56.2 Threat of job loss ",
+                "Value": " Z56.2 Threat of job loss "
+            },
+            {
+                "Description": " Z56.3 Stressful work schedule ",
+                "Value": " Z56.3 Stressful work schedule "
+            },
+            {
+                "Description": " Z56.4 Discord with boss and workmates ",
+                "Value": " Z56.4 Discord with boss and workmates "
+            },
+            {
+                "Description": " Z56.5 Uncongenial work environment ",
+                "Value": " Z56.5 Uncongenial work environment "
+            },
+            {
+                "Description": " Z56.6 Other physical and mental strain related to work ",
+                "Value": " Z56.6 Other physical and mental strain related to work "
+            },
+            {
+                "Description": " Z59.0 Homelessness ",
+                "Value": " Z59.0 Homelessness "
+            },
+            {
+                "Description": " Z59.2 Discord with neighbors, lodgers, and landlords ",
+                "Value": " Z59.2 Discord with neighbors, lodgers, and landlords "
+            },
+            {
+                "Description": " Z60 Problems related to social environment ",
+                "Value": " Z60 Problems related to social environment "
+            },
+            {
+                "Description": " Z60.0 Problems of adjustment to life-cycle transitions ",
+                "Value": " Z60.0 Problems of adjustment to life-cycle transitions "
+            },
+            {
+                "Description": " Z60.3 Acculturation difficulty ",
+                "Value": " Z60.3 Acculturation difficulty "
+            },
+            {
+                "Description": " Z60.8 Other problems related to social environment ",
+                "Value": " Z60.8 Other problems related to social environment "
+            },
+            {
+                "Description": " Z65.4 Victim of crime and terrorism ",
+                "Value": " Z65.4 Victim of crime and terrorism "
+            },
+            {
+                "Description": " Z65.5 Exposure to disaster, war, and other hostilities ",
+                "Value": " Z65.5 Exposure to disaster, war, and other hostilities "
+            },
+            {
+                "Description": " Z59.5 Extreme Poverty (100% FPL or below) ",
+                "Value": " Z59.5 Extreme Poverty (100% FPL or below) "
+            },
+            {
+                "Description": " Z59.6 Low income (200% FPL or below)",
+                "Value": " Z59.6 Low income (200% FPL or below)"
+            }
+        ]
+    },
+    {
+        "Step": 31,
+        "Label": "Has lack of transportation kept you from medical appointments, meetings, work, or from getting things needed for daily living? Check all that apply.",
+        "Type": "One",
+        "Options": [
+            {
+                "Description": "Yes, it has kept me from medical appointments or from getting my medications",
+                "Value": "Yes, it has kept me from medical appointments or from getting my medications"
+            },
+            {
+                "Description": "Yes, it has kept me from non-medical meetings, appointments, work, or from getting things that I need",
+                "Value": "Yes, it has kept me from non-medical meetings, appointments, work, or from getting things that I need"
+            },
+            { "Description": "No", "Value": "No" },
+            {
+                "Description": "I choose not to answer this question",
+                "Value": "I choose not to answer this question"
+            }
+        ]
+    },
+    {
+        "Step": 32,
+        "Label": "Please select all relevant ICD 10 Codes for Transportation:",
+        "Type": "Many",
+        "Options": [
+            {
+                "Description": "Z56.2 Threat of job loss",
+                "Value": "Z56.2 Threat of job loss"
+            },
+            {
+                "Description": "Z56.6 Other physical and mental strain related to work",
+                "Value": "Z56.6 Other physical and mental strain related to work"
+            }
+        ]
+    },
+    {
+        "Step": 33,
+        "Label": "Have you been discharged from the armed forces of the United States?",
+        "Type": "One",
+        "Options": [
+            { "Description": "Yes", "Value": "Yes" },
+            { "Description": "No", "Value": "No" },
+            {
+                "Description": "I choose not to answer this question",
+                "Value": "I choose not to answer this question"
+            }
+        ]
+    },
+    {
+        "Step": 34,
+        "Label": "Please select all relevant ICD 10 Codes for Veteran Status:",
+        "Type": "Many",
+        "Options": [
+            {
+                "Description": "Z56.82 Military deployment status ",
+                "Value": "Z56.82 Military deployment status "
+            },
+            {
+                "Description": " Z56 Problems related to employment/ unemployment ",
+                "Value": " Z56 Problems related to employment/ unemployment "
+            },
+            {
+                "Description": " Z56.0 Unemployment ",
+                "Value": " Z56.0 Unemployment "
+            },
+            {
+                "Description": " Z59.0 Homelessness ",
+                "Value": " Z59.0 Homelessness "
+            },
+            {
+                "Description": " Z59.1 Lack of adequate and affordable housing ",
+                "Value": " Z59.1 Lack of adequate and affordable housing "
+            },
+            {
+                "Description": " Z65.5 Exposure to disaster, war, and other hostilities ",
+                "Value": " Z65.5 Exposure to disaster, war, and other hostilities "
+            },
+            {
+                "Description": " Z57 Occupational exposure to risk factors",
+                "Value": " Z57 Occupational exposure to risk factors"
+            }
+        ]
+    },
+    {
+        "Step": 34,
+        "Label": "Are you thristy?",
+        "Type": "One",
+        "Options": [
+            { "Description": "Yes", "Value": "Yes" },
+            { "Description": "No", "Value": "No" }
+        ]
+    }
+]

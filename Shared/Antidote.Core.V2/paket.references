@@ -1,0 +1,10 @@
+FsToolkit.ErrorHandling
+Fable.Remoting.Client
+FSharp.Core
+Newtonsoft.Json
+Fable.Promise
+Feliz.UseDeferred
+Thoth.Json
+Thoth.Json.Net
+jose-jwt
+Fable.I18Next

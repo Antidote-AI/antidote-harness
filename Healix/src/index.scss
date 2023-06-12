@@ -1,0 +1,416 @@
+@charset "utf-8";
+@use "../../Shared/scss/variables.scss" as *;
+@use "../../node_modules/@bulvar/bulma/bulma.sass" with (
+
+    $text: #19424F,
+    $text-strong: #293241,
+    $title-color: #fff,
+    $primary: #26619B,
+    $success: #60C678,
+    $custom-colors: (
+        "antidote-blue-primary": $antidote-blue-primary,
+        "antidote-blue-secondary": $antidote-blue-secondary,
+        "antidote-pink": $antidote-pink,
+        "antidote-orange": $antidote-orange,
+        ),
+        $link: #AABECE,
+        $info: #0BA9C6,
+        // Forms
+        $input-background-color: #fff,
+    $panel-tabs-font-size: 1.3rem,
+    $input-radius: 12px,
+    $input-disabled-color: rgb(0, 0, 0),
+    // $input-placeholder-opacity: .8,
+    $tabs-link-active-color: $antidote-blue-primary,
+    $tabs-link-active-border-bottom-color: $antidote-blue-primary,
+    $tabs-link-color: gray,
+    $subtitle-strong-color: #48A5C3
+);
+
+    @use "../../Shared/scss/theme/light.scss";
+    @use "../../Shared/scss/theme/dark.scss";
+    @use "../../Shared/scss/bulma-switch.sass";
+    @use "../../Shared/scss/progress-bar.scss";
+    @use "bulma-steps.css";
+    @import "../../node_modules/bulma-checkradio";
+    @import "../../node_modules/bulma-responsive-tables";
+    @import "../dashboard_template/dashboard_template.scss";
+body {
+    background-color: unset;
+}
+.flat-checkbox {
+    cursor: pointer;
+
+    &:not(:last-child) {
+        margin-bottom: 0.5rem;
+    }
+
+    .input {
+        &.is-checked {
+            border-color: var(--success);
+            // background-color: hsla(var(--info-h), var(--info-s), var(--info-l), 0.25);
+        }
+    }
+
+    .icon {
+        &.is-success {
+            color: var(--success);
+        }
+    }
+}
+
+.native-padding {
+    background-color: #ffffff00;
+    min-height: 2rem;
+}
+
+.f {
+    position: unset !important;
+}
+
+.antidote-white-section {
+    background-color: var(--white);
+
+    --strong-color: var(--antidote-blue-secondary);
+    --label-color: var(--antidote-blue-secondary);
+    --body-color: var(--antidote-blue-primary);
+    --title-color: var(--antidote-blue-primary);
+    --input-color: var(--antidote-blue-primary);
+    --tag-color: var(--antidote-blue-primary);
+    // --tabs-link-active-color: black;
+}
+
+.antidote-dark-section {
+    background-color: var(--antidote-blue-primary);
+    color: var(--text-color);
+
+    --text-strong: var(--white);
+    --label-color: var(--white);
+    --text-color: var(--white);
+    --button-background-color: var(--antidote-blue-primary);
+    --button-color: var(--white);
+    --input-disabled-placeholder-color: var(--white);
+    --button-hover-color: var(--white);
+    --input-hover-color: var(--white);
+    --link-hover: var(--white);
+}
+
+.select select[disabled], [disabled].input, [disabled].textarea, fieldset[disabled] .select select, .select fieldset[disabled] select, fieldset[disabled] .input, fieldset[disabled] .textarea {
+    color: black;
+    background-color: rgb(235, 255, 235);
+}
+
+textarea:disabled::-webkit-input-placeholder { /* WebKit browsers */
+    color:    rgb(226, 13, 226);
+}
+.borderless {
+    border: none;
+}
+
+form {
+    .help {
+        // Make the label break on '\n' char
+        // Can be useful on long error message like:
+        // Invalid phone number.\nExpecting format: (123) 456-7890
+        white-space: break-spaces;
+    }
+}
+
+// Adapted form fable-form-simple-bulma because bulvar doesn't expose SASS variables?
+$formlist-shadow: var(--box-shadow);
+$formlist-border-radius: var(--radius-large);
+$formlist-border: 1px solid var(--border) !default;
+$formlist-padding: 1.25em !default;
+
+.form-list {
+    border-radius: $formlist-border-radius;
+    box-shadow: $formlist-shadow;
+    padding: $formlist-padding;
+    border: $formlist-border;
+
+    &:not(:last-child) {
+        margin-bottom: 0.75rem;
+    }
+}
+
+// Form container to change how disabled form looks
+// This contains is to be used when we want to give a "Read only" look to a form
+.readonly-form {
+    .select select[disabled],
+    [disabled].input,
+    [disabled].textarea,
+    fieldset[disabled] .select select,
+    .select fieldset[disabled] select,
+    fieldset[disabled] .input,
+    fieldset[disabled] .textarea {
+        background-color: transparent;
+        border-color: transparent;
+        cursor: unset;
+    }
+}
+// Fix Bulma radio & checkbox margin
+// Seems to be a problem with React
+input[type="checkbox"],
+input[type="radio"] {
+    margin-right: 0.5em;
+}
+
+// ASKTEAM: WE NEED TO OVERRIDE NPM PACKAGE CLASSES AND ID's
+    // Since we generate unique names for the classes when we
+    // generate the scss, the names no longer match and the styles don't work
+
+#calendar-section {
+
+    // box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    // background-color: white;
+    // border: 1px solid #e6e6e6;
+    // border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+
+    // Override FullCalendar CSS Styles
+    .fc-daygrid-day-frame{
+        max-height: 3rem;
+        display: flex;
+        justify-content: center;
+    }
+    .calendar {
+        font-family: Lato;
+        font-weight: 300;
+        flex: 2;
+    }
+    table {
+        border: none;
+    }
+    .fc-day-disabled {
+        // background-color: #e7e7e7;
+    }
+    .fc-theme-standard td, .fc-theme-standard th {
+        // border:none;
+    }
+    // Header
+    .fc-toolbar-title {
+        color: #2c6097;
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+    .fc-today-button {
+        display:none;
+    }
+    .fc-prev-button, .fc-next-button {
+        color: dodgerblue;
+        background-color: white;
+        border-color: white;
+        outline: none;
+    }
+    .fc .fc-button-primary:focus {
+        box-shadow: 0;
+    }
+    // Days
+    .fc-col-header-cell {
+        color: #2c6097;
+        font-weight: 400;
+        font-size: 1rem;
+        text-transform: uppercase;
+        a{
+            color: #05435c;
+            font-weight: 600;
+        }
+    }
+    .fc-daygrid-day {
+        font-weight: 400;
+        color:#909090;
+        .fc-daygrid-day-top {
+            a {
+                padding: 1rem;
+                line-height: 1.2rem;
+            }
+        }
+    }
+    .fc-daygrid-day-events {
+        margin: 0;
+    }
+    .fc-daygrid-day-number {
+        margin: auto;
+        color: #003367;
+    }
+    .fc .fc-day-other .fc-daygrid-day-top {
+        opacity: .5;
+        // background-color: #bff5ff;
+    }
+    .fc-day-today {
+        background-color: white;
+        // padding-top: .25rem;
+        // padding-left: .25rem;
+        // .fc-daygrid-day-top {
+        //     a {
+        //         // background-color: var(--antidote-blue-secondary);
+        //         border-radius: 100px;
+        //         line-height: 1.2rem;
+        //         // color: white;
+        //         display: flex;
+        //         justify-content: center;
+        //         align-items: center;
+        //         height: 2rem;
+        //         width: 2rem;
+        //     }
+        // }
+    }
+}
+
+.fc .fc-highlight {
+    background:rgb(183, 232, 255);
+    background: var(--fc-highlight-color, rgba(149, 149, 149, 0.3));
+    border: 1px solid #d9d9d9;
+    border-radius: 100px;
+}
+
+.fc-theme-standard td, .fc-theme-standard th {
+    border: 1px solid #ffffff;
+}
+
+.fc-day-past{
+    // background-color: #f0f0f0;
+}
+
+.css-196 {
+    display: none;
+}
+
+
+// RULE ENGINE
+
+.group {
+    min-height: 100px;
+    position: relative;
+    padding-left: 15px;
+    margin: 10px;
+    margin-top: 20px;
+    border: 1px solid rgb(201 201 201);
+    border-radius: 6px;
+    background-color: rgb(255 255 255);
+}
+.group-container{
+    min-height: 80px;
+    margin-left:20px;
+}
+.rule-definition>.group>.options .remove-group,
+.rule-definition>.group>.options .drag-handler {
+    display: none;
+}
+.rule-definition>.group {
+    margin: 0px;
+}
+
+.rule {
+    position: relative;
+    padding: 10px;
+    margin: 15px;
+    margin-left:35px;
+    background-color: #ffffff;
+    border: 1px solid rgb(201 201 201)
+}
+
+.rule-definition {
+    padding: 10px;
+    margin: auto;
+    width: 60%;
+    min-height: 600px;
+    background-color: white;
+    border: 1px solid #ff00fb;
+}
+
+.group .rule::after,
+.group .rule::before,
+.group-container .group::after,
+.group-container .group::before {
+    // border-color: #0091ff;
+    border-color: var(--primary);;
+}
+
+.group-container .group::after,
+.group-container .group::before {
+    content: '';
+    position: absolute;
+    left: -11px;
+    width: 9px;
+    height: calc(50% + 20px);
+    border-style: solid
+}
+
+.group-container .group::before {
+    top: -9px;
+    border-width: 0 0 2px 2px;
+}
+
+.group-container .group::after {
+    top: calc(50%);
+    border-width: 0 0 0 2px;
+}
+
+.group-container .group:first-child::before {
+    top: -23px;
+    height: calc(50% + 40px);
+}
+
+.group-container .group:last-child::before {
+    border-radius: 0 0 0 4px;
+}
+
+.group-container .group:last-child::after {
+    display: none;
+}
+
+.group .rule::after,
+.group .rule::before {
+    content: '';
+    position: absolute;
+    left: -16px;
+    width: 14px;
+    height: calc(50% + 14px);
+    border-style: solid
+}
+
+.group .rule::before {
+    top: -13px;
+    border-width: 0 0 2px 2px;
+}
+
+.group .rule::after {
+    top: calc(50%);
+    border-width: 0 0 0 2px;
+}
+
+.group .rule:first-child::before {
+    top: -18px;
+    height: calc(50% + 20px);
+}
+
+.group .rule:last-child::before {
+    border-radius: 0 0 0 4px;
+}
+
+ .rule:last-child::after {
+    display: none;
+}
+
+.options {
+    margin-top: 10px;
+    margin-left: -10px;
+}
+
+.group .dragging{
+    position: fixed;
+    opacity: .5;
+    z-index: 100;
+}
+
+.group .rule-placeholder{
+    position: relative;
+    margin: 4px 0;
+    border-radius: 5px;
+    padding: 5px;
+    background: rgba(255,255,255,.9);
+    border: 1px dashed #bbb;
+    opacity: .7;
+}

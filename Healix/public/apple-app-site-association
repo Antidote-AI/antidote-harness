@@ -1,0 +1,17 @@
+{
+    "applinks": {
+        "details": [
+             {
+               "appIDs": [ "XM8G6X7P7H.com.antidote-ai.healix" ],
+               "paths": ["/*"]
+             }
+         ]
+     },
+     "webcredentials": {
+        "apps": [ "XM8G6X7P7H.com.antidote-ai.healix" ]
+     },
+
+      "appclips": {
+          "apps": ["XM8G6X7P7H.com.antidote-ai.healix"]
+      }
+  }

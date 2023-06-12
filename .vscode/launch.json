@@ -1,0 +1,107 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "command": "npm run dev-hlx",
+            "name": "📱 hlx",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+        {
+            "command": "npm run dev-abb",
+            "name": "📱 abb",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+        {
+            "command": "npx nodemon --watch .\\BehavioralBackup\\src\\ -e module.scss --exec \"node scripts/CssModuleCodeGen.mjs BehavioralBackup/src\"",
+            "name": "🕵️‍♀️ css (abb)",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+        {
+            "command": "npx nodemon --watch .\\Healix\\src\\ -e module.scss --exec \"node scripts/CssModuleCodeGen.mjs Healix/src\"",
+            "name": "🕵️‍♀️ css (hlx)",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+        {
+            "command": "npx nodemon --watch .\\Shared\\Antidote.Component\\ -e module.scss --exec \"node scripts/CssModuleCodeGen.mjs Shared/Antidote.React\"",
+            "name": "🕵️‍♀️ css (shared)",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+        {
+            "command": "npm run build-abb",
+            "name": "📱 build (abb)",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+        {
+            "env" : {
+                "SANDBOX" : "1",
+                "DATABASE_CONNECTION_STRING" : "Server=127.0.0.1,33300;Database=antidote;User Id=SA;Password=lfxlfxLFX$;TrustServerCertificate=True",
+                // "RAPID_RESPONSE_ACS_CONNECTION_STRING" : "endpoint=https://rapid-response-app-acs.communication.azure.com/;accesskey=JM04tSNiUCTlSHLz9pYMim5oGIrBSeVyF+YMb9xoHDOrLLnwJs0Yn65jlruPStOYgrwIqJEoFW3sll/YgmkFeQ=="
+                "ANTIDOTE_ACS_ENDPOINT" : "endpoint=https://antidote-ai-staging-communication-services.communication.azure.com/;accesskey=CIPV0wv3m/G6QP0zLnUPrtDUQaqwaPWu3/bOrZJ5XsTqNWZ/DXhHc/3wk3nxBB0+EBYKiC2OSiciECU4+HQrtw=="
+            },
+            "command": "npx func host start --verbose -build --csharp",
+            "name": "⚡️ func",
+            "request": "launch",
+            "type": "node-terminal",
+            "cwd": "${workspaceFolder}/Server/Antidote.Server.SignalR"
+        },
+        {
+            "command": "dotnet asrs-emulator start",
+            "name": "🛠 signalr",
+            "request": "launch",
+            "type": "node-terminal",
+            "cwd": "${workspaceFolder}/Server/Antidote.Server.SignalR/signalr"
+        },
+        {
+            "command": "npx azurite",
+            "name": "🗄 azurite",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+    ],
+    "compounds": [
+        {
+            "name": "🌥 • SAIL • ⛵️ ",
+            "configurations": [
+                "📱 abb",
+                "📱 hlx",
+                "🕵️‍♀️ css (abb)",
+                "🕵️‍♀️ css (hlx)",
+                "🕵️‍♀️ css (shared)"
+            ]
+        },
+        {
+            "name": "👮‍♀️ • ABB • 🚓 ",
+            "configurations": [
+                "📱 abb",
+                "🕵️‍♀️ css (abb)",
+                "🕵️‍♀️ css (shared)"
+            ]
+        },
+        {
+            "name": "👩‍⚕️ • HLX • 🚑 ",
+            "configurations": [
+                "📱 hlx",
+                "🕵️‍♀️ css (hlx)",
+                "🕵️‍♀️ css (shared)"
+            ]
+        },
+        {
+            "name": "🪲 • FUNC TEST • 🕷 ",
+            "configurations": [
+                "⚡️ func",
+                "🛠 signalr",
+                "🗄 azurite"
+            ]
+        }
+    ]
+}

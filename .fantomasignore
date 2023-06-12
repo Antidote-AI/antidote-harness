@@ -1,0 +1,10 @@
+BehavioralBackup
+Healix
+Shared/Antidote.AcsProvider
+Shared/Antidote.Core
+Shared/Antidote.Libraries
+Shared/Antidote.React
+Shared/Fable.Form.Antidote
+Shared/Fable.Form.Antidote.View
+Shared/Feliz.Bulma.Antidote.Extension
+build

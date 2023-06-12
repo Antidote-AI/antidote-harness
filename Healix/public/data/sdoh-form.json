@@ -1,0 +1,1353 @@
+[
+    {
+        "Order": 1,
+        "Question": "Are you Hispanic or Latino?",
+        "Choice": "Yes, Hispanic or Latino",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 1,
+        "Question": "Are you Hispanic or Latino?",
+        "Choice": "No, not Hispanic or Latino",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 1,
+        "Question": "Are you Hispanic or Latino?",
+        "Choice": "I choose not to answer this question",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 2,
+        "Question": "What language are you most comfortable speaking?",
+        "Choice": "English",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 2,
+        "Question": "What language are you most comfortable speaking?",
+        "Choice": "Language other than English",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 2,
+        "Question": "What language are you most comfortable speaking?",
+        "Choice": "I choose not to answer this question",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 3,
+        "Question": "Which race(s) are you? Check all that apply.",
+        "Choice": "Asian",
+        "SelectionType": "many",
+        "ICD10": null
+    },
+    {
+        "Order": 3,
+        "Question": "Which race(s) are you? Check all that apply.",
+        "Choice": "Native Hawaiian",
+        "SelectionType": "many",
+        "ICD10": null
+    },
+    {
+        "Order": 3,
+        "Question": "Which race(s) are you? Check all that apply.",
+        "Choice": "Pacific Islander",
+        "SelectionType": "many",
+        "ICD10": null
+    },
+    {
+        "Order": 3,
+        "Question": "Which race(s) are you? Check all that apply.",
+        "Choice": "Black/African American",
+        "SelectionType": "many",
+        "ICD10": null
+    },
+    {
+        "Order": 3,
+        "Question": "Which race(s) are you? Check all that apply.",
+        "Choice": "White",
+        "SelectionType": "many",
+        "ICD10": null
+    },
+    {
+        "Order": 3,
+        "Question": "Which race(s) are you? Check all that apply.",
+        "Choice": "American Indian/Alaskan Native",
+        "SelectionType": "many",
+        "ICD10": null
+    },
+    {
+        "Order": 3,
+        "Question": "Which race(s) are you? Check all that apply.",
+        "Choice": "Other",
+        "SelectionType": "many",
+        "ICD10": null
+    },
+    {
+        "Order": 3,
+        "Question": "Which race(s) are you? Check all that apply.",
+        "Choice": "I choose not to answer this question",
+        "SelectionType": "many",
+        "ICD10": null
+    },
+    {
+        "Order": 4,
+        "Question": "Are you a refugee?",
+        "Choice": "Yes",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 4,
+        "Question": "Are you a refugee?",
+        "Choice": "No",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 4,
+        "Question": "Are you a refugee?",
+        "Choice": "I choose not to answer this question",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 5,
+        "Question": "Please select all relevant ICD 10 Codes for Cultural Considerations:",
+        "Choice": " Z55.0 Illiteracy and low-level literacy ",
+        "SelectionType": "many",
+        "ICD10": "Z55.0"
+    },
+    {
+        "Order": 5,
+        "Question": "Please select all relevant ICD 10 Codes for Cultural Considerations:",
+        "Choice": " Z60 Problems related to social environment ",
+        "SelectionType": "many",
+        "ICD10": "Z60"
+    },
+    {
+        "Order": 5,
+        "Question": "Please select all relevant ICD 10 Codes for Cultural Considerations:",
+        "Choice": " Z60.0 Problems of adjustment to life-cycle transitions ",
+        "SelectionType": "many",
+        "ICD10": "Z60.0"
+    },
+    {
+        "Order": 5,
+        "Question": "Please select all relevant ICD 10 Codes for Cultural Considerations:",
+        "Choice": " Z60.3 Acculturation difficulty ",
+        "SelectionType": "many",
+        "ICD10": "Z60.3"
+    },
+    {
+        "Order": 5,
+        "Question": "Please select all relevant ICD 10 Codes for Cultural Considerations:",
+        "Choice": " Z60.4 Social exclusion and rejection ",
+        "SelectionType": "many",
+        "ICD10": "Z60.4"
+    },
+    {
+        "Order": 5,
+        "Question": "Please select all relevant ICD 10 Codes for Cultural Considerations:",
+        "Choice": " Z60.5 Target of (perceived) adverse discrimination/persecution ",
+        "SelectionType": "many",
+        "ICD10": "Z60.5"
+    },
+    {
+        "Order": 5,
+        "Question": "Please select all relevant ICD 10 Codes for Cultural Considerations:",
+        "Choice": " Z60.8 Other problems related to social environment ",
+        "SelectionType": "many",
+        "ICD10": "Z60.8"
+    },
+    {
+        "Order": 5,
+        "Question": "Please select all relevant ICD 10 Codes for Cultural Considerations:",
+        "Choice": " Z62.2 Upbringing away from parents ",
+        "SelectionType": "many",
+        "ICD10": "Z62.2"
+    },
+    {
+        "Order": 5,
+        "Question": "Please select all relevant ICD 10 Codes for Cultural Considerations:",
+        "Choice": " Z62.22 Institutional upbringing ",
+        "SelectionType": "many",
+        "ICD10": "Z62.2"
+    },
+    {
+        "Order": 5,
+        "Question": "Please select all relevant ICD 10 Codes for Cultural Considerations:",
+        "Choice": " Z65.4 Victim of crime and terrorism ",
+        "SelectionType": "many",
+        "ICD10": "Z65.4"
+    },
+    {
+        "Order": 5,
+        "Question": "Please select all relevant ICD 10 Codes for Cultural Considerations:",
+        "Choice": " Z65.5 Exposure to disaster, war, and other hostilities",
+        "SelectionType": "many",
+        "ICD10": "Z65.5"
+    },
+    {
+        "Order": 6,
+        "Question": "What is the highest level of school that you have finished?",
+        "Choice": "Less than high school degree",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 6,
+        "Question": "What is the highest level of school that you have finished?",
+        "Choice": "High school degree or GED",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 6,
+        "Question": "What is the highest level of school that you have finished?",
+        "Choice": "More than high school degree",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 6,
+        "Question": "What is the highest level of school that you have finished?",
+        "Choice": "I choose not to answer this question",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 7,
+        "Question": "Please select all relevant ICD 10 Codes for Education:",
+        "Choice": "Z55.0 Illiteracy and low-level literacy ",
+        "SelectionType": "many",
+        "ICD10": "Z55.0"
+    },
+    {
+        "Order": 7,
+        "Question": "Please select all relevant ICD 10 Codes for Education:",
+        "Choice": " Z55.1 Schooling unavailable or unattainable ",
+        "SelectionType": "many",
+        "ICD10": "Z55.1"
+    },
+    {
+        "Order": 7,
+        "Question": "Please select all relevant ICD 10 Codes for Education:",
+        "Choice": " Z55.2 Failed School Examinations ",
+        "SelectionType": "many",
+        "ICD10": "Z55.2"
+    },
+    {
+        "Order": 7,
+        "Question": "Please select all relevant ICD 10 Codes for Education:",
+        "Choice": " Z55.3 Underachievement in School ",
+        "SelectionType": "many",
+        "ICD10": "Z55.3"
+    },
+    {
+        "Order": 7,
+        "Question": "Please select all relevant ICD 10 Codes for Education:",
+        "Choice": " Z55.4 Educational maladjustment and discord with teachers and classmates ",
+        "SelectionType": "many",
+        "ICD10": "Z55.4"
+    },
+    {
+        "Order": 7,
+        "Question": "Please select all relevant ICD 10 Codes for Education:",
+        "Choice": " Z55.8 Other problems related to education and literacy",
+        "SelectionType": "many",
+        "ICD10": "Z55.8"
+    },
+    {
+        "Order": 8,
+        "Question": "What is your current work situation?",
+        "Choice": "Unemployed",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 8,
+        "Question": "What is your current work situation?",
+        "Choice": "Part-time or temporary work",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 8,
+        "Question": "What is your current work situation?",
+        "Choice": "Full-time work",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 8,
+        "Question": "What is your current work situation?",
+        "Choice": "Otherwise unemployed but not seeking work (ex: student, retired, disabled, unpaid primary care giver)",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 8,
+        "Question": "What is your current work situation?",
+        "Choice": "I choose not to answer this question",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 9,
+        "Question": "Please select all relevant ICD 10 Codes for Employment:",
+        "Choice": " Z56 Problems related to employment/ unemployment ",
+        "SelectionType": "many",
+        "ICD10": "Z56"
+    },
+    {
+        "Order": 9,
+        "Question": "Please select all relevant ICD 10 Codes for Employment:",
+        "Choice": " Z56.0 Unemployment ",
+        "SelectionType": "many",
+        "ICD10": "Z56.0"
+    },
+    {
+        "Order": 9,
+        "Question": "Please select all relevant ICD 10 Codes for Employment:",
+        "Choice": " Z56.1 Change of job ",
+        "SelectionType": "many",
+        "ICD10": "Z56.1"
+    },
+    {
+        "Order": 9,
+        "Question": "Please select all relevant ICD 10 Codes for Employment:",
+        "Choice": " Z56.2 Threat of job loss ",
+        "SelectionType": "many",
+        "ICD10": "Z56.2"
+    },
+    {
+        "Order": 9,
+        "Question": "Please select all relevant ICD 10 Codes for Employment:",
+        "Choice": " Z56.3 Stressful work schedule ",
+        "SelectionType": "many",
+        "ICD10": "Z56.3"
+    },
+    {
+        "Order": 9,
+        "Question": "Please select all relevant ICD 10 Codes for Employment:",
+        "Choice": " Z56.4 Discord with boss and workmates ",
+        "SelectionType": "many",
+        "ICD10": "Z56.4"
+    },
+    {
+        "Order": 9,
+        "Question": "Please select all relevant ICD 10 Codes for Employment:",
+        "Choice": " Z56.5 Uncongenial work environment ",
+        "SelectionType": "many",
+        "ICD10": "Z56.5"
+    },
+    {
+        "Order": 9,
+        "Question": "Please select all relevant ICD 10 Codes for Employment:",
+        "Choice": " Z56.6 Other physical and mental strain related to work ",
+        "SelectionType": "many",
+        "ICD10": "Z56.6"
+    },
+    {
+        "Order": 9,
+        "Question": "Please select all relevant ICD 10 Codes for Employment:",
+        "Choice": " Z56.9 Unspecified problems related to employment ",
+        "SelectionType": "many",
+        "ICD10": "Z56.9"
+    },
+    {
+        "Order": 9,
+        "Question": "Please select all relevant ICD 10 Codes for Employment:",
+        "Choice": " Z57 Occupational exposure to risk factors ",
+        "SelectionType": "many",
+        "ICD10": "Z57"
+    },
+    {
+        "Order": 9,
+        "Question": "Please select all relevant ICD 10 Codes for Employment:",
+        "Choice": " Z59.5 Extreme poverty (100% FPL or below) ",
+        "SelectionType": "many",
+        "ICD10": "Z59.5"
+    },
+    {
+        "Order": 9,
+        "Question": "Please select all relevant ICD 10 Codes for Employment:",
+        "Choice": " Z59.6 Low income (200% FPL or below)",
+        "SelectionType": "many",
+        "ICD10": "Z59.6"
+    },
+    {
+        "Order": 10,
+        "Question": "In the past year, have you or any family members you live with been unable to get any of the following when it was really needed? Check all that apply.",
+        "Choice": "Food",
+        "SelectionType": "many",
+        "ICD10": null
+    },
+    {
+        "Order": 10,
+        "Question": "In the past year, have you or any family members you live with been unable to get any of the following when it was really needed? Check all that apply.",
+        "Choice": "Clothing",
+        "SelectionType": "many",
+        "ICD10": null
+    },
+    {
+        "Order": 10,
+        "Question": "In the past year, have you or any family members you live with been unable to get any of the following when it was really needed? Check all that apply.",
+        "Choice": "Utilities",
+        "SelectionType": "many",
+        "ICD10": null
+    },
+    {
+        "Order": 10,
+        "Question": "In the past year, have you or any family members you live with been unable to get any of the following when it was really needed? Check all that apply.",
+        "Choice": "Childcare",
+        "SelectionType": "many",
+        "ICD10": null
+    },
+    {
+        "Order": 10,
+        "Question": "In the past year, have you or any family members you live with been unable to get any of the following when it was really needed? Check all that apply.",
+        "Choice": "Medicine or any health care (medical, dental, mental health, vision)",
+        "SelectionType": "many",
+        "ICD10": null
+    },
+    {
+        "Order": 10,
+        "Question": "In the past year, have you or any family members you live with been unable to get any of the following when it was really needed? Check all that apply.",
+        "Choice": "Phone",
+        "SelectionType": "many",
+        "ICD10": null
+    },
+    {
+        "Order": 10,
+        "Question": "In the past year, have you or any family members you live with been unable to get any of the following when it was really needed? Check all that apply.",
+        "Choice": "Other",
+        "SelectionType": "many",
+        "ICD10": null
+    },
+    {
+        "Order": 10,
+        "Question": "In the past year, have you or any family members you live with been unable to get any of the following when it was really needed? Check all that apply.",
+        "Choice": "I choose not to answer this question",
+        "SelectionType": "many",
+        "ICD10": null
+    },
+    {
+        "Order": 11,
+        "Question": "Please select all relevant ICD 10 Codes for Food Insecurity:",
+        "Choice": "Z59.4 Lack of adequate food and safe drinking water ",
+        "SelectionType": "many",
+        "ICD10": "Z59.4"
+    },
+    {
+        "Order": 11,
+        "Question": "Please select all relevant ICD 10 Codes for Food Insecurity:",
+        "Choice": " Z72.4 Inappropriate diet and eating habits ",
+        "SelectionType": "many",
+        "ICD10": "Z72.4"
+    },
+    {
+        "Order": 11,
+        "Question": "Please select all relevant ICD 10 Codes for Food Insecurity:",
+        "Choice": " Z91.120 Patient’s intentional under dosing of medication regimen due to financial hardship ",
+        "SelectionType": "many",
+        "ICD10": "Z91.1"
+    },
+    {
+        "Order": 11,
+        "Question": "Please select all relevant ICD 10 Codes for Food Insecurity:",
+        "Choice": " Z59.5 Extreme Poverty (100% FPL or below) ",
+        "SelectionType": "many",
+        "ICD10": "Z59.5"
+    },
+    {
+        "Order": 11,
+        "Question": "Please select all relevant ICD 10 Codes for Food Insecurity:",
+        "Choice": " Z59.6 Low income (200% FPL or below)",
+        "SelectionType": "many",
+        "ICD10": "Z59.6"
+    },
+    {
+        "Order": 12,
+        "Question": "What is your housing situation today?",
+        "Choice": "I have housing",
+        "SelectionType": "many",
+        "ICD10": "I have"
+    },
+    {
+        "Order": 12,
+        "Question": "What is your housing situation today?",
+        "Choice": "I do not have housing (staying with others, in a hotel, in a shelter, living outside on the street, on a beach, in a car, or in a park)",
+        "SelectionType": "many",
+        "ICD10": "I do n"
+    },
+    {
+        "Order": 12,
+        "Question": "What is your housing situation today?",
+        "Choice": "I choose not to answer this question",
+        "SelectionType": "many",
+        "ICD10": "I choo"
+    },
+    {
+        "Order": 13,
+        "Question": "Are you worried about losing your housing?",
+        "Choice": "Yes",
+        "SelectionType": "one",
+        "ICD10": "Yes"
+    },
+    {
+        "Order": 13,
+        "Question": "Are you worried about losing your housing?",
+        "Choice": "No",
+        "SelectionType": "one",
+        "ICD10": "No"
+    },
+    {
+        "Order": 13,
+        "Question": "Are you worried about losing your housing?",
+        "Choice": "I choose not to answer this question",
+        "SelectionType": "one",
+        "ICD10": "I choo"
+    },
+    {
+        "Order": 14,
+        "Question": "Please select all relevant ICD 10 Codes for Housing Status:",
+        "Choice": " Z59 Problems related to housing and economic circumstances ",
+        "SelectionType": "many",
+        "ICD10": "Z59 P"
+    },
+    {
+        "Order": 14,
+        "Question": "Please select all relevant ICD 10 Codes for Housing Status:",
+        "Choice": " Z59.0 Homelessness ",
+        "SelectionType": "many",
+        "ICD10": "Z59.0"
+    },
+    {
+        "Order": 14,
+        "Question": "Please select all relevant ICD 10 Codes for Housing Status:",
+        "Choice": " Z59.1 Inadequate housing ",
+        "SelectionType": "many",
+        "ICD10": "Z59.1"
+    },
+    {
+        "Order": 14,
+        "Question": "Please select all relevant ICD 10 Codes for Housing Status:",
+        "Choice": " Z59.2 Discord with neighbors, lodgers, and/or landlord ",
+        "SelectionType": "many",
+        "ICD10": "Z59.2"
+    },
+    {
+        "Order": 14,
+        "Question": "Please select all relevant ICD 10 Codes for Housing Status:",
+        "Choice": " Z59.5 Extreme poverty (100% FPL or below) ",
+        "SelectionType": "many",
+        "ICD10": "Z59.5"
+    },
+    {
+        "Order": 14,
+        "Question": "Please select all relevant ICD 10 Codes for Housing Status:",
+        "Choice": " Z59.6 Low income (200% FPL or below) ",
+        "SelectionType": "many",
+        "ICD10": "Z59.6"
+    },
+    {
+        "Order": 14,
+        "Question": "Please select all relevant ICD 10 Codes for Housing Status:",
+        "Choice": " Z59.8 Other problems related to housing and economic circumstances",
+        "SelectionType": "many",
+        "ICD10": "Z59.8"
+    },
+    {
+        "Order": 15,
+        "Question": "In the past year, what was the total combined income for you and the family members you live with?",
+        "Choice": "0-10k",
+        "SelectionType": "one",
+        "ICD10": "0-10k"
+    },
+    {
+        "Order": 15,
+        "Question": "In the past year, what was the total combined income for you and the family members you live with?",
+        "Choice": "10k-30k",
+        "SelectionType": "one",
+        "ICD10": "10k-30"
+    },
+    {
+        "Order": 15,
+        "Question": "In the past year, what was the total combined income for you and the family members you live with?",
+        "Choice": "30k-50k",
+        "SelectionType": "one",
+        "ICD10": "30k-50"
+    },
+    {
+        "Order": 15,
+        "Question": "In the past year, what was the total combined income for you and the family members you live with?",
+        "Choice": "50k-80k",
+        "SelectionType": "one",
+        "ICD10": "50k-80"
+    },
+    {
+        "Order": 15,
+        "Question": "In the past year, what was the total combined income for you and the family members you live with?",
+        "Choice": "80k-100k",
+        "SelectionType": "one",
+        "ICD10": "80k-10"
+    },
+    {
+        "Order": 15,
+        "Question": "In the past year, what was the total combined income for you and the family members you live with?",
+        "Choice": "100k+",
+        "SelectionType": "one",
+        "ICD10": "100k+"
+    },
+    {
+        "Order": 16,
+        "Question": "Please select all relevant ICD 10 Codes for Income:",
+        "Choice": "Z59.5 Extreme poverty (100% FPL or below) ",
+        "SelectionType": "many",
+        "ICD10": "Z59.5"
+    },
+    {
+        "Order": 16,
+        "Question": "Please select all relevant ICD 10 Codes for Income:",
+        "Choice": " Z59.6 Low income (200% FPL or below) ",
+        "SelectionType": "many",
+        "ICD10": "Z59.6"
+    },
+    {
+        "Order": 16,
+        "Question": "Please select all relevant ICD 10 Codes for Income:",
+        "Choice": " Z59.7 Insufficient social insurance and welfare support ",
+        "SelectionType": "many",
+        "ICD10": "Z59.7"
+    },
+    {
+        "Order": 16,
+        "Question": "Please select all relevant ICD 10 Codes for Income:",
+        "Choice": " Z72.4 Inappropriate diet and eating habits",
+        "SelectionType": "many",
+        "ICD10": "Z72.4"
+    },
+    {
+        "Order": 17,
+        "Question": "What is your main insurance?",
+        "Choice": "None/uninsured",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 17,
+        "Question": "What is your main insurance?",
+        "Choice": "Medicaid",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 17,
+        "Question": "What is your main insurance?",
+        "Choice": "CHIP Medicaid",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 17,
+        "Question": "What is your main insurance?",
+        "Choice": "Medicare",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 17,
+        "Question": "What is your main insurance?",
+        "Choice": "Other public insurance (not CHIP)",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 17,
+        "Question": "What is your main insurance?",
+        "Choice": "Other public insurance (CHIP)",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 17,
+        "Question": "What is your main insurance?",
+        "Choice": "Private Insurance",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 18,
+        "Question": "Please select all relevant ICD 10 Codes for Insurance Status:",
+        "Choice": "Z59.7 Insufficient social insurance and welfare support",
+        "SelectionType": "many",
+        "ICD10": "Z59.7"
+    },
+    {
+        "Order": 19,
+        "Question": "In the past year, have you spent more than 2 nights in a row in a jail, prison, detention center, or juvenile correctional facility?",
+        "Choice": "Yes",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 19,
+        "Question": "In the past year, have you spent more than 2 nights in a row in a jail, prison, detention center, or juvenile correctional facility?",
+        "Choice": "No",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 19,
+        "Question": "In the past year, have you spent more than 2 nights in a row in a jail, prison, detention center, or juvenile correctional facility?",
+        "Choice": "I choose not to answer this question",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 20,
+        "Question": "Please select all relevant ICD 10 Codes for Legal Needs:",
+        "Choice": "Z56.0 Conviction in civil and criminal proceedings without imprisonment",
+        "SelectionType": "many",
+        "ICD10": "Z56.0"
+    },
+    {
+        "Order": 20,
+        "Question": "Please select all relevant ICD 10 Codes for Legal Needs:",
+        "Choice": "Z65.1 Imprisonment and other incarcerations",
+        "SelectionType": "many",
+        "ICD10": "Z65.1"
+    },
+    {
+        "Order": 21,
+        "Question": "At any point in the past 2 years has seasonal or migrant farm work been your or your family’s\nmain source of income?",
+        "Choice": "Yes",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 21,
+        "Question": "At any point in the past 2 years has seasonal or migrant farm work been your or your family’s\nmain source of income?",
+        "Choice": "No",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 21,
+        "Question": "At any point in the past 2 years has seasonal or migrant farm work been your or your family’s\nmain source of income?",
+        "Choice": "I choose not to answer this question",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 22,
+        "Question": "Please select all relevant ICD 10 Codes for Migrant, Seasonal, and Agricultural Work:",
+        "Choice": "Z57 Occupational exposure to risk factors ",
+        "SelectionType": "many",
+        "ICD10": "Z57 Oc"
+    },
+    {
+        "Order": 22,
+        "Question": "Please select all relevant ICD 10 Codes for Migrant, Seasonal, and Agricultural Work:",
+        "Choice": " Z57.0 Occupational exposure to noise ",
+        "SelectionType": "many",
+        "ICD10": "Z57.0"
+    },
+    {
+        "Order": 22,
+        "Question": "Please select all relevant ICD 10 Codes for Migrant, Seasonal, and Agricultural Work:",
+        "Choice": " Z57.2 Occupational exposure to dust ",
+        "SelectionType": "many",
+        "ICD10": "Z57.2"
+    },
+    {
+        "Order": 22,
+        "Question": "Please select all relevant ICD 10 Codes for Migrant, Seasonal, and Agricultural Work:",
+        "Choice": " Z57.3 Occupational exposure to other air contaminants ",
+        "SelectionType": "many",
+        "ICD10": "Z57.3"
+    },
+    {
+        "Order": 22,
+        "Question": "Please select all relevant ICD 10 Codes for Migrant, Seasonal, and Agricultural Work:",
+        "Choice": " Z57.4 Occupational exposure to toxic agents in agriculture ",
+        "SelectionType": "many",
+        "ICD10": "Z57.4"
+    },
+    {
+        "Order": 22,
+        "Question": "Please select all relevant ICD 10 Codes for Migrant, Seasonal, and Agricultural Work:",
+        "Choice": " Z57.6 Occupational exposure to extreme temperature ",
+        "SelectionType": "many",
+        "ICD10": "Z57.6"
+    },
+    {
+        "Order": 22,
+        "Question": "Please select all relevant ICD 10 Codes for Migrant, Seasonal, and Agricultural Work:",
+        "Choice": " Z57.8 Occupational exposure to other risk factors ",
+        "SelectionType": "many",
+        "ICD10": "Z57.8"
+    },
+    {
+        "Order": 22,
+        "Question": "Please select all relevant ICD 10 Codes for Migrant, Seasonal, and Agricultural Work:",
+        "Choice": " Z56.2 Threat of job loss ",
+        "SelectionType": "many",
+        "ICD10": "Z56.2"
+    },
+    {
+        "Order": 22,
+        "Question": "Please select all relevant ICD 10 Codes for Migrant, Seasonal, and Agricultural Work:",
+        "Choice": " Z59.7 Insufficient social insurance and welfare support ",
+        "SelectionType": "many",
+        "ICD10": "Z59.7"
+    },
+    {
+        "Order": 22,
+        "Question": "Please select all relevant ICD 10 Codes for Migrant, Seasonal, and Agricultural Work:",
+        "Choice": " Z60.2 Problems related to living alone ",
+        "SelectionType": "many",
+        "ICD10": "Z60.2"
+    },
+    {
+        "Order": 22,
+        "Question": "Please select all relevant ICD 10 Codes for Migrant, Seasonal, and Agricultural Work:",
+        "Choice": " Z60.3 Acculturation difficulty ",
+        "SelectionType": "many",
+        "ICD10": "Z60.3"
+    },
+    {
+        "Order": 22,
+        "Question": "Please select all relevant ICD 10 Codes for Migrant, Seasonal, and Agricultural Work:",
+        "Choice": " Z60.5 Target of (perceived adverse discrimination and persecution ",
+        "SelectionType": "many",
+        "ICD10": "Z60.5"
+    },
+    {
+        "Order": 22,
+        "Question": "Please select all relevant ICD 10 Codes for Migrant, Seasonal, and Agricultural Work:",
+        "Choice": " Z59.5 Extreme poverty (100% FPL and below) ",
+        "SelectionType": "many",
+        "ICD10": "Z59.5"
+    },
+    {
+        "Order": 22,
+        "Question": "Please select all relevant ICD 10 Codes for Migrant, Seasonal, and Agricultural Work:",
+        "Choice": " Z55.0 Illiteracy and low-level literacy",
+        "SelectionType": "many",
+        "ICD10": "Z55.0"
+    },
+    {
+        "Order": 23,
+        "Question": "Neighborhood Conditions",
+        "Choice": "** Placeholder **",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 24,
+        "Question": "Do you feel physically and emotionally safe where you currently live?",
+        "Choice": "Yes",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 24,
+        "Question": "Do you feel physically and emotionally safe where you currently live?",
+        "Choice": "No",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 24,
+        "Question": "Do you feel physically and emotionally safe where you currently live?",
+        "Choice": "Unsure",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 24,
+        "Question": "Do you feel physically and emotionally safe where you currently live?",
+        "Choice": "I choose not to answer this question",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 25,
+        "Question": "In the past year, have you been afraid of your partner or ex-partner?",
+        "Choice": "Yes",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 25,
+        "Question": "In the past year, have you been afraid of your partner or ex-partner?",
+        "Choice": "No",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 25,
+        "Question": "In the past year, have you been afraid of your partner or ex-partner?",
+        "Choice": "I have not had a partner in the past year",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 25,
+        "Question": "In the past year, have you been afraid of your partner or ex-partner?",
+        "Choice": "I choose not to answer this question",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 26,
+        "Question": "Please select all relevant ICD 10 Codes for Safety and Domestic Violence:",
+        "Choice": " Z63 Problems related to primary support group, includes family circumstances ",
+        "SelectionType": "many",
+        "ICD10": "Z63"
+    },
+    {
+        "Order": 26,
+        "Question": "Please select all relevant ICD 10 Codes for Safety and Domestic Violence:",
+        "Choice": " Z63.9 Problems in relationship with spouse or partner ",
+        "SelectionType": "many",
+        "ICD10": "Z63.9"
+    },
+    {
+        "Order": 26,
+        "Question": "Please select all relevant ICD 10 Codes for Safety and Domestic Violence:",
+        "Choice": " Z91.41 Personal history of adult abuse ",
+        "SelectionType": "many",
+        "ICD10": " Z91.41"
+    },
+    {
+        "Order": 26,
+        "Question": "Please select all relevant ICD 10 Codes for Safety and Domestic Violence:",
+        "Choice": " Z91.410 Personal history of adult physical and sexual abuse ",
+        "SelectionType": "many",
+        "ICD10": " Z91.410"
+    },
+    {
+        "Order": 26,
+        "Question": "Please select all relevant ICD 10 Codes for Safety and Domestic Violence:",
+        "Choice": " Z62.81 Personal history of abuse in childhood ",
+        "SelectionType": "many",
+        "ICD10": "Z62.81"
+    },
+    {
+        "Order": 26,
+        "Question": "Please select all relevant ICD 10 Codes for Safety and Domestic Violence:",
+        "Choice": " Z62.810 Personal history of physical and sexual abuse in childhood ",
+        "SelectionType": "many",
+        "ICD10": "Z62.810"
+    },
+    {
+        "Order": 26,
+        "Question": "Please select all relevant ICD 10 Codes for Safety and Domestic Violence:",
+        "Choice": " Z62.811 Personal history of psychological abuse in childhood ",
+        "SelectionType": "many",
+        "ICD10": "Z62.811"
+    },
+    {
+        "Order": 26,
+        "Question": "Please select all relevant ICD 10 Codes for Safety and Domestic Violence:",
+        "Choice": " Z62.812 Personal history of neglect in childhood",
+        "SelectionType": "many",
+        "ICD10": "Z62.812"
+    },
+    {
+        "Order": 27,
+        "Question": "How often do you see or talk to people that you care about and feel close to? (For example: talking to friends on the phone, visiting friends or family, going to church or club meetings)",
+        "Choice": "Less than once a week",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 27,
+        "Question": "How often do you see or talk to people that you care about and feel close to? (For example: talking to friends on the phone, visiting friends or family, going to church or club meetings)",
+        "Choice": "1 or 2 times a week",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 27,
+        "Question": "How often do you see or talk to people that you care about and feel close to? (For example: talking to friends on the phone, visiting friends or family, going to church or club meetings)",
+        "Choice": "3 to 5 times a week",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 27,
+        "Question": "How often do you see or talk to people that you care about and feel close to? (For example: talking to friends on the phone, visiting friends or family, going to church or club meetings)",
+        "Choice": "5 or more times a week",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 27,
+        "Question": "How often do you see or talk to people that you care about and feel close to? (For example: talking to friends on the phone, visiting friends or family, going to church or club meetings)",
+        "Choice": "I choose not to answer this question",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 28,
+        "Question": "Please select all relevant ICD 10 Codes for Social Integration:",
+        "Choice": " Z60 Problems related to social environment ",
+        "SelectionType": "many",
+        "ICD10": "Z60"
+    },
+    {
+        "Order": 28,
+        "Question": "Please select all relevant ICD 10 Codes for Social Integration:",
+        "Choice": " Z60.0 Problems of adjustment to life-cycle transitions ",
+        "SelectionType": "many",
+        "ICD10": "Z60.0"
+    },
+    {
+        "Order": 28,
+        "Question": "Please select all relevant ICD 10 Codes for Social Integration:",
+        "Choice": " Z60.3 Acculturation difficulty ",
+        "SelectionType": "many",
+        "ICD10": "Z60.3"
+    },
+    {
+        "Order": 28,
+        "Question": "Please select all relevant ICD 10 Codes for Social Integration:",
+        "Choice": " Z60.4 Social exclusion and rejection ",
+        "SelectionType": "many",
+        "ICD10": "Z60.4"
+    },
+    {
+        "Order": 28,
+        "Question": "Please select all relevant ICD 10 Codes for Social Integration:",
+        "Choice": " Z60.5 Target of (perceived) adverse discrimination/persecution ",
+        "SelectionType": "many",
+        "ICD10": "Z60.5"
+    },
+    {
+        "Order": 28,
+        "Question": "Please select all relevant ICD 10 Codes for Social Integration:",
+        "Choice": " Z60.8 Other problems related to social environment ",
+        "SelectionType": "many",
+        "ICD10": "Z60.8"
+    },
+    {
+        "Order": 28,
+        "Question": "Please select all relevant ICD 10 Codes for Social Integration:",
+        "Choice": " Z62.2 Upbringing away from parents ",
+        "SelectionType": "many",
+        "ICD10": "Z62.2"
+    },
+    {
+        "Order": 28,
+        "Question": "Please select all relevant ICD 10 Codes for Social Integration:",
+        "Choice": " Z62.22 Institutional upbringing ",
+        "SelectionType": "many",
+        "ICD10": "Z62.2"
+    },
+    {
+        "Order": 28,
+        "Question": "Please select all relevant ICD 10 Codes for Social Integration:",
+        "Choice": " Z59.2 Discord with neighbors, lodgers, and landlord",
+        "SelectionType": "many",
+        "ICD10": "Z59.2"
+    },
+    {
+        "Order": 29,
+        "Question": "Stress is when someone feels tense, nervous, anxious, or can’t sleep at night because their mind is troubled. How stressed are you?",
+        "Choice": "Not at all",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 29,
+        "Question": "Stress is when someone feels tense, nervous, anxious, or can’t sleep at night because their mind is troubled. How stressed are you?",
+        "Choice": "A little bit",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 29,
+        "Question": "Stress is when someone feels tense, nervous, anxious, or can’t sleep at night because their mind is troubled. How stressed are you?",
+        "Choice": "Somewhat",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 29,
+        "Question": "Stress is when someone feels tense, nervous, anxious, or can’t sleep at night because their mind is troubled. How stressed are you?",
+        "Choice": "Quite a bit",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 29,
+        "Question": "Stress is when someone feels tense, nervous, anxious, or can’t sleep at night because their mind is troubled. How stressed are you?",
+        "Choice": "Very much",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 29,
+        "Question": "Stress is when someone feels tense, nervous, anxious, or can’t sleep at night because their mind is troubled. How stressed are you?",
+        "Choice": "I choose not to answer this question",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 30,
+        "Question": "Please select all relevant ICD 10 Codes for Stress:",
+        "Choice": "Z72.4 Inappropriate diet and eating habits ",
+        "SelectionType": "many",
+        "ICD10": "Z72.4"
+    },
+    {
+        "Order": 30,
+        "Question": "Please select all relevant ICD 10 Codes for Stress:",
+        "Choice": " Z56 Problems related to employment/ unemployment ",
+        "SelectionType": "many",
+        "ICD10": "Z56"
+    },
+    {
+        "Order": 30,
+        "Question": "Please select all relevant ICD 10 Codes for Stress:",
+        "Choice": " Z56.0 Unemployment ",
+        "SelectionType": "many",
+        "ICD10": "Z56.0"
+    },
+    {
+        "Order": 30,
+        "Question": "Please select all relevant ICD 10 Codes for Stress:",
+        "Choice": " Z56.1 Change of job ",
+        "SelectionType": "many",
+        "ICD10": "Z56.1"
+    },
+    {
+        "Order": 30,
+        "Question": "Please select all relevant ICD 10 Codes for Stress:",
+        "Choice": " Z56.2 Threat of job loss ",
+        "SelectionType": "many",
+        "ICD10": "Z56.2"
+    },
+    {
+        "Order": 30,
+        "Question": "Please select all relevant ICD 10 Codes for Stress:",
+        "Choice": " Z56.3 Stressful work schedule ",
+        "SelectionType": "many",
+        "ICD10": "Z56.3"
+    },
+    {
+        "Order": 30,
+        "Question": "Please select all relevant ICD 10 Codes for Stress:",
+        "Choice": " Z56.4 Discord with boss and workmates ",
+        "SelectionType": "many",
+        "ICD10": "Z56.4"
+    },
+    {
+        "Order": 30,
+        "Question": "Please select all relevant ICD 10 Codes for Stress:",
+        "Choice": " Z56.5 Uncongenial work environment ",
+        "SelectionType": "many",
+        "ICD10": "Z56.5"
+    },
+    {
+        "Order": 30,
+        "Question": "Please select all relevant ICD 10 Codes for Stress:",
+        "Choice": " Z56.6 Other physical and mental strain related to work ",
+        "SelectionType": "many",
+        "ICD10": "Z56.6"
+    },
+    {
+        "Order": 30,
+        "Question": "Please select all relevant ICD 10 Codes for Stress:",
+        "Choice": " Z59.0 Homelessness ",
+        "SelectionType": "many",
+        "ICD10": "Z59.0"
+    },
+    {
+        "Order": 30,
+        "Question": "Please select all relevant ICD 10 Codes for Stress:",
+        "Choice": " Z59.2 Discord with neighbors, lodgers, and landlords ",
+        "SelectionType": "many",
+        "ICD10": "Z59.2"
+    },
+    {
+        "Order": 30,
+        "Question": "Please select all relevant ICD 10 Codes for Stress:",
+        "Choice": " Z60 Problems related to social environment ",
+        "SelectionType": "many",
+        "ICD10": "Z60"
+    },
+    {
+        "Order": 30,
+        "Question": "Please select all relevant ICD 10 Codes for Stress:",
+        "Choice": " Z60.0 Problems of adjustment to life-cycle transitions ",
+        "SelectionType": "many",
+        "ICD10": "Z60.0"
+    },
+    {
+        "Order": 30,
+        "Question": "Please select all relevant ICD 10 Codes for Stress:",
+        "Choice": " Z60.3 Acculturation difficulty ",
+        "SelectionType": "many",
+        "ICD10": "Z60.3"
+    },
+    {
+        "Order": 30,
+        "Question": "Please select all relevant ICD 10 Codes for Stress:",
+        "Choice": " Z60.8 Other problems related to social environment ",
+        "SelectionType": "many",
+        "ICD10": "Z60.8"
+    },
+    {
+        "Order": 30,
+        "Question": "Please select all relevant ICD 10 Codes for Stress:",
+        "Choice": " Z65.4 Victim of crime and terrorism ",
+        "SelectionType": "many",
+        "ICD10": "Z65.4"
+    },
+    {
+        "Order": 30,
+        "Question": "Please select all relevant ICD 10 Codes for Stress:",
+        "Choice": " Z65.5 Exposure to disaster, war, and other hostilities ",
+        "SelectionType": "many",
+        "ICD10": "Z65.5"
+    },
+    {
+        "Order": 30,
+        "Question": "Please select all relevant ICD 10 Codes for Stress:",
+        "Choice": " Z59.5 Extreme Poverty (100% FPL or below) ",
+        "SelectionType": "many",
+        "ICD10": "Z59.5"
+    },
+    {
+        "Order": 30,
+        "Question": "Please select all relevant ICD 10 Codes for Stress:",
+        "Choice": " Z59.6 Low income (200% FPL or below)",
+        "SelectionType": "many",
+        "ICD10": "Z59.6"
+    },
+    {
+        "Order": 31,
+        "Question": "Has lack of transportation kept you from medical appointments, meetings, work, or from getting things needed for daily living? Check all that apply.",
+        "Choice": "Yes, it has kept me from medical appointments or from getting my medications",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 31,
+        "Question": "Has lack of transportation kept you from medical appointments, meetings, work, or from getting things needed for daily living? Check all that apply.",
+        "Choice": "Yes, it has kept me from non-medical meetings, appointments, work, or from getting things that I need",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 31,
+        "Question": "Has lack of transportation kept you from medical appointments, meetings, work, or from getting things needed for daily living? Check all that apply.",
+        "Choice": "No",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 31,
+        "Question": "Has lack of transportation kept you from medical appointments, meetings, work, or from getting things needed for daily living? Check all that apply.",
+        "Choice": "I choose not to answer this question",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 32,
+        "Question": "Please select all relevant ICD 10 Codes for Transportation:",
+        "Choice": "Z56.2 Threat of job loss",
+        "SelectionType": "many",
+        "ICD10": "Z56.2"
+    },
+    {
+        "Order": 32,
+        "Question": "Please select all relevant ICD 10 Codes for Transportation:",
+        "Choice": "Z56.6 Other physical and mental strain related to work",
+        "SelectionType": "many",
+        "ICD10": "Z56.6"
+    },
+    {
+        "Order": 33,
+        "Question": "Have you been discharged from the armed forces of the United States?",
+        "Choice": "Yes",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 33,
+        "Question": "Have you been discharged from the armed forces of the United States?",
+        "Choice": "No",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 33,
+        "Question": "Have you been discharged from the armed forces of the United States?",
+        "Choice": "I choose not to answer this question",
+        "SelectionType": "one",
+        "ICD10": null
+    },
+    {
+        "Order": 34,
+        "Question": "Please select all relevant ICD 10 Codes for Veteran Status:",
+        "Choice": "Z56.82 Military deployment status ",
+        "SelectionType": "many",
+        "ICD10": "Z56.82"
+    },
+    {
+        "Order": 34,
+        "Question": "Please select all relevant ICD 10 Codes for Veteran Status:",
+        "Choice": " Z56 Problems related to employment/ unemployment ",
+        "SelectionType": "many",
+        "ICD10": "Z56"
+    },
+    {
+        "Order": 34,
+        "Question": "Please select all relevant ICD 10 Codes for Veteran Status:",
+        "Choice": " Z56.0 Unemployment ",
+        "SelectionType": "many",
+        "ICD10": "Z56.0"
+    },
+    {
+        "Order": 34,
+        "Question": "Please select all relevant ICD 10 Codes for Veteran Status:",
+        "Choice": " Z59.0 Homelessness ",
+        "SelectionType": "many",
+        "ICD10": "Z59.0"
+    },
+    {
+        "Order": 34,
+        "Question": "Please select all relevant ICD 10 Codes for Veteran Status:",
+        "Choice": " Z59.1 Lack of adequate and affordable housing ",
+        "SelectionType": "many",
+        "ICD10": "Z59.1"
+    },
+    {
+        "Order": 34,
+        "Question": "Please select all relevant ICD 10 Codes for Veteran Status:",
+        "Choice": " Z65.5 Exposure to disaster, war, and other hostilities ",
+        "SelectionType": "many",
+        "ICD10": "Z65.5"
+    },
+    {
+        "Order": 34,
+        "Question": "Please select all relevant ICD 10 Codes for Veteran Status:",
+        "Choice": " Z57 Occupational exposure to risk factors",
+        "SelectionType": "many",
+        "ICD10": "Z57"
+    }
+]

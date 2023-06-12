@@ -1,0 +1,17 @@
+<svg id="Component_5_1" data-name="Component 5 – 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="915.811" height="936.583" viewBox="0 0 915.811 936.583">
+  <defs>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="1.139" gradientTransform="translate(0.008 -0.008) rotate(0.942)" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="0.296" stop-color="#fff"/>
+      <stop offset="1" stop-color="#f191ac"/>
+    </radialGradient>
+    <radialGradient id="radial-gradient-2" cx="0.5" cy="0.5" r="1.139" gradientTransform="translate(0.008 -0.008) rotate(0.942)" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="0.32" stop-color="#fff"/>
+      <stop offset="1" stop-color="#f27b55"/>
+    </radialGradient>
+  </defs>
+  <path id="Path_1456" data-name="Path 1456" d="M300.844,61.694c90.007,49.712,87.443-45.515,189.108-17.54S588.476,83.1,630.062,66.732C816.543-6.657,811.036,91.338,811.036,155.259V305.491c0,63.921-100.421,115.739-224.3,115.739H224.3C100.421,421.23,0,369.412,0,305.491V155.259C0,113.519,91.291-29.6,166.137,44.153S260.648,39.493,300.844,61.694Z" transform="translate(49 515.353)" fill="url(#radial-gradient)"/>
+  <path id="Path_1454" data-name="Path 1454" d="M172.653,6.047c66.479,30.93,104.24,2.706,164.073-10.719S465.448,20.379,465.448,51.28v72.627c0,30.9-57.631,55.952-128.723,55.952h-208C57.631,179.86,0,154.809,0,123.907V51.28C0,20.379,106.173-24.883,172.653,6.047Z" transform="translate(0 7.422)" fill="url(#radial-gradient-2)"/>
+  <path id="Path_1455" data-name="Path 1455" d="M145.677,1.333c56.092,20.1,87.953,1.759,138.437-6.968S392.725,10.649,392.725,30.735V77.943c0,20.086-48.627,36.369-108.611,36.369h-175.5C48.627,114.312,0,98.029,0,77.943V30.735C0,10.649,89.584-18.772,145.677,1.333Z" transform="translate(915.811 118.867) rotate(180)" fill="url(#radial-gradient-2)"/>
+</svg>

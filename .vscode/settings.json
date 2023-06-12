@@ -1,0 +1,28 @@
+{
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        // "**/*.fs.js": true,
+        "**/*.fs.js.map": true,
+        "**/bin": true,
+        "**/obj": true,
+        "**/fable_modules": true,
+    },
+    "FSharp.inlayHints.parameterNames": true,
+    "editor.inlayHints.enabled": "offUnlessPressed",
+    "editor.fontLigatures": true,
+    "i18n-ally.localesPaths": [
+        "Shared/Antidote.Core.V2/i18n"
+    ],
+    "editor.rulers": [
+        80,
+        120
+    ]
+}

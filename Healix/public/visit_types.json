@@ -1,0 +1,30 @@
+[
+    {
+        "Name":"MAT Induction",
+        "Enabled":false
+    },
+    {
+        "Name":"MAT Continuation",
+        "Enabled":false
+    },
+    {
+        "Name":"Somatic",
+        "Enabled":false
+    },
+    {
+        "Name":"Individual Psychotherapy",
+        "Enabled":false
+    },
+    {
+        "Name":"Family_Counseling",
+        "Enabled":false
+    },
+    {
+        "Name":"Infectious Disease",
+        "Enabled":true
+    },
+    {
+        "Name":"Not Selected",
+        "Enabled":false
+    }
+]

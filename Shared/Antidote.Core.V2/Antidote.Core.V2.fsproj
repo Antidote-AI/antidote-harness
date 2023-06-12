@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Extensions/List.Extensions.fs" />
+    <Compile Include="Prelude.fs" />
+    <Compile Include="Utils/Utils.fs" />
+    <Compile Include="Utils/Base64.fs" />
+    <Compile Include="Validation.fs" />
+    <Compile Include="Validators.fs" />
+    <Compile Include="Assets/Assets.fs" />
+    <Compile Include="Normalizers.fs" />
+    <Compile Include="Types/TimeMarker.fs" />
+    <Compile Include="Types/Facility.fs" />
+    <Compile Include="Types/VisitType.fs" />
+    <Compile Include="Types/DynamicQuery.fs" />
+    <Compile Include="Types/Biography.fs" />
+    <Compile Include="Types/DateOfBirth.fs" />
+    <Compile Include="Types/ContactType.fs" />
+    <Compile Include="Types/EmailAddress.fs" />
+    <Compile Include="Types/FirstName.fs" />
+    <Compile Include="Types/LastName.fs" />
+    <Compile Include="Types/Password.fs" />
+    <Compile Include="Types/PhoneNumber.fs" />
+    <Compile Include="Types/InternationalPhoneNumber.fs" />
+    <Compile Include="Types/UserSpecialities.fs" />
+    <Compile Include="Types/UserTitle.fs" />
+    <Compile Include="Types/ChatThreadId.fs" />
+    <Compile Include="Types/AccountId.fs" />
+    <Compile Include="Types/PasswordResetToken.fs" />
+    <Compile Include="Types/AcsAccessToken.fs" />
+    <Compile Include="Types/AcsId.fs" />
+    <Compile Include="Types/StatedPatientName.fs" />
+    <Compile Include="Types/PatientRegistrationToken.fs" />
+    <Compile Include="Types/SocialSecurityNumber.fs" />
+    <Compile Include="Types/SeverityLevel.fs" />
+    <Compile Include="Types/QualityRating.fs" />
+    <Compile Include="Types/Capability.fs" />
+    <Compile Include="Types/Signature.fs" />
+    <Compile Include="Types/EncounterForm/Answer.fs" />
+    <Compile Include="Types/EncounterForm/PatientDisposition.fs" />
+    <Compile Include="Types/EncounterForm/ClinicianRecommendation.fs" />
+    <Compile Include="Types/AppointmentStatus.fs" />
+    <Compile Include="Types/TaskStatus.fs" />
+    <Compile Include="Types/TaskTag.fs" />
+    <Compile Include="Types/TaskFlag.fs" />
+    <Compile Include="Types/SystemEvent.fs" />
+    <Compile Include="Types/MeetingId.fs" />
+    <Compile Include="Types/MeetingDate.fs" />
+    <Compile Include="Types/MeetingDetails.fs" />
+    <Compile Include="Types/ProfileAvatar.fs" />
+    <Compile Include="Types/MiddleName.fs" />
+    <Compile Include="Types/FullName.fs" />
+    <Compile Include="Types/PostalCode.fs" />
+    <Compile Include="Types/CountryCode.fs" />
+    <Compile Include="Types/TenantId.fs" />
+    <Compile Include="Types/TenantName.fs" />
+    <Compile Include="Types/TenantServerName.fs" />
+    <Compile Include="Types/UserName.fs" />
+    <Compile Include="Types/TenantDatabaseName.fs" />
+    <Compile Include="Types/DeepLink.fs" />
+    <Compile Include="Types/TenantId.fs" />
+    <Compile Include="Types/CallImprovements.fs" />
+    <Compile Include="Types/Gender.fs" />
+    <Compile Include="Types/SpokenLanguage.fs" />
+    <Compile Include="Types/Types.fs" />
+    <Compile Include="Types/RefreshToken.fs" />
+    <Compile Include="Types/AccessToken.fs" />
+    <Compile Include="Types/AccountType.fs" />
+    <Compile Include="Data/cpt.fs" />
+    <Compile Include="Data/icd10.fs" />
+
+  </ItemGroup>
+  <ItemGroup>
+      <!-- <ProjectReference Include="../../Shared/Antidote.Libraries/Antidote.Libraries.fsproj" />
+      <ProjectReference Include="../Antidote.Core.FormProcessor/Antidote.Core.FormProcessor.fsproj" /> -->
+  </ItemGroup>
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
+</Project>
