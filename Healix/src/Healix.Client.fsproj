@@ -10,6 +10,7 @@
 
     <!-- COMPONENTS -->
     <Compile Include="Components/Sample.fs" />
+    <Compile Include="Components/AppointmentViewerList.fs" />
 
     <!-- TOP LEVEL APP -->
     <!-- <Compile Include="App.fs" /> -->
