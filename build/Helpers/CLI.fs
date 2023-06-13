@@ -45,7 +45,7 @@ let node = tool "node"
 
 let git = tool "git"
 
-let docker = tool "docker"
+// let docker = tool "docker"
 
 let ssh = tool "ssh"
 

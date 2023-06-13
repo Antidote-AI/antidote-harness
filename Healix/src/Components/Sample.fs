@@ -5,13 +5,13 @@ open Feliz
 open Feliz.Bulma
 open Fable.Core.JsInterop
 
-let private classes : CssModules.Components.Sample = import "default" "./Sample.module.scss"
+// let private classes : CssModules.Components.Sample = import "default" "./Sample.module.scss"
 
 [<ReactComponent>]
 let Sample () =
 
     Html.div [
-        prop.className classes.sampleBackdrop
+        // prop.className classes.sampleBackdrop_hero
         prop.children [
             Bulma.box [
                 prop.children [

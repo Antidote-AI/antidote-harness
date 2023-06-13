@@ -44,4 +44,8 @@
     justify-content: center;
     height: 100vh;
     z-index: 999;
+
+    &__hero{
+        background-color: limegreen;
+    }
 }
