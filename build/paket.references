@@ -1,11 +1,11 @@
 dotenv.net
-
+Glutinum.Feliz.Iconify
 group Build
-    FSharp.Core
-    Fake.Core.Environment
-    Fake.IO.FileSystem
-    Fake.DotNet.Cli
-    BlackFox.Fake.BuildTask
-    BlackFox.PathEnvironment
-    BlackFox.CommandLine
-    Npgsql
+FSharp.Core
+Fake.Core.Environment
+Fake.IO.FileSystem
+Fake.DotNet.Cli
+BlackFox.Fake.BuildTask
+BlackFox.PathEnvironment
+BlackFox.CommandLine
+Npgsql

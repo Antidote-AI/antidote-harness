@@ -73,9 +73,6 @@
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "ionic:build": "echo 'fake'",
-    "ionic:deploy": "ionic deploy add --app-id='419ef74f' --channel-name='Production' --update-method='background'",
-    "ionic:deploy-stg": "ionic deploy add --app-id='419ef74f' --channel-name='Staging' --update-method='background'"
+    "build-storybook": "build-storybook"
   }
 }

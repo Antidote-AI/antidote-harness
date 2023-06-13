@@ -9,8 +9,8 @@ open Fable.Core.JsInterop
 // open Antidote.Core.V2.Types
 
 open Feliz.Iconify
-// open type Offline.Exports
-// open Glutinum.IconifyIcons.Mdi
+open type Offline.Exports
+open Glutinum.IconifyIcons.Mdi
 open Elmish
 open Fable.Core.JS
 // open Antidote.Core.V2.Utils.JS
@@ -254,13 +254,12 @@ let WeightComponent(props: WeightProps) =
                                                             | Kg _ -> "KG"
                                                         )
                                                     ]
-                                                    Html.span
-                                                    // Feliz.Iconify.Icon [
+                                                    Icon [
                                                         (match props.State.Weight with
-                                                        | Lbs _ -> "LBS" //icon.icon mdi.cached
-                                                        | Kg _ -> "KG" //icon.icon mdi.cached
+                                                        | Lbs _ -> icon.icon mdi.cached
+                                                        | Kg _ -> icon.icon mdi.cached
                                                         )
-                                                    // ]
+                                                    ]
                                                 ]
                                             ]
                                         ]
@@ -376,14 +375,11 @@ let HeightComponent (props: HeightProps) =
                                                             | Meters _ -> "CM"
                                                         )
                                                     ]
-                                                    Html.span
-                                                    // Icon [
-                                                        (
+                                                    Icon [(
                                                         match props.State.Height with
-                                                        | Feet _ -> "FT" //icon.icon mdi.cached
-                                                        | Meters _ -> "M" //icon.icon mdi.cached
-                                                        )
-                                                    // ]
+                                                        | Feet _ -> icon.icon mdi.cached
+                                                        | Meters _ ->icon.icon mdi.cached
+                                                    )]
                                                 ]
                                             ]
                                         ]
