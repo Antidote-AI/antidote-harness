@@ -289,7 +289,7 @@ let HeightComponent (props: HeightProps) =
                 ]
             ]
             Html.div [
-                prop.className ["field-body"; "fieldBody"; "column"; "is-four-fifths"; "pt-0" ]
+                prop.className ["field-body"; "fieldBody"; "column"; "is-four-fifths"; "pt-0"; ]
                 prop.children [
                     Html.div [
                         prop.classes [ "field"; "is-expanded"; "field-width";"m-0" ]
