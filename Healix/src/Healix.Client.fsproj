@@ -12,6 +12,7 @@
     <Compile Include="Components/Sample.fs" />
     <Compile Include="Components/AppointmentViewerList.fs" />
     <Compile Include="Components/BMICalculator.fs" />
+     <Compile Include="Components/Alert.fs" />
 
     <!-- TOP LEVEL APP -->
     <!-- <Compile Include="App.fs" /> -->
