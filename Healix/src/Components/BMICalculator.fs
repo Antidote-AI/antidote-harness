@@ -173,16 +173,8 @@ type WeightProps = {|
 [<ReactComponent>]
 let WeightComponent(props: WeightProps) =
     Html.div [
-        prop.classes [ "field"; "is-horizontal"; classes.sampleBackdrop_hero ]
+        prop.classes [ "field"; "is-horizontal"; "is-full"; classes.heightWeight ]
         prop.children [
-            Bulma.columns [
-                Bulma.column [
-                    column.is2 // <-- note context helper here
-                    prop.children [
-                        Bulma.button.button "Click me"
-                    ]
-                ]
-            ]
             Html.div [
                 prop.className "field-label"
                 prop.children [
@@ -196,7 +188,7 @@ let WeightComponent(props: WeightProps) =
                 prop.className "field-body"
                 prop.children [
                     Html.div [
-                        prop.classes [ "field"; "is-expanded" ]
+                        prop.classes [ "field"; "is-expanded"; "pl-3"; "pr-3" ]
                         prop.children [
                             Html.div [
                                 prop.classes [ "field"; "has-addons" ]
@@ -285,7 +277,7 @@ type HeightProps = {|
 [<ReactComponent>]
 let HeightComponent (props: HeightProps) =
     Html.div [
-        prop.classes [ "field"; "is-horizontal" ]
+        prop.classes [ "field"; "is-horizontal"; classes.heightWeight ]
         prop.children [
             Html.div [
                 prop.className "field-label"
@@ -297,10 +289,10 @@ let HeightComponent (props: HeightProps) =
                 ]
             ]
             Html.div [
-                prop.className "field-body"
+                prop.className ["field-body"; "fieldBody"; "column"; "is-four-fifths"; "pt-0" ]
                 prop.children [
                     Html.div [
-                        prop.classes [ "field"; "is-expanded" ]
+                        prop.classes [ "field"; "is-expanded"; "field-width";"m-0" ]
                         prop.children [
                             Html.div [
                                 prop.classes [ "field"; "has-addons" ]
@@ -340,6 +332,7 @@ let HeightComponent (props: HeightProps) =
                                                 ]
                                             ]
                                         ]
+
                                     | Meters meters ->
                                         Html.p [
                                             prop.classes [ "control"; "is-expanded" ]
@@ -392,10 +385,22 @@ let HeightComponent (props: HeightProps) =
                             ]
                         ]
                     ]
+                    Bulma.columns [
+                            Bulma.column [
+                                prop.classes ["mt-4"]
+                                column.is2 // <-- note context helper here
+                                prop.children [
+                                Bulma.button.button "Click me"
+                                ]
+                            ]
+                        ]
                 ]
             ]
         ]
     ]
+
+
+
 
 [<ReactComponent>]
 // let BMICalculator (props : Field.ReactComponentField.ReactComponentFieldProps) =
@@ -409,7 +414,7 @@ let BMICalculator () =
     Html.div [
         Html.br []
         Html.br []
-        Bulma.title.p [
+        Bulma.title.h1 [
             prop.style [ style.color.black]
             prop.text "BMI Calculator"
         ]
