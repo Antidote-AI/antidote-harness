@@ -44,8 +44,37 @@
     justify-content: center;
     height: 100vh;
     z-index: 999;
+}
 
-    &__hero{
-        background-color: limegreen;
+.heightWeight{
+    padding: 1rem;
+    width: 50%;
+    margin: auto;
+
+    &__button{
+        width: 100%;
     }
+
+}
+
+.label{
+    flex-grow: none;
+}
+
+.fieldBody{
+    display: flex;
+    flex-direction: column;
+    padding: none;
+}
+
+.field-body{
+    padding: 0.75rem;
+}
+
+.button{
+    margin-top: 1rem;
+}
+
+.field{
+    padding: 1rem;
 }
