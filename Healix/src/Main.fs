@@ -11,6 +11,6 @@ open Healix.Components.AppointmentList
 // importSideEffects "./index.scss"
 
 ReactDOM.render(
-    ListItem ()
+    BMICalculator ()
     , document.getElementById("root")
 )
