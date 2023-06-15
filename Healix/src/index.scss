@@ -31,10 +31,10 @@
     @use "../../Shared/scss/theme/dark.scss";
     @use "../../Shared/scss/bulma-switch.sass";
     @use "../../Shared/scss/progress-bar.scss";
-    @use "bulma-steps.css";
+    // @use "bulma-steps.css";
     @import "../../node_modules/bulma-checkradio";
     @import "../../node_modules/bulma-responsive-tables";
-    @import "../dashboard_template/dashboard_template.scss";
+    // @import "../dashboard_template/dashboard_template.scss";
 body {
     background-color: unset;
 }
