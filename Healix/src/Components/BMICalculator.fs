@@ -185,10 +185,10 @@ let WeightComponent(props: WeightProps) =
                 ]
             ]
             Html.div [
-                prop.className "field-body"
+                prop.classes ["field-body"; "fieldBody"; "column"; "is-four-fifths"; "pt-0";]
                 prop.children [
                     Html.div [
-                        prop.classes [ "field"; "is-expanded"; "pl-3"; "pr-3" ]
+                        prop.classes [ "field"; "is-expanded"; "field-width";"m-0" ]
                         prop.children [
                             Html.div [
                                 prop.classes [ "field"; "has-addons" ]
@@ -281,7 +281,7 @@ type HeightProps = {|
 [<ReactComponent>]
 let HeightComponent (props: HeightProps) =
     Html.div [
-        prop.classes [ "field"; "is-horizontal"; classes.heightWeight ]
+        prop.classes [ "field"; "is-horizontal"; "is-full"; classes.heightWeight ]
         prop.children [
             Html.div [
                 prop.className "field-label"
@@ -374,9 +374,9 @@ let HeightComponent (props: HeightProps) =
                                                             | Meters _ -> "CM"
                                                         )
                                                     ]
-                                                    Icon [(
+                                                    Icon [
                                                         icon.color "#FFFFFF"
-                                                        match props.State.Height with
+                                                        (match props.State.Height with
                                                         | Feet _ ->
                                                             icon.icon mdi.cached
                                                         | Meters _ ->
