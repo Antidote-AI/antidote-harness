@@ -94,9 +94,10 @@ let Alert () =
                             Html.div [
                                 prop.className [classes.align]
                                 prop.classes ["align"]
-                                prop.style [style.display.flex; style.alignItems.center; style.color "#FF3366"]
+                                prop.style [style.display.flex; style.alignItems.center; style.color "#FF3366"; style.fontWeight.bold]
                                 prop.children [
                                     Html.span [
+                                        prop.style [style.display.flex; style.alignItems.center]
                                         prop.className ["icon"]
                                         prop.style [style.marginRight 7]
                                         prop.children [

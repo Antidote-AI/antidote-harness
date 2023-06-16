@@ -14,6 +14,6 @@ importSideEffects "./index.scss"
 
 ReactDOM.render(
     // ListItem ()
-    Alert ()
+    BMICalculator ()
     , document.getElementById("root")
 )

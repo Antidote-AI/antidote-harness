@@ -375,9 +375,12 @@ let HeightComponent (props: HeightProps) =
                                                         )
                                                     ]
                                                     Icon [(
+                                                        icon.color "#FFFFFF"
                                                         match props.State.Height with
-                                                        | Feet _ -> icon.icon mdi.cached
-                                                        | Meters _ ->icon.icon mdi.cached
+                                                        | Feet _ ->
+                                                            icon.icon mdi.cached
+                                                        | Meters _ ->
+                                                            icon.icon mdi.cached
                                                     )]
                                                 ]
                                             ]
@@ -392,14 +395,14 @@ let HeightComponent (props: HeightProps) =
                         ]
                     ]
                     Bulma.columns [
-                            Bulma.column [
-                                prop.classes ["mt-4"]
-                                column.is2 // <-- note context helper here
-                                prop.children [
-                                Bulma.button.button "Click me"
-                                ]
+                        Bulma.column [
+                            prop.classes ["mt-4"]
+                            column.is2 // <-- note context helper here
+                            prop.children [
+                            Bulma.button.button "Click me"
                             ]
                         ]
+                    ]
                 ]
             ]
         ]
