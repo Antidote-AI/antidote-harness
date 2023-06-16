@@ -185,10 +185,10 @@ let WeightComponent(props: WeightProps) =
                 ]
             ]
             Html.div [
-                prop.className "field-body"
+                prop.classes ["field-body"; "fieldBody"; "column"; "is-four-fifths"; "pt-0";]
                 prop.children [
                     Html.div [
-                        prop.classes [ "field"; "is-expanded"; "pl-3"; "pr-3" ]
+                        prop.classes [ "field"; "is-expanded"; "field-width";"m-0" ]
                         prop.children [
                             Html.div [
                                 prop.classes [ "field"; "has-addons" ]
@@ -281,7 +281,7 @@ type HeightProps = {|
 [<ReactComponent>]
 let HeightComponent (props: HeightProps) =
     Html.div [
-        prop.classes [ "field"; "is-horizontal"; classes.heightWeight ]
+        prop.classes [ "field"; "is-horizontal"; "is-full"; classes.heightWeight ]
         prop.children [
             Html.div [
                 prop.className "field-label"
@@ -394,15 +394,15 @@ let HeightComponent (props: HeightProps) =
                             ]
                         ]
                     ]
-                    Bulma.columns [
-                        Bulma.column [
-                            prop.classes ["mt-4"]
-                            column.is2 // <-- note context helper here
-                            prop.children [
-                            Bulma.button.button "Click me"
-                            ]
-                        ]
-                    ]
+                    // Bulma.columns [
+                    //     Bulma.column [
+                    //         prop.classes ["mt-4"]
+                    //         column.is2 // <-- note context helper here
+                    //         prop.children [
+                    //         Bulma.button.button "Click me"
+                    //         ]
+                    //     ]
+                    // ]
                 ]
             ]
         ]
@@ -423,10 +423,10 @@ let BMICalculator () =
     Html.div [
         Html.br []
         Html.br []
-        Bulma.title.h1 [
-            prop.style [ style.color.black]
-            prop.text "BMI Calculator"
-        ]
+        // Bulma.title.h1 [
+        //     prop.style [ style.color.black]
+        //     prop.text "BMI Calculator"
+        // ]
         WeightComponent {| State = state; Dispatch = dispatch |}
         HeightComponent {| State = state; Dispatch = dispatch |}
     ]
