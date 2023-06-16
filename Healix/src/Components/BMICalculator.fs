@@ -394,15 +394,15 @@ let HeightComponent (props: HeightProps) =
                             ]
                         ]
                     ]
-                    Bulma.columns [
-                        Bulma.column [
-                            prop.classes ["mt-4"]
-                            column.is2 // <-- note context helper here
-                            prop.children [
-                            Bulma.button.button "Click me"
-                            ]
-                        ]
-                    ]
+                    // Bulma.columns [
+                    //     Bulma.column [
+                    //         prop.classes ["mt-4"]
+                    //         column.is2 // <-- note context helper here
+                    //         prop.children [
+                    //         Bulma.button.button "Click me"
+                    //         ]
+                    //     ]
+                    // ]
                 ]
             ]
         ]
@@ -423,10 +423,10 @@ let BMICalculator () =
     Html.div [
         Html.br []
         Html.br []
-        Bulma.title.h1 [
-            prop.style [ style.color.black]
-            prop.text "BMI Calculator"
-        ]
+        // Bulma.title.h1 [
+        //     prop.style [ style.color.black]
+        //     prop.text "BMI Calculator"
+        // ]
         WeightComponent {| State = state; Dispatch = dispatch |}
         HeightComponent {| State = state; Dispatch = dispatch |}
     ]
