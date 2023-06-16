@@ -1,4 +1,4 @@
-module Healix.Components.AppointmentList
+module Healix.Components.AppointmentViewerList
 
 open System
 open Feliz
@@ -43,7 +43,7 @@ let private classes : CssModules.Components.AppointmentViewerList = import "defa
 
 
 [<ReactComponent>]
-let ListItem () =
+let AppointmentViewerList () =
     //let toastDeleteAppointment () =
         // toast(
         //     Html.div [
@@ -77,76 +77,74 @@ let ListItem () =
 
         // ) |> ignore
 
-    Html.li [
-        prop.style [
-            style.textAlign.left
-            style.display.block
-            style.alignContent.center
-            //style.backgroundColor "#FFFFFF"
-            style.borderRadius 5
-            style.margin 10
-            //style.custom("boxShadow", "rgba(0, 0, 0, 0.16) 0px 1px 4px")
-            style.borderColor.lightGray
-            style.borderStyle.solid
-            style.borderWidth 1
 
-        ]
-        prop.className "card-header-title"
-        prop.children [
-            Html.div [
-                prop.className "media"
-                prop.style [ style.overflow.hidden ]
-                prop.children [
-                    Html.div [
-                        prop.className "media-left"
-                        prop.children [
-
-                            Html.figure [
-                                prop.className "image"
-                                prop.style [
-                                    style.height 40
-                                    style.width 40
-                                ]
-                                // prop.children [
-                                //     UserAvatar props.ListItemTitle None
-                                // ]
-                            ]
+        Html.section [
+    prop.classes ["appointmentViewerList"; "card"; "m-4"]
+    prop.children [
+        Html.div [
+            prop.classes ["appointmentViewerList__container-content"; "is-flex"; "is-flex-direction-row"; "m-4"; "is-justify-content-space-between";]
+            prop.children [
+                Html.div [
+                    prop.classes ["appointmentViewerList__container-image"; "is-flex"; "is-align-items-center"; "is-justify-content-center"; "image"; "is-128x128"]
+                    prop.children [
+                        Html.img [
+                            prop.src ".././Assets/alan-katz.jpg"
+                            prop.alt "doctor's profile logo"
+                            prop.classes [ classes.DoctorImage; "image"; "is-4by5"; "p-1"; "mt-4"; "p-2"]
                         ]
                     ]
-
-                    Html.div [
-                        prop.className "media-content"
-                        //prop.onClick ( fun _ -> props.SelectAppointmentCallBack props.ListItemReferenceId )
-
-                        prop.children [
-                            Html.p [
-                                prop.style [ style.color "black" ]
-                                prop.classes [ "title"; "is-4" ]
-                                prop.text "HELLLLOOOO"
-                            ]
-                            Html.p [
-                                prop.style [ style.color "black" ]
-                                prop.classes [ "subtitle"; "is-5" ]
-                                prop.text "HELLOOOO"
-                            ]
+                ]
+                Html.div [
+                    prop.classes ["appointmentViewerList__container-content"]
+                    prop.children [
+                        Html.h2 [
+                            prop.classes ["appointmentViewerList__name"; "subtitle"; "is-4"; "has-text-weight-bold"; ]
+                            prop.text "Dr. Alan Katz"
                         ]
-                    ]
-                    Html.div [
-                        prop.style [ style.borderRadius 100]
-                        prop.children [
-                            Html.span [
-                                //prop.onClick (fun _ -> toastDeleteAppointment () )
-                                prop.className "icon"
-                                prop.children [
-                                    Html.i [
-                                        prop.className "fas fa-trash-alt"
-                                        prop.style [ style.color "gray" ]
+                        Html.p [
+                            prop.classes ["appointmentViewerList__messaging"]
+                            prop.children [
+                                Html.text "Messaging - "
+                                Html.span [
+                                    Bulma.button.button [
+                                        prop.classes ["button"; "is-outlined"; "is-primary"; "is-small"; "mb-2"]
+                                        prop.text "Upcoming"
                                     ]
                                 ]
                             ]
                         ]
+                        Html.p [
+                            prop.classes ["appointmentViewerList__availability"]
+                            prop.text "Today | 16:00PM"
+                        ]
+                    ]
+                ]
+                Html.div [
+                    prop.classes ["appointmentViewerList__container-messaging-icon"; "is-flex"; "is-align-items-center"; "is-justify-content-center"; "is-rounded"; "p-4"]
+                    prop.children [
+                        // Html.text "{" "} "
+                        Html.img [
+                            prop.src ".././Assets/message-rounded-icon-blue.svg"
+                            prop.alt "messaging icon"
+                            prop.classes [classes.MessagingIcon;"image";"is-48x48"; "is-rounded"; "m-4"; "p-3";  "has-background-link-light";]
+                        ]
+                        // Html.text " Message Button"
                     ]
                 ]
             ]
         ]
+        Html.div [
+            prop.classes ["appointmentViewerList__container-button"; "m-3"; "is-flex"; "is-justify-content-space-evenly"; "p-4";"has-border-top"; ]
+            prop.children [
+                Html.button [
+                    prop.classes [ "button"; "is-rounded"; "is-primary"; "is-outlined"; "is-size-6"; "px-6"]
+                    prop.text "Cancel Appointment"
+                ]
+                Html.button [
+                    prop.classes [ "button"; "is-primary"; "is-rounded"; "is-primary"; "is-size-6";"px-6" ]
+                    prop.text "Reschedule"
+                ]
+            ]
+        ]
+    ]
     ]

@@ -374,9 +374,9 @@ let HeightComponent (props: HeightProps) =
                                                             | Meters _ -> "CM"
                                                         )
                                                     ]
-                                                    Icon [(
+                                                    Icon [
                                                         icon.color "#FFFFFF"
-                                                        match props.State.Height with
+                                                        (match props.State.Height with
                                                         | Feet _ ->
                                                             icon.icon mdi.cached
                                                         | Meters _ ->

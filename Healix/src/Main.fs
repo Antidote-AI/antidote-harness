@@ -5,7 +5,7 @@ open Antidote.Core.V2.Types
 open Feliz
 open Healix.Components.Sample
 open Healix.Components.BMICalculator
-open Healix.Components.AppointmentList
+open Healix.Components.AppointmentViewerList
 open Healix.Components.Alert
 open Fable.Core.JsInterop
 
@@ -14,6 +14,6 @@ importSideEffects "./index.scss"
 
 ReactDOM.render(
     // ListItem ()
-    BMICalculator ()
+    AppointmentViewerList()
     , document.getElementById("root")
 )
