@@ -206,7 +206,7 @@ let WeightComponent(props: WeightProps) =
                                                         | None -> ""
                                                     )
                                                     // prop.type' "weight"
-                                                    prop.placeholder "0"
+                                                    prop.placeholder "156 lbs"
                                                     prop.onChange (SetLbs >> props.Dispatch)
                                                 ]
                                             ]
@@ -233,12 +233,15 @@ let WeightComponent(props: WeightProps) =
                                         prop.className "control"
                                         prop.children [
                                             Bulma.button.a [
-                                                prop.classes [ "is-antidote-orange" ]
+                                                prop.classes [ "has-background-primary" ]
                                                 prop.onClick (fun _ -> props.Dispatch ChangeWeightType)
                                                 prop.children [
                                                     Html.span [
                                                         prop.style [
                                                             style.marginRight 15
+                                                            style.color.white
+                                                            style.fontWeight.bold
+
                                                         ]
                                                         prop.text (
                                                             match props.State.Weight with
@@ -247,6 +250,7 @@ let WeightComponent(props: WeightProps) =
                                                         )
                                                     ]
                                                     Icon [
+                                                        icon.color "#FFFFFF"
                                                         (match props.State.Weight with
                                                         | Lbs _ -> icon.icon mdi.cached
                                                         | Kg _ -> icon.icon mdi.cached
@@ -310,7 +314,7 @@ let HeightComponent (props: HeightProps) =
                                                         | None -> ""
                                                     )
                                                     // prop.type' "weight"
-                                                    prop.placeholder "0"
+                                                    prop.placeholder "5 ft"
                                                     prop.onChange (SetFeet >> props.Dispatch)
                                                 ]
                                             ]
@@ -326,7 +330,7 @@ let HeightComponent (props: HeightProps) =
                                                         | None -> ""
                                                     )
                                                     // prop.type' "weight"
-                                                    prop.placeholder "0"
+                                                    prop.placeholder "7 in"
                                                     prop.onChange (SetInches >> props.Dispatch)
 
                                                 ]
@@ -355,12 +359,14 @@ let HeightComponent (props: HeightProps) =
                                         prop.className "control"
                                         prop.children [
                                             Bulma.button.a [
-                                                prop.classes [ "is-antidote-orange" ]
+                                                prop.classes [ "has-background-primary" ]
                                                 prop.onClick (fun _ -> props.Dispatch ChangeHeightType)
                                                 prop.children [
                                                     Html.span [
                                                         prop.style [
                                                             style.marginRight 15
+                                                            style.color.white
+                                                            style.fontWeight.bold
                                                         ]
                                                         prop.text (
                                                             match props.State.Height with

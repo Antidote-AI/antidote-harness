@@ -44,103 +44,109 @@ let private classes : CssModules.Components.AppointmentViewerList = import "defa
 
 [<ReactComponent>]
 let ListItem () =
-    // let toastDeleteAppointment () =
-    //     toast(
-    //         Html.div [
-    //             Html.span "Are you sure you want to permanently delete this appointment?"
-    //             Html.br []
-    //             Html.br []
-    //             Bulma.buttons [
-    //                 Bulma.button.button [
-    //                     button.isSmall
-    //                     color.isInfo
-    //                     prop.text "Cancel"
-    //                     prop.onClick (
-    //                         fun _ ->
-    //                         debuglog "Cancel Delete Appointment Clicked"
-    //                     )
-    //                 ]
-    //                 Bulma.button.button [
-    //                     button.isSmall
-    //                     color.isDanger
-    //                     prop.text "Delete"
-    //                     prop.onClick (
-    //                         fun _ ->
-    //                             updateAppointment props.ListItemAppointment props.RefreshCallback
-    //                     )
-    //                 ]
-    //             ]
-    //         ], jsOptions<ToastOptions>( fun o ->
-    //             o.`` type`` <- Some TypeOptions.Warning
-    //             o.autoClose <- false
-    //         )
+    //let toastDeleteAppointment () =
+        // toast(
+        //     Html.div [
+        //         Html.span "Are you sure you want to permanently delete this appointment?"
+        //         Html.br []
+        //         Html.br []
+        //         Bulma.buttons [
+        //             Bulma.button.button [
+        //                 button.isSmall
+        //                 color.isInfo
+        //                 prop.text "Cancel"
+        //                 prop.onClick (
+        //                     fun _ ->
+        //                     debuglog "Cancel Delete Appointment Clicked"
+        //                 )
+        //             ]
+        //             Bulma.button.button [
+        //                 button.isSmall
+        //                 color.isDanger
+        //                 prop.text "Delete"
+        //                 prop.onClick (
+        //                     fun _ ->
+        //                         updateAppointment props.ListItemAppointment props.RefreshCallback
+        //                 )
+        //             ]
+        //         ]
+        //     ], jsOptions<ToastOptions>( fun o ->
+        //         o.`` type`` <- Some TypeOptions.Warning
+        //         o.autoClose <- false
+        //     )
 
-    //     ) |> ignore
+        // ) |> ignore
 
+    Html.li [
+        prop.style [
+            style.textAlign.left
+            style.display.block
+            style.alignContent.center
+            //style.backgroundColor "#FFFFFF"
+            style.borderRadius 5
+            style.margin 10
+            //style.custom("boxShadow", "rgba(0, 0, 0, 0.16) 0px 1px 4px")
+            style.borderColor.lightGray
+            style.borderStyle.solid
+            style.borderWidth 1
 
-    Bulma.card [
-        Bulma.cardImage [
-            Bulma.image [
-                Bulma.image.is4by3
-                prop.children [
-                    Html.img [
-                        prop.alt "Placeholder image"
-                        prop.src "https://bulma.io/images/placeholders/1280x960.png"
-                    ]
-                ]
-            ]
         ]
-        Bulma.cardContent [
-            Bulma.media [
-                Bulma.mediaLeft [
-                    Bulma.cardImage [
-                        Bulma.image [
-                            Bulma.image.is48x48
-                            prop.children [
-                                Html.img [
-                                    prop.alt "Placeholder image"
-                                    prop.src "https://bulma.io/images/placeholders/96x96.png"
+        prop.className "card-header-title"
+        prop.children [
+            Html.div [
+                prop.className "media"
+                prop.style [ style.overflow.hidden ]
+                prop.children [
+                    Html.div [
+                        prop.className "media-left"
+                        prop.children [
+
+                            Html.figure [
+                                prop.className "image"
+                                prop.style [
+                                    style.height 40
+                                    style.width 40
+                                ]
+                                // prop.children [
+                                //     UserAvatar props.ListItemTitle None
+                                // ]
+                            ]
+                        ]
+                    ]
+
+                    Html.div [
+                        prop.className "media-content"
+                        //prop.onClick ( fun _ -> props.SelectAppointmentCallBack props.ListItemReferenceId )
+
+                        prop.children [
+                            Html.p [
+                                prop.style [ style.color "black" ]
+                                prop.classes [ "title"; "is-4" ]
+                                prop.text "HELLLLOOOO"
+                            ]
+                            Html.p [
+                                prop.style [ style.color "black" ]
+                                prop.classes [ "subtitle"; "is-5" ]
+                                prop.text "HELLOOOO"
+                            ]
+                        ]
+                    ]
+                    Html.div [
+                        prop.style [ style.borderRadius 100]
+                        prop.children [
+                            Html.span [
+                                //prop.onClick (fun _ -> toastDeleteAppointment () )
+                                prop.className "icon"
+                                prop.children [
+                                    Html.i [
+                                        prop.className "fas fa-trash-alt"
+                                        prop.style [ style.color "gray" ]
+                                    ]
                                 ]
                             ]
                         ]
                     ]
                 ]
-                Bulma.mediaContent [
-                    Bulma.title.p [
-                        Bulma.title.is4
-                        prop.text "Feliz Bulma"
-                    ]
-                    Bulma.subtitle.p [
-                        Bulma.title.is6
-                        prop.text "@feliz.bulma"
-                    ]
-                ]
             ]
-            Bulma.content "Lorem ipsum dolor sit ... nec iaculis mauris."
         ]
     ]
-
-// let dayGridItem (date: DateTime) =
-//     Html.div [
-//         prop.style [style.alignContent.center; style.fontSize 15; ]
-//         prop.onClick ( fun _ -> JS.scrollElementByIdIntoView (date.ToShortDateString()) )
-//         prop.children [
-//             Html.h1 [
-//                 prop.style [ style.margin 10 ]
-//                 prop.text (int date.DayOfWeek |> toDayAbbreviation)
-//             ]
-//             Html.h1 [
-//                 prop.style [ style.margin 10 ]
-//                 prop.text date.Day
-//             ]
-//         ]
-//     ]
-
-
-
-// [<ReactComponent>]
-// let AppointmentViewerList(props: AppointmentViewerListProps) =
-//     Html.ul [
-//         props.AppointmentList
-//         |> groupAppointmentList props.SortDescending props.SelectAppointment props.RefreshCallback
-//     ]
