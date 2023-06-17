@@ -15,6 +15,6 @@ importSideEffects "./index.scss"
 
 ReactDOM.render(
     // ListItem ()
-    PhysicianOverview()
+    Page ()
     , document.getElementById("root")
 )
