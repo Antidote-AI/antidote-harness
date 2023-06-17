@@ -6,6 +6,7 @@ open Feliz
 open Healix.Components.Sample
 open Healix.Components.BMICalculator
 open Healix.Components.AppointmentViewerList
+open Healix.Components.PhysicianOverview
 open Healix.Components.Alert
 open Fable.Core.JsInterop
 
@@ -14,6 +15,6 @@ importSideEffects "./index.scss"
 
 ReactDOM.render(
     // ListItem ()
-    AppointmentViewerList()
+    PhysicianOverview()
     , document.getElementById("root")
 )

@@ -1,0 +1,34 @@
+
+.hello {
+    content: '';
+    display: block;
+    border-top: 1px solid lightgray;
+    width: calc(100% - 30px);  /* Adjust as needed to align with your text */
+    margin-bottom: 10px;  /* Adjust as needed */
+}
+
+.DoctorImage {
+    border-radius: 12px;
+}
+
+.MessagingIcon{
+    border-radius: 50%;
+}
+
+.border {
+    border: 1px solid !important;
+}
+
+.button-container {
+    box-sizing: border-box;
+    padding: 0.75em;
+}
+
+.button-container2 button {
+    flex-grow: 1;
+    box-sizing: border-box;
+}
+
+.width {
+    width: 30%;
+}
