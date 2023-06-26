@@ -24,9 +24,10 @@ let private classes : CssModules.Components.PhysicianOverview = import "default"
 
 
 
-let maxChars = 175
+
 
 let truncateAndAddButton (inputStr: string) ( showMoreCallback: unit -> unit) =
+    let maxChars = 125
     let inputLen = inputStr.Length
     if inputLen > maxChars then
         let truncatedStr = inputStr.Substring(0, maxChars)
@@ -95,19 +96,16 @@ let AboutMe () =
             Html.div [
                 prop.children [
                     Html.p [
-                        prop.style [style.fontFamily "Inter"; style.color "#504A4B"]
-                        prop.children [
-                            Html.text text
-                        ]
-                    ]
+                    Html.text (text)
                     Bulma.button.button [
                         prop.classes ["has-text-weight-bold"]
-                        prop.style [style.marginRight 10;style.marginTop 4; style.height 5; style.borderColor.white]
+                        prop.style [style.marginTop 4; style.height 5]
                         Bulma.button.isInverted
                         Bulma.color.isPrimary
-                        prop.text "See less"
+                        prop.text "Show Less"
                         prop.onClick (fun _ -> showMoreCallback ())
                     ]
+                ]
                 ]
             ]
 
@@ -161,10 +159,11 @@ let PhysicianOverview () =
                                         prop.src ".././Assets/alan-katz.jpg"
                                         prop.alt "doctor's profile logo"
                                         prop.classes [ classes.DoctorImage; "image"; "p-1"; "p-2"]
-                                        prop.style [style.borderRadius 20; style.width 110; style.height 120]
+                                        prop.style [style.height 120; style.borderRadius 12]
                                     ]
                                 ]
                             ]
+
                             Html.div [
                                 prop.classes ["appointmentViewerList__container-content"]
                                 prop.children [
@@ -172,6 +171,14 @@ let PhysicianOverview () =
                                         prop.classes ["appointmentViewerList__name"; "has-text-weight-bold"; "p-2" ]
                                         prop.text "Dr. Alan Katz"
                                         prop.style [style.fontWeight.bold; style.fontSize 25]
+                                    ]
+                                    Html.hr [
+                                        prop.className classes.lineWidth
+                                        prop.style [
+                                            style.margin 0
+                                            style.marginLeft 10
+                                            style.height 1
+                                        ]
                                     ]
                                     Html.div [  // Wrapping element
                                         //prop.style [ style.borderTop(1, borderStyle.solid, color.lightGray); style.borderTopColor color.lightGray]
@@ -219,23 +226,25 @@ let WorkingHours() =
         ]
 
 let BookAppointment() =
-    Bulma.level [
-        Bulma.button.button [
-            prop.classes ["has-text-weight-bold"]
-            Bulma.button.isRounded
-            Bulma.color.isPrimary
-            prop.className [classes.buttonStyling]
-            //Bulma.button.isFullwidth
-            // prop.onClick (fun _ ->
-            //     navigate.Invoke ( Routes.ApplicationRoute.Healix.ToString + Routes.ApplicationRoute.Members.ToString )
-            // )
-            prop.text "Book Appointment"
-            prop.style [
-                style.fontSize 17
-                style.display.flex
-                style.justifyContent.center
-                style.marginTop 30
-                style.marginBottom 10
+    Html.div [
+        Bulma.level [
+            Bulma.button.button [
+                prop.classes ["has-text-weight-bold"]
+                Bulma.button.isRounded
+                Bulma.color.isPrimary
+                prop.className [classes.buttonStyling]
+                //Bulma.button.isFullwidth
+                // prop.onClick (fun _ ->
+                //     navigate.Invoke ( Routes.ApplicationRoute.Healix.ToString + Routes.ApplicationRoute.Members.ToString )
+                // )
+                prop.text "Book Appointment"
+                prop.style [
+                    style.fontSize 17
+                    style.display.flex
+                    style.justifyContent.center
+                    style.marginTop 30
+                    style.marginBottom 10
+                ]
             ]
         ]
     ]

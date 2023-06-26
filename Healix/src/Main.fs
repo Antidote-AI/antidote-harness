@@ -8,6 +8,7 @@ open Healix.Components.BMICalculator
 open Healix.Components.AppointmentViewerList
 open Healix.Components.PhysicianOverview
 open Healix.Components.Alert
+open Healix.Components.Profile
 open Fable.Core.JsInterop
 
 emitJsStatement () "import React from \"react\""
@@ -15,6 +16,6 @@ importSideEffects "./index.scss"
 
 ReactDOM.render(
     // ListItem ()
-    Page ()
+    Alert()
     , document.getElementById("root")
 )

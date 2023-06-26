@@ -9,6 +9,11 @@
 
 .DoctorImage {
     border-radius: 12px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    align-items: center;
 }
 
 .MessagingIcon{
@@ -39,6 +44,11 @@
 }
 
 .button-styling {
+    margin: auto;
+    width: 50%;
+}
+
+.line-width {
     margin: auto;
     width: 50%;
 }
