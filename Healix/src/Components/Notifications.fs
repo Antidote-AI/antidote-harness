@@ -22,13 +22,11 @@ emitJsStatement () "import React from \"react\""
 
 let private classes : CssModules.Components.Notifications = import "default" "./Notifications.module.scss"
 
-
-
 type NotificationDetail =
     {
         Title: string
         Time: string
-        //Icon: react
+        //ImgSrc: string
     }
 
 type NotificationType =
@@ -37,16 +35,24 @@ type NotificationType =
     | Success of NotificationDetail
     | NewServicesAvailable of NotificationDetail
 
-let appointment = Cancelled { Title = "Appointment Cancelled"; Time = "Today | 4:30pm"}
+//let appointment = { Title = "Appointment Cancelled"; Time = "Today | 4:30pm" ; ImgSrc = ".././Assets/message-rounded-icon-blue.svg" }
 
 
 
 [<ReactComponent>]
-let PhysicianOverview () =
+
+let PhysicianOverview (notification:NotificationType) =
+
+    let detail, colorClass, imgSrc =
+        match notification with
+        | Cancelled detail -> detail, "has-background-danger-light", ".././Assets/closeicon.svg"
+        | Changed detail -> detail, "has-background-warning-light", ".././Assets/medicine.svg"
+        | Success detail -> detail, "has-background-success-light", ".././Assets/calgreen.svg"
+        | NewServicesAvailable detail -> detail, "has-background-primary-light", ".././Assets/calblue.svg"
 
     Html.section [
         prop.classes ["appointmentViewerList"; "card"; "m-4"; "is-flex"; "is-justify-content-space-between"]
-        prop.style [ style.display.flex; style.flexDirection.column ] // column direction for section
+        prop.style [ style.display.flex; style.flexDirection.column] // column direction for section
         prop.children [
             // New container to hold existing elements and the "New" tag
             Html.div [
@@ -61,9 +67,9 @@ let PhysicianOverview () =
                                     Html.div [
                                         prop.children [
                                             Html.img [
-                                                prop.src ".././Assets/message-rounded-icon-blue.svg"
+                                                prop.src imgSrc
                                                 prop.alt "messaging icon"
-                                                prop.classes [classes.MessagingIcon;"image";"is-48x48"; "is-rounded"; "m-4"; "p-3";  "has-background-primary-light";]
+                                                prop.classes [classes.MessagingIcon;"image";"is-48x48"; "is-rounded"; "m-4"; "p-3"; colorClass]
                                             ]
                                         ]
                                     ]
@@ -72,8 +78,8 @@ let PhysicianOverview () =
                                         prop.children [
                                             Html.h2 [
                                                 prop.classes ["appointmentViewerList__name"; "has-text-weight-bold"; "p-2" ]
-                                                prop.text "Appointment Cancelled"
-                                                prop.style [style.fontWeight.bold; style.fontSize 25;style.marginBottom -10]
+                                                prop.text detail.Title
+                                                prop.style [style.fontWeight.bold; style.fontSize 20;style.marginBottom -10]
                                             ]
                                             Html.div [
                                                 prop.children [
@@ -81,9 +87,7 @@ let PhysicianOverview () =
                                                         prop.classes ["appointmentViewerList__messaging"; "p-2"; "has-text-grey-dark"]
                                                         prop.style [style.fontFamily "Inter"; style.color "#504A4B"; style.marginTop -10]
                                                         prop.children [
-                                                            Html.text "Today "
-                                                            Html.text " | "
-                                                            Html.text " 4:30pm"
+                                                            Html.text detail.Time
                                                         ]
                                                     ]
                                                 ]
@@ -119,37 +123,44 @@ let PhysicianOverview () =
                     style.margin 0
                     style.marginLeft 10
                     style.height 1
+                    style.marginBottom 10
                 ]
             ]
-            Html.p [
-                prop.className classes.lineWidth
-                prop.style [ style.color.gray]
-                prop.text "You have successfully canceled your appointment with Dr. Alan Katz on Decemember 24, 2023 at 4:30pm."
+            Html.div [
+                prop.style [style.marginTop 7; style.marginBottom 7]
+                prop.children [
+                    Html.p [
+                        prop.className classes.lineWidth
+                        prop.style [ style.color.gray]
+                        prop.text "You have successfully canceled your appointment with Dr. Alan Katz on Decemember 24, 2023 at 4:30pm."
+                    ]
+                ]
             ]
         ]
     ]
 
-
-
-
-
-
-
-
-
+// usage
+let newAppointment = Changed { Title = "Appointment Cancelled"; Time = "Today | 4:30pm" }
+let newAppointment1 = Success { Title = "Appointment Cancelled"; Time = "Today | 4:30pm" }
+let newAppointment2 = NewServicesAvailable { Title = "Appointment Cancelled"; Time = "Today | 4:30pm" }
+let newAppointment3 = Cancelled { Title = "Appointment Cancelled"; Time = "Today | 4:30pm" }
 
 
 [<ReactComponent>]
 let Page () =
     Html.div [
         prop.children [
-            PhysicianOverview()
+            PhysicianOverview newAppointment
+            PhysicianOverview newAppointment1
+            PhysicianOverview newAppointment2
+            PhysicianOverview newAppointment3
             //PhysicianMetrics()
             //AboutMe()
             //WorkingHours()
             //BookAppointment()
         ]
     ]
+
 
 
 
