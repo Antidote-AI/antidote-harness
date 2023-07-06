@@ -3,6 +3,9 @@ module Healix.Main
 open Browser.Dom
 open Antidote.Core.V2.Types
 open Feliz
+open System
+open Fable.Core.JsInterop
+open Elmish
 open Healix.Components.Sample
 open Healix.Components.BMICalculator
 open Healix.Components.AppointmentViewerList
@@ -11,6 +14,7 @@ open Healix.Components.Messaging
 open Healix.Components.Alert
 open Healix.Components.Profile
 open Healix.Components.Notifications
+open Healix.Components.PatientHome
 
 open Fable.Core.JsInterop
 
@@ -19,6 +23,6 @@ importSideEffects "./index.scss"
 
 ReactDOM.render(
     // ListItem ()
-    Page()
+    PatientHome()
     , document.getElementById("root")
 )

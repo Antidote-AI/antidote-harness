@@ -13,6 +13,7 @@
     <Compile Include="Components/AppointmentViewerList.fs" />
     <Compile Include="Components/BMICalculator.fs" />
     <Compile Include="Components/Alert.fs" />
+    <Compile Include="Components/PatientHome.fs" />
     <Compile Include="Components/Notifications.fs" />
     <Compile Include="Components/Messaging.fs" />
     <Compile Include="Components/Notifications.fs" />

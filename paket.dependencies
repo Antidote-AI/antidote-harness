@@ -13,6 +13,7 @@ nuget Fable.Remoting.Client
 nuget Feliz ~> 1
 nuget Feliz.Bulma.Checkradio
 nuget Feliz.Plotly
+nuget Feliz.Bulma.Badge
 nuget Feliz.Popover 2.4.0
 # Don't use official NuGet because Fast refresh is broken
 # I will, send a PR to fix the official NuGet when I have time

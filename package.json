@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "@bulvar/bulma": "^0.11.2",
+    "@creativebulma/bulma-badge": "^1.0.1",
     "@fullcalendar/core": "^5.10.1",
     "@fullcalendar/daygrid": "^5.10.1",
     "@fullcalendar/interaction": "^5.10.1",
