@@ -14,6 +14,7 @@ open Glutinum.IconifyIcons.Mdi
 open Elmish
 open Fable.Core.JS
 open Feliz.Plotly
+open Healix.Components.PhysicianOverview
 
 
 // open Antidote.Core.V2.Utils.JS
@@ -76,7 +77,7 @@ let getIconForAssessment (assessment: AssessmentType): Icon =
 
 let iconToUrl (icon: Icon): string =
     match icon with
-    | Diabetes -> ".././Assets/diabetes.svg"
+    | Diabetes -> ".././Assets/insulin-pen.svg"
     | Heart -> ".././Assets/heart.svg"
     | Healix -> ".././Assets/helix.svg"
     | Kidney -> ".././Assets/kidney.svg"
@@ -106,7 +107,7 @@ let updateAssessmentPoints (a: Assessment) =
 let myAssessments : Assessment list = [
     { Type = DiabetesAssessment; Status = NotStarted; PotentialPoints = 50; ActualPoints = 0};
     { Type = HeartAssessment; Status = InProgress; PotentialPoints = 50; ActualPoints = 0};
-    { Type = HealixAssessment; Status = Complete; PotentialPoints = 50; ActualPoints = 0}
+    { Type = LungsAssessment; Status = Complete; PotentialPoints = 50; ActualPoints = 0}
     // add more assessments as needed
 ]
 
@@ -204,13 +205,33 @@ let progress(myAssessments: Assessment list) =
                     ]
                 ]
             | false ->
-                Html.img [
-                    //prop.className [classes.picture]
-                    prop.style [style.display.flex; style.justifyContent.center; style.alignItems.center; style.alignContent.center; style.marginTop 15]
-                    prop.src ".././Assets/no_data.png"
-                    prop.alt "messaging icon"
-                    //prop.style [style.width 300; style.height 42]
-                    prop.classes ["image"; "is-rounded"; "p-3";]
+                Html.div [
+                    prop.style [style.marginTop 25; style.marginBottom 25]
+                    prop.children [
+                        Bulma.image [
+                            prop.style [
+                                style.paddingTop 5
+                                style.maxWidth 350
+                                style.margin.auto
+                                style.paddingBottom 10
+                            ]
+                            Html.img [ prop.src ".././Assets/nodata2.png" ]
+                            |> prop.children
+                        ]
+                        Html.div [
+                            prop.style [style.display.flex; style.justifyContent.center; style.fontSize 20]
+                            prop.children [
+                                Html.strong "No progress to display"
+                            ]
+                        ]
+                        Html.div [
+                            prop.className [classes.textContainer]
+                            prop.style [style.display.flex; style.justifyContent.center; style.color.dimGray]
+                            prop.children [
+                                Html.p "Please complete assessments below to accumulate points."
+                            ]
+                        ]
+                    ]
                 ]
 
             Html.div [
@@ -222,34 +243,47 @@ let progress(myAssessments: Assessment list) =
         ]
         @ (myAssessments |> List.map (fun assessment ->
             Html.div [
+                prop.style [style.marginBottom 7]
                 prop.children [
                     Bulma.card [
-                        Bulma.cardContent [
-                            Html.div [
-                                prop.style [style.display.flex; style.justifyContent.spaceBetween]
-                                prop.children [
-                                    Html.div [
-                                        prop.style [style.display.flex; style.alignItems.center]
-                                        prop.children [
-                                            Html.img [
-                                                prop.src (iconToUrl (getIconForAssessment assessment.Type))
-                                                prop.alt "assessment icon"
-                                                prop.style [style.width 45; style.height 45]
-                                                prop.className "image is-rounded p-3 has-background-link-light"
-                                            ]
-                                            Html.div [
-                                                prop.style [style.display.flex; style.justifyContent.flexStart; style.alignItems.center; style.marginLeft 7]
-                                                prop.children [
-                                                    Html.strong (sprintf "%A" assessment.Type)
+                        prop.children [
+                            Bulma.cardContent [
+                                Html.div [
+                                    prop.style [style.display.flex; style.justifyContent.spaceBetween; style.height 15]
+                                    prop.children [
+                                        Html.div [
+                                            prop.style [style.display.flex; style.alignItems.center]
+                                            prop.children [
+                                                Html.img [
+                                                    prop.classes [classes.MessagingIcon; "is-rounded";  "has-background-white-bis"]
+                                                    prop.src (iconToUrl (getIconForAssessment assessment.Type))
+                                                    prop.alt "assessment icon"
+                                                    prop.style [style.width 25; style.height 25; style.marginRight 10]
+
+
+
+                                                ]
+                                                Html.div [
+                                                    prop.style [style.display.flex; style.justifyContent.flexStart; style.alignItems.center; style.marginLeft 7]
+                                                    prop.children [
+                                                        Html.strong (sprintf "%A" assessment.Type)
+                                                    ]
                                                 ]
                                             ]
                                         ]
-                                    ]
-                                    Html.div [
-                                        prop.style [style.display.flex; style.justifyContent.flexEnd; style.alignItems.center]
-                                        prop.children [
-                                            Html.strong (sprintf "%d pts" assessment.ActualPoints)
+                                        Html.div [
+                                            prop.style [style.display.flex; style.justifyContent.flexEnd; style.alignItems.center]
+                                            prop.children [
+                                                Html.strong (sprintf "%d pts" assessment.ActualPoints)
+                                            ]
                                         ]
+                                        Html.div [
+                                            prop.style [style.display.flex; style.justifyContent.flexEnd; style.alignItems.center]
+                                            prop.children [
+                                                Html.i [ prop.classes [ "fas"; "fa-chevron-right"] ]
+                                            ]
+                                        ]
+
                                     ]
                                 ]
                             ]
@@ -280,7 +314,7 @@ let ToDoComponent () =
                                         prop.src ".././Assets/message-rounded-icon-blue.svg"
                                         prop.alt "messaging icon"
                                         prop.style [style.width 42; style.height 42]
-                                        prop.classes [classes.MessagingIcon;"image"; "is-rounded"; "p-3";  "has-background-link-light";]
+                                        prop.classes [classes.MessagingIcon;"image"; "is-rounded"; "p-3";  "has-background-link-light"]
                                     ]
                                     Html.div [
                                         prop.style [style.display.flex; style.justifyContent.flexStart; style.alignItems.center; style.marginLeft 7]
@@ -303,26 +337,20 @@ let ToDoComponent () =
         ]
     ]
 
-[<ReactComponent>]
-let PatientHome (props:PatientHomeData) =
 
-    let (currentTab, setTab) = React.useState Tab.Progress
+let upcomingAptsComponent() =
 
-    let tabContent =
-        match currentTab with
-        | Progress -> progress myAssessments
-        | ToDo -> ToDoComponent()
-        | Completed -> Html.p [ prop.text "Completed Content" ]
-        | Upcoming -> Html.p [ prop.text "Upcoming Content" ]
-
-    Html.section [
-        prop.classes ["appointmentViewerList"; "m-4"; "is-flex"; "is-justify-content-space-between"]
-        prop.style [ style.display.flex; style.flexDirection.column] // column direction for section
+    Html.div [
         prop.children [
-            // New container to hold existing elements and the "New" tag
+            Html.div [
+                prop.style [style.marginTop 15; style.marginBottom 5]
+                prop.children [
+                    Html.strong "Upcoming Appointments"
+                ]
+            ]
             Html.div [
                 prop.classes ["card"]
-                prop.style [ style.display.flex; style.justifyContent.spaceBetween; style.marginBottom 15] // row direction for this container
+                prop.style [ style.display.flex; style.flexDirection.column; style.marginBottom 15] // row direction for this container
                 prop.children [
                     Html.div [
                         prop.style [style.width (length.perc 100)]
@@ -339,7 +367,7 @@ let PatientHome (props:PatientHomeData) =
                                                 prop.children [
                                                     Html.img [
                                                         prop.style [style.marginLeft 10; style.width 48; style.height 48]
-                                                        prop.src props.Avatar
+                                                        prop.src ".././Assets/me.jpeg"
                                                         //prop.alt "messaging icon"
                                                         prop.classes [classes.MessagingIcon;"image"; "is-rounded"]
                                                     ]
@@ -348,18 +376,18 @@ let PatientHome (props:PatientHomeData) =
                                             Html.div [
                                                 prop.classes ["appointmentViewerList__container-content"]
                                                 prop.children [
-                                                    Html.h2 [
+                                                    Html.h3 [
                                                         prop.classes ["appointmentViewerList__name"; "has-text-weight-bold"; "p-2" ]
-                                                        prop.text (props.FirstName + " " + props.LastName)
-                                                        prop.style [style.fontFamily "Inter"; style.fontWeight.bold; style.fontSize 20;style.marginBottom -10; style.marginLeft 7]
+                                                        prop.text ("Alex" + " " + "Campo")
+                                                        prop.style [style.fontFamily "Inter"; style.fontWeight.bold; style.fontSize 17;style.marginBottom -20; style.marginLeft 7; style.color.black]
                                                     ]
                                                     Html.div [
                                                         prop.children [
                                                             Html.p [
-                                                                prop.classes ["appointmentViewerList__messaging"; "p-2"; "has-text-grey-dark"]
-                                                                prop.style [style.fontFamily "Inter"; style.color "#504A4B"; style.marginTop -10; style.marginLeft 7]
+                                                                prop.classes ["appointmentViewerList__messaging"; "p-2"]
+                                                                prop.style [style.fontFamily "Inter"; style.marginLeft 7; style.fontSize 14; style.color.gray]
                                                                 prop.children [
-                                                                    Html.text (props.DOB + " | " + props.Gender)
+                                                                    Html.text ("Family Medicine")
                                                                 ]
                                                             ]
                                                         ]
@@ -369,24 +397,39 @@ let PatientHome (props:PatientHomeData) =
                                         ]
                                     ]
                                     Html.div [
-                                        prop.classes ["appointmentViewerList__container-content"]
-                                        prop.style [style.display.flex; style.justifyContent.flexEnd; style.alignItems.center; style.paddingRight 10]
+                                        prop.style [style.display.flex; style.flexDirection.row]
                                         prop.children [
                                             Html.div [
-                                                prop.classes [classes.MessagingIcon; "image"; "is-rounded"; "p-3";  "has-background-link-light"]
+                                                prop.classes ["appointmentViewerList__container-content"]
+                                                prop.style [style.display.flex; style.justifyContent.flexEnd; style.alignItems.center; style.paddingRight 10]
                                                 prop.children [
-                                                    let ptsIcon (pts:int) =
-                                                        match pts with
-                                                        | pts when pts >= 0 && pts <= 100 -> ".././Assets/bronze.svg"
-                                                        | pts when pts > 100 && pts <= 200 -> ".././Assets/silver.svg"
-                                                        | pts when pts > 200 && pts <= 300 -> ".././Assets/gold.svg"
-                                                        | pts when pts > 300 && pts <= 400 -> ".././Assets/diamond.svg"
-                                                        | _ -> "" // You may want to handle a case when pts is out of your range, or negative
-                                                    Html.img [
-                                                        prop.style [style.width 20; style.height 20]
-                                                        prop.src (ptsIcon totalActualPoints)
-                                                        //prop.alt "messaging icon"
-                                                        prop.classes [classes.MessagingIcon;"image"; "is-rounded"]
+                                                    Html.div [
+                                                        prop.classes [classes.MessagingIcon; "image"; "is-rounded"; "p-3";  "has-background-link-light"]
+                                                        prop.children [
+                                                            Html.img [
+                                                                prop.src ".././Assets/message-rounded-icon-blue.svg"
+                                                                prop.alt "messaging icon"
+                                                                prop.style [style.width 17; style.height 17]
+                                                                //rop.classes [classes.MessagingIcon;"image"; "is-rounded"; "p-3";  "has-background-link-light"]
+                                                            ]
+                                                        ]
+                                                    ]
+                                                ]
+                                            ]
+                                            Html.div [
+                                                prop.classes ["appointmentViewerList__container-content"]
+                                                prop.style [style.display.flex; style.justifyContent.flexEnd; style.alignItems.center; style.paddingRight 10]
+                                                prop.children [
+                                                    Html.div [
+                                                        prop.classes [classes.MessagingIcon; "image"; "is-rounded"; "p-3";  "has-background-link-light"]
+                                                        prop.children [
+                                                            Html.img [
+                                                                prop.src ".././Assets/video-call.svg"
+                                                                prop.alt "messaging icon"
+                                                                prop.style [style.width 17; style.height 17]
+                                                                //rop.classes [classes.MessagingIcon;"image"; "is-rounded"; "p-3";  "has-background-link-light"]
+                                                            ]
+                                                        ]
                                                     ]
                                                 ]
                                             ]
@@ -396,47 +439,166 @@ let PatientHome (props:PatientHomeData) =
                             ]
                         ]
                     ]
+                    Html.div [
+                        prop.style [ style.borderTop(1, borderStyle.solid, color.whiteSmoke); style.borderTopColor color.whiteSmoke;style.display.flex;
+                                    style.flexDirection.row; style.flexWrap.wrap; style.justifyContent.spaceBetween; style.gap 10]
+                        prop.classes ["appointmentViewerList__container-button"; "is-flex"; "is-justify-content-space-evenly";"has-border-top"; ]
+                        prop.children [
+                            Html.div [
+                                prop.style [style.display.flex; style.alignItems.center; style.marginTop 7; style.marginBottom 7] // Added alignItems.center to align items vertically
+                                prop.children [
+                                    Html.img [prop.src ".././Assets/calendar.svg"; prop.style [style.width 15; style.height 15; style.marginRight 5]]
+                                    Html.div [
+                                        prop.style [style.fontSize 14; style.fontFamily "Inter"; style.color.black]
+                                        prop.children [
+                                            Html.text "Sun - Oct 20, 11:00 AM - 12:00 PM"
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+
+
+
+[<ReactComponent>]
+let PatientHome (props:PatientHomeData) =
+
+    let (currentTab, setTab) = React.useState Tab.Progress
+
+    let tabContent =
+        match currentTab with
+        | Progress -> progress myAssessments
+        | ToDo -> ToDoComponent()
+        | Completed -> Html.p [ prop.text "Completed Content" ]
+        | Upcoming -> upcomingAptsComponent()
+
+    Html.section [
+        prop.classes ["appointmentViewerList"; "m-4"; "is-flex"; "is-justify-content-space-between"]
+        prop.style [ style.display.flex; style.flexDirection.column;] // column direction for section
+        prop.children [
+            // New container to hold existing elements and the "New" tag
+            Html.div [
+                prop.style [style.custom("boxShadow", "rgba(0, 0, 0, 0.16) 0px 1px 4px")]
+                prop.className [classes.marginLess]
+                prop.classes ["appointmentViewerList__container-content"; "is-flex"; "is-flex-direction-row"; "m-1"; "is-justify-content-space-between"]
+                prop.children [
+                    Html.div [
+                        prop.style [ style.display.flex; style.alignItems.center; style.justifyContent.spaceBetween; style.width (length.perc 100); style.flexGrow 1]
+                        // added justifyContent.spaceBetween and style.width.pct 100 to stretch the container
+                        prop.children [
+                            Html.div [
+                                prop.style [ style.display.flex; style.alignItems.center]
+                                prop.children [
+                                    Html.div [
+                                        prop.children [
+                                            Html.img [
+                                                prop.style [style.marginLeft 10; style.width 48; style.height 48]
+                                                prop.src ".././Assets/me.jpeg"
+                                                //prop.alt "messaging icon"
+                                                prop.classes [classes.MessagingIcon;"image"; "is-rounded"]
+                                            ]
+                                        ]
+                                    ]
+                                    Html.div [
+                                        prop.classes ["appointmentViewerList__container-content"]
+                                        prop.children [
+                                            Html.h3 [
+                                                prop.classes ["appointmentViewerList__name"; "has-text-weight-bold"; "p-2" ]
+                                                prop.text ("Alex" + " " + "Campo")
+                                                prop.style [style.fontFamily "Inter"; style.fontWeight.bold; style.fontSize 17;style.marginBottom -20; style.marginLeft 7; style.color.black]
+                                            ]
+                                            Html.div [
+                                                prop.children [
+                                                    Html.p [
+                                                        prop.classes ["appointmentViewerList__messaging"; "p-2"]
+                                                        prop.style [style.fontFamily "Inter"; style.marginLeft 7; style.fontSize 14; style.color.gray]
+                                                        prop.children [
+                                                            Html.text ("Family Medicine")
+                                                        ]
+                                                    ]
+                                                ]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                            Html.div [
+                                prop.classes ["appointmentViewerList__container-content"]
+                                prop.style [style.display.flex; style.justifyContent.flexEnd; style.alignItems.center; style.paddingRight 10]
+                                prop.children [
+                                    Html.div [
+                                        prop.classes [classes.MessagingIcon; "image"; "is-rounded"; "p-3";  "has-background-link-light"]
+                                        prop.children [
+                                            let ptsIcon (pts:int) =
+                                                match pts with
+                                                | pts when pts >= 0 && pts <= 100 -> ".././Assets/bronze.svg"
+                                                | pts when pts > 100 && pts <= 200 -> ".././Assets/silver.svg"
+                                                | pts when pts > 200 && pts <= 300 -> ".././Assets/gold.svg"
+                                                | pts when pts > 300 && pts <= 400 -> ".././Assets/diamond.svg"
+                                                | _ -> "" // You may want to handle a case when pts is out of your range, or negative
+                                            Html.img [
+                                                prop.style [style.width 20; style.height 20]
+                                                prop.src (ptsIcon totalActualPoints)
+                                                //prop.alt "messaging icon"
+                                                prop.classes [classes.MessagingIcon;"image"; "is-rounded"]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                    //PhysicianMetrics ()
                 ]
             ]
 
+
             // Line and text at the bottom of the section
             Html.div [
-                Bulma.tabs [
-                    tabs.isBoxed
-                    tabs.isCentered
-                    prop.style [style.marginBottom 10]
-                    prop.children [
-                        Html.ul [
-                            Bulma.tab [
-                                Html.a [
-                                    prop.text "Progress"
-                                    prop.className [classes.tab]
-                                    prop.classes (if currentTab = Progress then [ "has-background-primary";"has-text-white";"has-text-weight-bold" ] else ["has-text-gray-dark"])
-                                    prop.onClick (fun _ -> setTab Progress)
+                prop.style [style.marginTop 20]
+                prop.children [
+                    Bulma.tabs [
+                        tabs.isBoxed
+                        tabs.isCentered
+                        prop.style [style.marginBottom 10]
+                        prop.children [
+                            Html.ul [
+                                Bulma.tab [
+                                    Html.a [
+                                        prop.text "Progress"
+                                        prop.className [classes.tab]
+                                        prop.classes (if currentTab = Progress then [ "has-background-primary";"has-text-white";"has-text-weight-bold" ] else ["has-text-gray-dark"])
+                                        prop.onClick (fun _ -> setTab Progress)
+                                    ]
                                 ]
-                            ]
-                            Bulma.tab [
-                                Html.a [
-                                    prop.text "To Do"
-                                    prop.className [classes.tab]
-                                    prop.classes (if currentTab = ToDo then [ "has-background-primary";"has-text-white";"has-text-weight-bold" ] else ["has-text-gray-dark"])
-                                    prop.onClick (fun _ -> setTab ToDo)
+                                Bulma.tab [
+                                    Html.a [
+                                        prop.text "To Do"
+                                        prop.className [classes.tab]
+                                        prop.classes (if currentTab = ToDo then [ "has-background-primary";"has-text-white";"has-text-weight-bold" ] else ["has-text-gray-dark"])
+                                        prop.onClick (fun _ -> setTab ToDo)
+                                    ]
                                 ]
-                            ]
-                            Bulma.tab [
-                                Html.a [
-                                    prop.text "Completed"
-                                    prop.className [classes.tab]
-                                    prop.classes (if currentTab = Completed then [ "has-background-primary";"has-text-white";"has-text-weight-bold" ] else ["has-text-gray-dark"])
-                                    prop.onClick (fun _ -> setTab Completed)
+                                Bulma.tab [
+                                    Html.a [
+                                        prop.text "Completed"
+                                        prop.className [classes.tab]
+                                        prop.classes (if currentTab = Completed then [ "has-background-primary";"has-text-white";"has-text-weight-bold" ] else ["has-text-gray-dark"])
+                                        prop.onClick (fun _ -> setTab Completed)
+                                    ]
                                 ]
-                            ]
-                            Bulma.tab [
-                                Html.a [
-                                    prop.text "Upcoming"
-                                    prop.className [classes.tab]
-                                    prop.classes (if currentTab = Upcoming then [ "has-background-primary";"has-text-white";"has-text-weight-bold" ] else ["has-text-gray-dark"])
-                                    prop.onClick (fun _ -> setTab Upcoming)
+                                Bulma.tab [
+                                    Html.a [
+                                        prop.text "Upcoming"
+                                        prop.className [classes.tab]
+                                        prop.classes (if currentTab = Upcoming then [ "has-background-primary";"has-text-white";"has-text-weight-bold" ] else ["has-text-gray-dark"])
+                                        prop.onClick (fun _ -> setTab Upcoming)
+                                    ]
                                 ]
                             ]
                         ]

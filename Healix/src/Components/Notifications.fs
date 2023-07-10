@@ -147,7 +147,7 @@ let newAppointment3 = Cancelled { Title = "Appointment Cancelled"; Time = "Today
 
 
 [<ReactComponent>]
-let Page () =
+let Notifications () =
     Html.div [
         prop.children [
             PhysicianOverview newAppointment

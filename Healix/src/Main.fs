@@ -23,6 +23,6 @@ importSideEffects "./index.scss"
 
 ReactDOM.render(
     // ListItem ()
-    PatientHome()
+    PatientHome(patientData)
     , document.getElementById("root")
 )

@@ -116,3 +116,18 @@
 .tab:hover {
     background-color: #ddd !important;
 }
+
+.margin-left {
+    margin-left: auto !important;
+}
+
+.picture {
+    height: 40vh !important;
+    width: auto !important; /* maintain aspect ratio */
+    object-fit: cover !important;
+}
+
+.text-container {
+    position: relative;
+    text-align: center;
+}
