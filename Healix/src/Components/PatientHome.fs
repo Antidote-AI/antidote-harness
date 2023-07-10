@@ -14,7 +14,7 @@ open Glutinum.IconifyIcons.Mdi
 open Elmish
 open Fable.Core.JS
 open Feliz.Plotly
-open Healix.Components.PhysicianOverview
+//open Healix.Components.PhysicianOverview
 
 
 // open Antidote.Core.V2.Utils.JS
@@ -106,8 +106,8 @@ let updateAssessmentPoints (a: Assessment) =
 
 let myAssessments : Assessment list = [
     { Type = DiabetesAssessment; Status = NotStarted; PotentialPoints = 50; ActualPoints = 0};
-    { Type = HeartAssessment; Status = InProgress; PotentialPoints = 50; ActualPoints = 0};
-    { Type = LungsAssessment; Status = Complete; PotentialPoints = 50; ActualPoints = 0}
+    { Type = HeartAssessment; Status = InProgress; PotentialPoints = 50; ActualPoints = 50};
+    { Type = LungsAssessment; Status = Complete; PotentialPoints = 50; ActualPoints = 50}
     // add more assessments as needed
 ]
 
@@ -255,12 +255,10 @@ let progress(myAssessments: Assessment list) =
                                             prop.style [style.display.flex; style.alignItems.center]
                                             prop.children [
                                                 Html.img [
-                                                    prop.classes [classes.MessagingIcon; "is-rounded";  "has-background-white-bis"]
+                                                    //prop.classes [classes.MessagingIcon; "is-rounded";  "has-background-white-bis"]
                                                     prop.src (iconToUrl (getIconForAssessment assessment.Type))
                                                     prop.alt "assessment icon"
                                                     prop.style [style.width 25; style.height 25; style.marginRight 10]
-
-
 
                                                 ]
                                                 Html.div [
@@ -463,7 +461,55 @@ let upcomingAptsComponent() =
         ]
     ]
 
+// let CompletedAssessments ()=
+//     myAssessments |> List.map (fun assessment ->
+//         Html.div [
+//             prop.style [style.marginBottom 7]
+//             prop.children [
+//                 Bulma.card [
+//                     prop.children [
+//                         Bulma.cardContent [
+//                             Html.div [
+//                                 prop.style [style.display.flex; style.justifyContent.spaceBetween; style.height 15]
+//                                 prop.children [
+//                                     Html.div [
+//                                         prop.style [style.display.flex; style.alignItems.center]
+//                                         prop.children [
+//                                             Html.img [
+//                                                 //prop.classes [classes.MessagingIcon; "is-rounded";  "has-background-white-bis"]
+//                                                 prop.src (iconToUrl (getIconForAssessment assessment.Type))
+//                                                 prop.alt "assessment icon"
+//                                                 prop.style [style.width 25; style.height 25; style.marginRight 10]
 
+//                                             ]
+//                                             Html.div [
+//                                                 prop.style [style.display.flex; style.justifyContent.flexStart; style.alignItems.center; style.marginLeft 7]
+//                                                 prop.children [
+//                                                     Html.strong (sprintf "%A" assessment.Type)
+//                                                 ]
+//                                             ]
+//                                         ]
+//                                     ]
+//                                     Html.div [
+//                                         prop.style [style.display.flex; style.justifyContent.flexEnd; style.alignItems.center]
+//                                         prop.children [
+//                                             Html.strong (sprintf "%d pts" assessment.ActualPoints)
+//                                         ]
+//                                     ]
+//                                     Html.div [
+//                                         prop.style [style.display.flex; style.justifyContent.flexEnd; style.alignItems.center]
+//                                         prop.children [
+//                                             Html.i [ prop.classes [ "fas"; "fa-chevron-right"] ]
+//                                         ]
+//                                     ]
+
+//                                 ]
+//                             ]
+//                         ]
+//                     ]
+//                 ]
+//             ]
+//         ])
 
 [<ReactComponent>]
 let PatientHome (props:PatientHomeData) =
@@ -474,7 +520,7 @@ let PatientHome (props:PatientHomeData) =
         match currentTab with
         | Progress -> progress myAssessments
         | ToDo -> ToDoComponent()
-        | Completed -> Html.p [ prop.text "Completed Content" ]
+        | Completed -> CompletedAssessments()
         | Upcoming -> upcomingAptsComponent()
 
     Html.section [
@@ -483,23 +529,21 @@ let PatientHome (props:PatientHomeData) =
         prop.children [
             // New container to hold existing elements and the "New" tag
             Html.div [
-                prop.style [style.custom("boxShadow", "rgba(0, 0, 0, 0.16) 0px 1px 4px")]
+                prop.style [ style.flexDirection.column]
                 prop.className [classes.marginLess]
-                prop.classes ["appointmentViewerList__container-content"; "is-flex"; "is-flex-direction-row"; "m-1"; "is-justify-content-space-between"]
+                prop.classes ["appointmentViewerList__container-content"; "is-flex"; "m-1"; "is-justify-content-space-between"]
                 prop.children [
                     Html.div [
-                        prop.style [ style.display.flex; style.alignItems.center; style.justifyContent.spaceBetween; style.width (length.perc 100); style.flexGrow 1]
-                        // added justifyContent.spaceBetween and style.width.pct 100 to stretch the container
+                        prop.style [ style.display.flex; style.alignItems.center; style.flexDirection.column; style.justifyContent.center; style.width (length.perc 100); style.flexGrow 1]
                         prop.children [
                             Html.div [
-                                prop.style [ style.display.flex; style.alignItems.center]
+                                prop.style [ style.display.flex; style.flexDirection.column; style.alignItems.center; style.marginTop 10]
                                 prop.children [
                                     Html.div [
                                         prop.children [
                                             Html.img [
-                                                prop.style [style.marginLeft 10; style.width 48; style.height 48]
+                                                prop.style [style.marginLeft 10; style.width 75; style.height 75]
                                                 prop.src ".././Assets/me.jpeg"
-                                                //prop.alt "messaging icon"
                                                 prop.classes [classes.MessagingIcon;"image"; "is-rounded"]
                                             ]
                                         ]
@@ -510,15 +554,15 @@ let PatientHome (props:PatientHomeData) =
                                             Html.h3 [
                                                 prop.classes ["appointmentViewerList__name"; "has-text-weight-bold"; "p-2" ]
                                                 prop.text ("Alex" + " " + "Campo")
-                                                prop.style [style.fontFamily "Inter"; style.fontWeight.bold; style.fontSize 17;style.marginBottom -20; style.marginLeft 7; style.color.black]
+                                                prop.style [style.fontFamily "Inter"; style.fontWeight.bold; style.fontSize 17;style.marginBottom -20; style.color.black; style.textAlign.center]
                                             ]
                                             Html.div [
                                                 prop.children [
                                                     Html.p [
                                                         prop.classes ["appointmentViewerList__messaging"; "p-2"]
-                                                        prop.style [style.fontFamily "Inter"; style.marginLeft 7; style.fontSize 14; style.color.gray]
+                                                        prop.style [style.fontFamily "Inter"; style.fontSize 14; style.color.gray; style.textAlign.center]
                                                         prop.children [
-                                                            Html.text ("Family Medicine")
+                                                            Html.text ("Patient")
                                                         ]
                                                     ]
                                                 ]
@@ -527,25 +571,104 @@ let PatientHome (props:PatientHomeData) =
                                     ]
                                 ]
                             ]
+                        ]
+                    ]
+
+                    Html.div [
+                        prop.style [ style.display.flex; style.alignItems.center; style.justifyContent.center; style.width (length.perc 100); style.flexGrow 1]
+                        // added justifyContent.spaceBetween and style.width.pct 100 to stretch the container
+                        prop.children [
                             Html.div [
-                                prop.classes ["appointmentViewerList__container-content"]
-                                prop.style [style.display.flex; style.justifyContent.flexEnd; style.alignItems.center; style.paddingRight 10]
+                                prop.style [ style.display.flex; style.alignItems.center]
                                 prop.children [
                                     Html.div [
-                                        prop.classes [classes.MessagingIcon; "image"; "is-rounded"; "p-3";  "has-background-link-light"]
-                                        prop.children [
-                                            let ptsIcon (pts:int) =
-                                                match pts with
-                                                | pts when pts >= 0 && pts <= 100 -> ".././Assets/bronze.svg"
-                                                | pts when pts > 100 && pts <= 200 -> ".././Assets/silver.svg"
-                                                | pts when pts > 200 && pts <= 300 -> ".././Assets/gold.svg"
-                                                | pts when pts > 300 && pts <= 400 -> ".././Assets/diamond.svg"
-                                                | _ -> "" // You may want to handle a case when pts is out of your range, or negative
-                                            Html.img [
-                                                prop.style [style.width 20; style.height 20]
-                                                prop.src (ptsIcon totalActualPoints)
-                                                //prop.alt "messaging icon"
-                                                prop.classes [classes.MessagingIcon;"image"; "is-rounded"]
+                                        Bulma.level [
+                                            //Bulma.level.isMobile
+                                            Bulma.levelItem [
+                                                prop.classes ["has-text-centered"]
+                                                prop.style [style.borderRight(1, borderStyle.solid, color.whiteSmoke); style.borderRightColor color.whiteSmoke; style.width (length.perc 100); style.flexGrow 1]
+                                                prop.children [
+                                                    Html.div [
+                                                        prop.children [
+                                                            Html.img [
+                                                                prop.style [style.marginLeft 10; style.width 40; style.height 40]
+                                                                prop.src ".././Assets/competition.svg"
+                                                                //prop.alt "messaging icon"
+                                                                //prop.classes [classes.MessagingIcon;"image"]
+                                                            ]
+                                                        ]
+                                                    ]
+                                                    Html.div [
+                                                        prop.classes ["appointmentViewerList__container-content"]
+                                                        prop.children [
+                                                            Html.h3 [
+                                                                prop.classes ["appointmentViewerList__name"; "has-text-weight-bold"; "p-2" ]
+                                                                prop.text "17th"
+                                                                prop.style [style.fontFamily "Inter"; style.fontWeight.bold; style.fontSize 17;style.marginBottom -20; style.marginLeft 7; style.color.black]
+                                                            ]
+                                                            Html.div [
+                                                                prop.children [
+                                                                    Html.p [
+                                                                        prop.classes ["appointmentViewerList__messaging"; "p-2"]
+                                                                        prop.style [style.fontFamily "Inter"; style.marginLeft 7; style.fontSize 14; style.color.gray]
+                                                                        prop.children [
+                                                                            Html.text ("Percentile")
+                                                                        ]
+                                                                    ]
+                                                                ]
+                                                            ]
+                                                        ]
+                                                    ]
+                                                ]
+                                            ]
+                                        ]
+                                    ]
+                                    Html.div [
+                                        Bulma.level [
+                                            //Bulma.level.isMobile
+                                            Bulma.levelItem [
+                                                prop.classes ["has-text-centered"]
+                                                prop.style [style.marginLeft 5]
+                                                prop.children [
+                                                    Html.div [
+                                                        prop.children [
+                                                            let ptsIcon (pts:int) =
+                                                                match pts with
+                                                                | pts when pts >= 0 && pts <= 100 -> ".././Assets/bronze.svg"
+                                                                | pts when pts > 100 && pts <= 200 -> ".././Assets/silver.svg"
+                                                                | pts when pts > 200 && pts <= 300 -> ".././Assets/gold.svg"
+                                                                | pts when pts > 300 && pts <= 400 -> ".././Assets/diamond.svg"
+                                                                | _ -> "" // You may want to handle a case when pts is out of your range, or negative
+                                                            Html.img [
+                                                                prop.style [style.width 40; style.height 40]
+                                                                prop.src (ptsIcon totalActualPoints)
+                                                                //prop.alt "messaging icon"
+                                                                prop.classes [classes.MessagingIcon;"image"; "is-rounded"]
+                                                            ]
+                                                        ]
+                                                    ]
+                                                    Html.div [
+                                                        prop.classes ["appointmentViewerList__container-content"]
+                                                        prop.children [
+                                                            Html.h3 [
+                                                                prop.classes ["appointmentViewerList__name"; "has-text-weight-bold"; "p-2" ]
+                                                                prop.text "Bronze"
+                                                                prop.style [style.fontFamily "Inter"; style.fontWeight.bold; style.fontSize 17;style.marginBottom -20; style.marginLeft 7; style.color.black]
+                                                            ]
+                                                            Html.div [
+                                                                prop.children [
+                                                                    Html.p [
+                                                                        prop.classes ["appointmentViewerList__messaging"; "p-2"]
+                                                                        prop.style [style.fontFamily "Inter"; style.marginLeft 7; style.fontSize 14; style.color.gray]
+                                                                        prop.children [
+                                                                            Html.text ("Status")
+                                                                        ]
+                                                                    ]
+                                                                ]
+                                                            ]
+                                                        ]
+                                                    ]
+                                                ]
                                             ]
                                         ]
                                     ]
@@ -553,7 +676,6 @@ let PatientHome (props:PatientHomeData) =
                             ]
                         ]
                     ]
-                    //PhysicianMetrics ()
                 ]
             ]
 
