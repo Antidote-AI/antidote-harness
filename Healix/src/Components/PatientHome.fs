@@ -105,8 +105,8 @@ let updateAssessmentPoints (a: Assessment) =
 
 
 let myAssessments : Assessment list = [
-    { Type = DiabetesAssessment; Status = NotStarted; PotentialPoints = 50; ActualPoints = 0};
-    { Type = HeartAssessment; Status = InProgress; PotentialPoints = 50; ActualPoints = 50};
+    { Type = DiabetesAssessment; Status = NotStarted; PotentialPoints = 50; ActualPoints = 50};
+    { Type = HeartAssessment; Status = NotStarted; PotentialPoints = 50; ActualPoints = 50};
     { Type = LungsAssessment; Status = Complete; PotentialPoints = 50; ActualPoints = 50}
     // add more assessments as needed
 ]
@@ -114,6 +114,64 @@ let myAssessments : Assessment list = [
 let totalActualPoints = myAssessments |> List.sumBy (fun a -> a.ActualPoints)
 let totalPotentialPoints = myAssessments |> List.sumBy (fun a -> a.PotentialPoints)
 
+
+[<ReactComponent>]
+let ToDoComponent (myAssessments: Assessment list) =
+    let toDoAssessments =
+        myAssessments
+        |> List.filter (fun assessment -> assessment.Status = NotStarted)
+
+    let assessmnetsElements =
+        toDoAssessments
+        |> List.map (fun assessment ->
+            Html.div [
+                prop.style [style.marginBottom 7]
+                prop.children [
+                    Bulma.card [
+                        prop.children [
+                            Bulma.cardContent [
+                                Html.div [
+                                    prop.style [style.display.flex; style.justifyContent.spaceBetween; style.height 15]
+                                    prop.children [
+                                        Html.div [
+                                            prop.style [style.display.flex; style.alignItems.center]
+                                            prop.children [
+                                                Html.img [
+                                                    prop.src (iconToUrl (getIconForAssessment assessment.Type))
+                                                    prop.alt "assessment icon"
+                                                    prop.style [style.width 25; style.height 25; style.marginRight 10]
+                                                ]
+                                                Html.div [
+                                                    prop.style [style.display.flex; style.justifyContent.flexStart; style.alignItems.center; style.marginLeft 7]
+                                                    prop.children [
+                                                        Html.strong (sprintf "%A" assessment.Type)
+                                                    ]
+                                                ]
+                                            ]
+                                        ]
+                                        Html.div [
+                                            prop.style [style.display.flex; style.justifyContent.flexEnd; style.alignItems.center]
+                                            prop.children [
+                                                Html.strong (sprintf "%d pts" assessment.ActualPoints)
+                                            ]
+                                        ]
+                                        Html.div [
+                                            prop.style [style.display.flex; style.justifyContent.flexEnd; style.alignItems.center]
+                                            prop.children [
+                                                Html.i [ prop.classes [ "fas"; "fa-chevron-right"] ]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ])
+    Html.div [ prop.children assessmnetsElements ]
+
+
+[<ReactComponent>]
 let progress(myAssessments: Assessment list) =
     Html.section [
         prop.children ([
@@ -292,52 +350,10 @@ let progress(myAssessments: Assessment list) =
     ]
 
 
-let ToDoComponent () =
-    Html.div[
-        prop.children [
-            Html.div [
-                prop.children [
-                    Html.strong "Upcoming Appointments"
-                ]
-            ]
-            Bulma.card [
-                Bulma.cardContent [
-                    Html.div [
-                        prop.style [style.display.flex; style.justifyContent.spaceBetween]
-                        prop.children [
-                            Html.div [
-                                prop.style [style.display.flex; style.alignItems.center]
-                                prop.children [
-                                    Html.img [
-                                        prop.src ".././Assets/message-rounded-icon-blue.svg"
-                                        prop.alt "messaging icon"
-                                        prop.style [style.width 42; style.height 42]
-                                        prop.classes [classes.MessagingIcon;"image"; "is-rounded"; "p-3";  "has-background-link-light"]
-                                    ]
-                                    Html.div [
-                                        prop.style [style.display.flex; style.justifyContent.flexStart; style.alignItems.center; style.marginLeft 7]
-                                        prop.children [
-                                            Html.strong "Progress"
-                                        ]
-                                    ]
-                                ]
-                            ]
-                            Html.div [
-                                prop.style [style.display.flex; style.justifyContent.flexEnd; style.alignItems.center]
-                                prop.children [
-                                    Html.strong "50 pts"
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            ]
-        ]
-    ]
 
 
+[<ReactComponent>]
 let upcomingAptsComponent() =
-
     Html.div [
         prop.children [
             Html.div [
@@ -461,55 +477,64 @@ let upcomingAptsComponent() =
         ]
     ]
 
-// let CompletedAssessments ()=
-//     myAssessments |> List.map (fun assessment ->
-//         Html.div [
-//             prop.style [style.marginBottom 7]
-//             prop.children [
-//                 Bulma.card [
-//                     prop.children [
-//                         Bulma.cardContent [
-//                             Html.div [
-//                                 prop.style [style.display.flex; style.justifyContent.spaceBetween; style.height 15]
-//                                 prop.children [
-//                                     Html.div [
-//                                         prop.style [style.display.flex; style.alignItems.center]
-//                                         prop.children [
-//                                             Html.img [
-//                                                 //prop.classes [classes.MessagingIcon; "is-rounded";  "has-background-white-bis"]
-//                                                 prop.src (iconToUrl (getIconForAssessment assessment.Type))
-//                                                 prop.alt "assessment icon"
-//                                                 prop.style [style.width 25; style.height 25; style.marginRight 10]
+[<ReactComponent>]
+let CompletedAssessments (myAssessments: Assessment list)=
+    let completedAssessments =
+        myAssessments
+        |> List.filter (fun assessment -> assessment.Status = Complete)
+    let assessmentsElements =
+        completedAssessments
+        |> List.map (fun assessment ->
+            Html.div [
+                prop.style [style.marginBottom 7]
+                prop.children [
+                    Bulma.card [
+                        prop.classes ["has-background-success-light"]
+                        prop.children [
+                            Bulma.cardContent [
+                                Html.div [
+                                    prop.style [style.display.flex; style.justifyContent.spaceBetween; style.height 15]
+                                    prop.children [
+                                        Html.div [
+                                            prop.style [style.display.flex; style.alignItems.center]
+                                            prop.children [
+                                                Html.img [
+                                                    prop.src (iconToUrl (getIconForAssessment assessment.Type))
+                                                    prop.alt "assessment icon"
+                                                    prop.style [style.width 25; style.height 25; style.marginRight 10]
+                                                ]
+                                                Html.div [
+                                                    prop.style [style.display.flex; style.justifyContent.flexStart; style.alignItems.center; style.marginLeft 7]
+                                                    prop.children [
+                                                        Html.strong (sprintf "%A" assessment.Type)
+                                                    ]
+                                                ]
+                                            ]
+                                        ]
+                                        Html.div [
+                                            prop.style [style.display.flex; style.justifyContent.flexEnd; style.alignItems.center]
+                                            prop.children [
+                                                Html.strong (sprintf "%d pts" assessment.ActualPoints)
+                                            ]
+                                        ]
+                                        Html.div [
+                                            prop.style [style.display.flex; style.justifyContent.flexEnd; style.alignItems.center]
+                                            prop.children [
+                                                Html.img [
+                                                    prop.src ".././Assets/check.svg"
+                                                    prop.style [style.height 20; style.width 20]
+                                                ]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ])
+    Html.div [ prop.children assessmentsElements ]
 
-//                                             ]
-//                                             Html.div [
-//                                                 prop.style [style.display.flex; style.justifyContent.flexStart; style.alignItems.center; style.marginLeft 7]
-//                                                 prop.children [
-//                                                     Html.strong (sprintf "%A" assessment.Type)
-//                                                 ]
-//                                             ]
-//                                         ]
-//                                     ]
-//                                     Html.div [
-//                                         prop.style [style.display.flex; style.justifyContent.flexEnd; style.alignItems.center]
-//                                         prop.children [
-//                                             Html.strong (sprintf "%d pts" assessment.ActualPoints)
-//                                         ]
-//                                     ]
-//                                     Html.div [
-//                                         prop.style [style.display.flex; style.justifyContent.flexEnd; style.alignItems.center]
-//                                         prop.children [
-//                                             Html.i [ prop.classes [ "fas"; "fa-chevron-right"] ]
-//                                         ]
-//                                     ]
-
-//                                 ]
-//                             ]
-//                         ]
-//                     ]
-//                 ]
-//             ]
-//         ])
 
 [<ReactComponent>]
 let PatientHome (props:PatientHomeData) =
@@ -519,8 +544,8 @@ let PatientHome (props:PatientHomeData) =
     let tabContent =
         match currentTab with
         | Progress -> progress myAssessments
-        | ToDo -> ToDoComponent()
-        | Completed -> CompletedAssessments()
+        | ToDo -> ToDoComponent myAssessments
+        | Completed -> CompletedAssessments myAssessments
         | Upcoming -> upcomingAptsComponent()
 
     Html.section [
