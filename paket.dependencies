@@ -73,6 +73,8 @@ nuget YoloDev.Expecto.TestSdk
 nuget Microsoft.AspNetCore.TestHost ~> 6
 nuget Fable.Remoting.DotnetClient
 nuget Fable.Remoting.AspNetCore
+nuget Fable.Browser.Dom
+nuget FSharp.Core
 
 # Migrations
 nuget Microsoft.Extensions.Logging.Debug

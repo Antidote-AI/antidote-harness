@@ -15,6 +15,7 @@ open Healix.Components.Alert
 open Healix.Components.Profile
 open Healix.Components.Notifications
 open Healix.Components.PatientHome
+open Healix.Components.SpinWheel
 
 open Fable.Core.JsInterop
 
@@ -23,6 +24,6 @@ importSideEffects "./index.scss"
 
 ReactDOM.render(
     // ListItem ()
-    PatientHome(patientData)
+    spinWheel ()
     , document.getElementById("root")
 )

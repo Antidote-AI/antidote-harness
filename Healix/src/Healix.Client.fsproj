@@ -19,6 +19,7 @@
     <Compile Include="Components/Notifications.fs" />
     <Compile Include="Components/PhysicianOverview.fs" />
     <Compile Include="Components/Profile.fs" />
+    <Compile Include="Components/SpinWheel.fs" />
 
     <!-- TOP LEVEL APP -->
     <!-- <Compile Include="App.fs" /> -->

@@ -662,7 +662,7 @@ let PatientHome (props:PatientHomeData) =
                                                                 | pts when pts >= 0 && pts <= 100 -> ".././Assets/bronze.svg"
                                                                 | pts when pts > 100 && pts <= 200 -> ".././Assets/silver.svg"
                                                                 | pts when pts > 200 && pts <= 300 -> ".././Assets/gold.svg"
-                                                                | pts when pts > 300 && pts <= 400 -> ".././Assets/diamond.svg"
+                                                                | pts when pts > 300  -> ".././Assets/diamond.svg"
                                                                 | _ -> "" // You may want to handle a case when pts is out of your range, or negative
                                                             Html.img [
                                                                 prop.style [style.width 40; style.height 40]
@@ -675,9 +675,16 @@ let PatientHome (props:PatientHomeData) =
                                                     Html.div [
                                                         prop.classes ["appointmentViewerList__container-content"]
                                                         prop.children [
+                                                            let ptsStatus (pts:int) =
+                                                                match pts with
+                                                                | pts when pts >= 0 && pts <= 100 -> "Bronze"
+                                                                | pts when pts > 100 && pts <= 200 -> "Silver"
+                                                                | pts when pts > 200 && pts <= 300 -> "Gold"
+                                                                | pts when pts > 300  -> "Diamond"
+                                                                | _ -> "" // You may want to handle a case when pts is out of your range, or negative
                                                             Html.h3 [
                                                                 prop.classes ["appointmentViewerList__name"; "has-text-weight-bold"; "p-2" ]
-                                                                prop.text "Bronze"
+                                                                prop.text (ptsStatus totalActualPoints)
                                                                 prop.style [style.fontFamily "Inter"; style.fontWeight.bold; style.fontSize 17;style.marginBottom -20; style.marginLeft 7; style.color.black]
                                                             ]
                                                             Html.div [
