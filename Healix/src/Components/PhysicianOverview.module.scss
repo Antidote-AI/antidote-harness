@@ -49,6 +49,29 @@
 }
 
 .line-width {
-    margin: auto;
-    width: 50%;
+    margin: auto !important;
+    width: 40% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.width-seventy {
+    width: 70% !important;
+    box-sizing: border-box !important; /* this makes sure padding and border are included in the width */
+}
+
+.width-thirty {
+    width: 30% !important;
+    box-sizing: border-box !important; /* this makes sure padding and border are included in the width */
+}
+
+.parent-container {
+    width: 100% !important;
+    display: flex !important;
+}
+
+.custom-progress {
+    height: 20px; // Adjust this value according to your preference
 }

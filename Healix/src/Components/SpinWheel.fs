@@ -1,5 +1,6 @@
 module Healix.Components.SpinWheel
 
+open System
 open Feliz
 open Fable.Core
 open Fable.Core.JsInterop
@@ -9,23 +10,10 @@ open Elmish
 open Fable.Core.JsInterop
 open Fable.React
 open Fable.React.Props
-open Browser
 
 
 
 let private classes : CssModules.Components.SpinWheel = import "default" "./SpinWheel.module.scss"
-
-// let randomRotationDegree() = Browser.Dom.window.Math.random() * 1000. |> ceil
-
-// let mutable number = randomRotationDegree()
-
-// let spinContainer() =
-//     match Browser.Dom.document.querySelector(".container") with
-//     | None -> () // element not found
-//     | Some container ->
-//         let container = container :?> Browser.Types.HtmlElement
-//         let randomDegree = int (Fable.Core.JS.Math.ceil (Fable.Core.JS.Math.random() * 1000.0))
-//         container.style.transform <- sprintf "rotate(%ddeg)" randomDegree
 
 
 let spinWheel() =
@@ -46,6 +34,7 @@ let spinWheel() =
                 Html.button [
                     prop.className [classes.spin]
                     prop.text "Spin"
+                    //prop.onClick (fun _ -> spinContainer())
                 ]
                 Html.span [
                     prop.className [classes.arrow]

@@ -24,6 +24,6 @@ importSideEffects "./index.scss"
 
 ReactDOM.render(
     // ListItem ()
-    spinWheel ()
+    Page ()
     , document.getElementById("root")
 )

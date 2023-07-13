@@ -22,8 +22,40 @@ emitJsStatement () "import React from \"react\""
 
 let private classes : CssModules.Components.PhysicianOverview = import "default" "./PhysicianOverview.module.scss"
 
+type Review = {
+    User: string
+    Rating: float
+    Comment: string
+}
 
+let reviewsData = [
+    { User = "Alex"; Rating = 5; Comment = "Great service, really enjoyed my experience!" }
+    { User = "Beth"; Rating = 3; Comment = "Average experience, nothing exceptional." }
+    { User = "Charlie"; Rating = 5; Comment = "Amazing! Best experience I've ever had." }
+    { User = "Diana"; Rating = 2; Comment = "Was not satisfied with the service, needs improvement." }
+    { User = "Eric"; Rating = 4; Comment = "Good experience overall, just a few minor issues." }
+    { User = "Fiona"; Rating = 4; Comment = "Excellent service, would definitely recommend!" }
+    { User = "Greg"; Rating = 3; Comment = "Decent experience, but I've had better." }
+    { User = "Hannah"; Rating = 5; Comment = "Nearly perfect! Just a small hiccup with delivery." }
+    { User = "Ivan"; Rating = 2; Comment = "The product was fine, but the service was lacking." }
+    { User = "Julia"; Rating = 5; Comment = "Couldn't ask for a better experience! Absolutely fantastic." }
+    { User = "Alex"; Rating = 5; Comment = "Great service, really enjoyed my experience!" }
+    { User = "Beth"; Rating = 3; Comment = "Average experience, nothing exceptional." }
+    { User = "Charlie"; Rating = 5; Comment = "Amazing! Best experience I've ever had." }
+    { User = "Diana"; Rating = 2; Comment = "Was not satisfied with the service, needs improvement." }
+    { User = "Eric"; Rating = 4; Comment = "Good experience overall, just a few minor issues." }
+    { User = "Fiona"; Rating = 4; Comment = "Excellent service, would definitely recommend!" }
+    { User = "Greg"; Rating = 3; Comment = "Decent experience, but I've had better." }
+    { User = "Hannah"; Rating = 5; Comment = "Nearly perfect! Just a small hiccup with delivery." }
+    { User = "Ivan"; Rating = 2; Comment = "The product was fine, but the service was lacking." }
+    { User = "Julia"; Rating = 5; Comment = "Couldn't ask for a better experience! Absolutely fantastic." }
+]
 
+type Tab =
+    | About
+    | Schedule
+    | Ratings
+    | WorkingHours
 
 
 let truncateAndAddButton (inputStr: string) ( showMoreCallback: unit -> unit) =
@@ -59,26 +91,27 @@ let truncateAndAddButton (inputStr: string) ( showMoreCallback: unit -> unit) =
             ]
         ]
 
+type PhysicianIcon = { image: string; number: string; title: string }
 
 [<ReactComponent>]
-let PhysicianIcons () =
+let PhysicianIcons (props:PhysicianIcon) =
     Html.div [
         prop.className [classes.marginLess]
         prop.children [
             Html.img [
-                prop.src ".././Assets/message-rounded-icon-blue.svg"
+                prop.src props.image
                 prop.alt "messaging icon"
-                prop.classes [classes.MessagingIcon;"image";"is-48x48"; "is-rounded"; "m-4"; "p-3";  "has-background-primary-light";]
+                prop.classes [classes.MessagingIcon;"image";"is-48x48"; "m-4"; "p-3";  "has-background-primary-light";]
             ]
             Html.p [
                 //prop.className classes.marginLess
                 prop.classes ["has-text-primary"; "is-size-6"; "has-text-weight-bold"]
-                prop.text "3,456"
+                prop.text props.number
                 prop.style [style.color.black; style.marginTop -10]
             ]
             Html.p [
                 prop.className "heading"
-                prop.text "Year experience"
+                prop.text props.title
             ]
         ]
     ]
@@ -121,6 +154,129 @@ let AboutMe () =
         ]
     ]
 
+let reviewBar =
+    [5; 4; 3; 2; 1]
+        |> List.map (fun rating ->
+            let count =
+                reviewsData
+                |> List.filter (fun r -> r.Rating = float rating)
+                |> List.length
+            Html.div [
+                prop.style [
+                    style.display.flex
+                    style.flexDirection.row
+                    style.width (length.percent 80)
+                    style.justifyContent.center
+                    style.alignItems.center
+                    style.marginTop 10
+                ]
+                prop.children [
+                    Html.div [
+                        prop.style [style.marginRight 5]
+                        prop.children [
+                            Html.text (string rating)
+                        ]
+                    ]
+                    Html.img [
+                        prop.src ".././Assets/star-yellow.svg"
+                        prop.style [
+                            style.width 20
+                            style.height 20
+                            style.marginRight 5
+                        ]
+                    ]
+                    Bulma.progress [
+                        Bulma.progress.isSmall
+                        prop.value (float count)
+                        prop.max (float (List.length reviewsData))
+                        prop.className "is-primary"
+                        prop.classes [classes.customProgress]
+                        prop.style [
+                            style.marginRight 5
+                        ]
+                    ]
+                    Html.text (string count)
+                ]
+            ]
+        )
+
+[<ReactComponent>]
+let reviews () =
+    Html.div [
+        prop.className [classes.parentContainer]
+        prop.children [
+            Html.div [
+                //prop.style [style.backgroundColor.green]
+                prop.className [classes.widthThirty]
+                prop.children [
+                    Html.div [
+                        //prop.className [classes.widthThirty]
+                        prop.classes ["is-flex"; "is-align-items-center"; "is-justify-content-center"; "full-height"]
+                        prop.style [style.display.flex; style.justifyContent.center; style.flexDirection.column]
+                        prop.children [
+                            Html.div [
+                                prop.classes ["has-background-primary"]
+                                prop.style [
+                                    style.display.flex
+                                    style.justifyContent.center
+                                    style.alignItems.center
+                                    style.width 75
+                                    style.height 75
+                                    //style.backgroundColor "#00d1b2"
+                                    style.borderRadius 50
+                                    style.color "#ffffff"
+                                    style.fontSize 25
+                                    style.fontWeight.bold
+                                    style.marginTop 15
+                                    style.marginBottom 10
+                                ]
+                                prop.text "4.5" // Your rating here
+                            ]
+                            Html.div [
+                                prop.style [style.display.flex; style.flexDirection.row;style.width 20; style.height 20; style.justifyContent.center]
+                                prop.children [
+                                    Html.img [prop.src ".././Assets/star-yellow.svg"]
+                                    Html.img [prop.src ".././Assets/star-yellow.svg"]
+                                    Html.img [prop.src ".././Assets/star-yellow.svg"]
+                                    Html.img [prop.src ".././Assets/star-yellow.svg"]
+                                    Html.img [prop.src ".././Assets/star-yellow.svg"]
+                                ]
+                            ]
+                            Html.div [
+                                prop.children [
+                                    Html.p [
+                                        prop.classes ["appointmentViewerList__messaging"; "p-2"]
+                                        prop.style [style.fontFamily "Inter"; style.fontSize 12; style.color.dimGray; style.fontWeight 550; style.marginTop 5]
+                                        prop.children [
+                                            Html.text (("126") + " " + ("Reviews"))
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+            Html.div [
+                prop.style [
+                    style.display.flex
+                    style.justifyContent.center
+                    style.alignItems.center
+                    style.flexDirection.column
+                ]
+                prop.className [classes.widthSeventy]
+                prop.children reviewBar
+            ]
+        ]
+    ]
+
+
+
+let patientsIcon = { image = ".././Assets/people.svg"; number = "1,000+"; title = "Patients" }
+let yearsExpIcon = { image = ".././Assets/diagram.svg"; number = "10+ Years"; title = "Experience" }
+let ratingIcon = { image = ".././Assets/star.svg"; number = "4.8"; title = "Rating" }
+let reviewsIcon = { image = ".././Assets/message-rounded-icon-blue.svg"; number = "4,923"; title = "Reviews" }
+
 [<ReactComponent>]
 let PhysicianMetrics () =
     Html.div [
@@ -129,10 +285,10 @@ let PhysicianMetrics () =
             Bulma.levelItem [
                 prop.classes ["has-text-centered"]
                 prop.children [
-                    PhysicianIcons ()
-                    PhysicianIcons ()
-                    PhysicianIcons ()
-                    PhysicianIcons ()
+                    PhysicianIcons (patientsIcon)
+                    PhysicianIcons (yearsExpIcon)
+                    PhysicianIcons (ratingIcon)
+                    PhysicianIcons (reviewsIcon)
                 ]
             ]
         ]
@@ -141,59 +297,60 @@ let PhysicianMetrics () =
 
 [<ReactComponent>]
 let PhysicianOverview () =
-
     Html.section [
-        prop.classes ["appointmentViewerList"; "card"; "m-4"]
+        prop.classes ["appointmentViewerList"; "m-4"]
         prop.children [
             Html.div [
-                prop.classes ["appointmentViewerList__container-content"; "is-flex"; "is-flex-direction-row"; "m-4"; "is-justify-content-space-between";]
+                prop.style [ style.display.flex; style.alignItems.center; style.flexDirection.column; style.width (length.perc 100); style.flexGrow 1]
                 prop.children [
                     Html.div [
-                        prop.style [ style.display.flex; style.justifyContent.spaceBetween ] // setting flexbox layout for parent div
+                        prop.style [ style.display.flex; style.flexDirection.column; style.alignItems.center; style.marginTop 10]
                         prop.children [
                             Html.div [
-                                prop.style [style.alignItems.center]
-                                prop.classes ["appointmentViewerList__container-image"; "is-flex"; "is-align-items-center"; "is-justify-content-center"; "image"; "is-128x128"]
                                 prop.children [
                                     Html.img [
+                                        prop.style [style.marginLeft 10; style.width 75; style.height 75; style.custom ("boxShadow", "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px");style.border(3, borderStyle.solid, color.white)]
                                         prop.src ".././Assets/alan-katz.jpg"
-                                        prop.alt "doctor's profile logo"
-                                        prop.classes [ classes.DoctorImage; "image"; "p-1"; "p-2"]
-                                        prop.style [style.height 120; style.borderRadius 12]
+                                        prop.classes [classes.MessagingIcon;"image"; "is-rounded"]
                                     ]
                                 ]
                             ]
-
                             Html.div [
                                 prop.classes ["appointmentViewerList__container-content"]
                                 prop.children [
-                                    Html.h2 [
+                                    Html.h3 [
                                         prop.classes ["appointmentViewerList__name"; "has-text-weight-bold"; "p-2" ]
-                                        prop.text "Dr. Alan Katz"
-                                        prop.style [style.fontWeight.bold; style.fontSize 25]
-                                    ]
-                                    Html.hr [
-                                        prop.className classes.lineWidth
                                         prop.style [
-                                            style.margin 0
-                                            style.marginLeft 10
-                                            style.height 1
+                                            style.fontFamily "Inter";
+                                            style.fontWeight.bold;
+                                            style.fontSize 17;
+                                            style.marginBottom -20;
+                                            style.color.black;
+                                            //style.textAlign.center;
+                                            style.display.flex;
+                                            style.justifyContent.center
+                                            style.alignItems.center; // This aligns items vertically
+                                        ]
+                                        prop.children [
+                                            Html.span [ // Wrap the name text in a span for flex display
+                                                prop.text ("Alex" + " " + "Campo")
+                                            ]
+                                            Html.img [
+                                                prop.src ".././Assets/verified.svg"
+                                                prop.alt "verified icon"
+                                                prop.classes ["ml-2"]
+                                                prop.style [style.width 20; style.height 20]
+                                            ]
                                         ]
                                     ]
-                                    Html.div [  // Wrapping element
-                                        //prop.style [ style.borderTop(1, borderStyle.solid, color.lightGray); style.borderTopColor color.lightGray]
+                                    Html.div [
                                         prop.children [
                                             Html.p [
-                                                prop.classes ["appointmentViewerList__messaging"; "p-2"; "has-text-grey-dark"]
-                                                prop.style [style.fontFamily "Inter"; style.color "#504A4B"]
+                                                prop.classes ["appointmentViewerList__messaging"; "p-2"]
+                                                prop.style [style.fontFamily "Inter"; style.fontSize 14; style.color.gray; style.textAlign.center]
                                                 prop.children [
-                                                    Html.text "Cardiologist"
+                                                    Html.text ("Patient")
                                                 ]
-                                            ]
-                                            Html.p [
-                                                prop.style [style.fontFamily "Inter"; style.color "#504A4B"]
-                                                prop.classes ["appointmentViewerList__availability"; "p-1"; "has-text-grey-dark"; "p-2"]
-                                                prop.text "Universidad del Norte Barranquilla, Colombia"
                                             ]
                                         ]
                                     ]
@@ -207,7 +364,7 @@ let PhysicianOverview () =
     ]
 
 [<ReactComponent>]
-let WorkingHours() =
+let WorkingHoursComp() =
     Html.div [
             prop.className [classes.marginLess]
             prop.style [style.marginTop 15]
@@ -250,13 +407,69 @@ let BookAppointment() =
     ]
 
 [<ReactComponent>]
+let TabComponent() =
+    let (currentTab, setTab) = React.useState Tab.About
+
+    let tabContent =
+        match currentTab with
+        | About -> AboutMe
+        | WorkingHours -> WorkingHoursComp
+        | Ratings -> reviews
+        // | Schedule -> CompletedAssessments myAssessments
+        | _ -> (fun _ -> Html.span "Error")
+
+    Html.section [
+        prop.children [
+            Html.div [
+                prop.style [style.marginTop 20]
+                prop.children [
+                    Bulma.tabs [
+                        tabs.isBoxed
+                        tabs.isCentered
+                        prop.style [style.marginBottom 10]
+                        prop.children [
+                            Html.ul [
+                                Bulma.tab [
+                                    Html.a [
+                                        prop.text "About"
+                                        prop.classes (if currentTab = About then [ "has-text-primary";"has-text-weight-bold";] else ["has-text-gray-dark"])
+                                        prop.onClick (fun _ -> setTab About)
+                                    ]
+                                ]
+                                Bulma.tab [
+                                    Html.a [
+                                        prop.text "Working Hours"
+                                        prop.classes (if currentTab = WorkingHours then ["has-text-primary";"has-text-weight-bold"] else ["has-text-gray-dark"])
+                                        prop.onClick (fun _ -> setTab WorkingHours)
+                                    ]
+                                ]
+                                Bulma.tab [
+                                    Html.a [
+                                        prop.text "Reviews"
+                                        prop.classes (if currentTab = Ratings then ["has-text-primary";"has-text-weight-bold"] else ["has-text-gray-dark"])
+                                        prop.onClick (fun _ -> setTab Ratings)
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+            (tabContent())
+        ]
+    ]
+
+
+
+[<ReactComponent>]
 let Page () =
     Html.div [
         prop.children [
             PhysicianOverview()
             PhysicianMetrics()
-            AboutMe()
-            WorkingHours()
+            TabComponent()
+            // AboutMe()
+            // WorkingHoursComp()
             BookAppointment()
         ]
     ]

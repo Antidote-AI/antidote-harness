@@ -107,7 +107,8 @@ let updateAssessmentPoints (a: Assessment) =
 let myAssessments : Assessment list = [
     { Type = DiabetesAssessment; Status = NotStarted; PotentialPoints = 50; ActualPoints = 50};
     { Type = HeartAssessment; Status = NotStarted; PotentialPoints = 50; ActualPoints = 50};
-    { Type = LungsAssessment; Status = Complete; PotentialPoints = 50; ActualPoints = 50}
+    { Type = LungsAssessment; Status = Complete; PotentialPoints = 50; ActualPoints = 50};
+    { Type = DiabetesAssessment; Status = NotStarted; PotentialPoints = 50; ActualPoints = 50}
     // add more assessments as needed
 ]
 
@@ -536,6 +537,7 @@ let CompletedAssessments (myAssessments: Assessment list)=
     Html.div [ prop.children assessmentsElements ]
 
 
+
 [<ReactComponent>]
 let PatientHome (props:PatientHomeData) =
 
@@ -662,13 +664,14 @@ let PatientHome (props:PatientHomeData) =
                                                                 | pts when pts >= 0 && pts <= 100 -> ".././Assets/bronze.svg"
                                                                 | pts when pts > 100 && pts <= 200 -> ".././Assets/silver.svg"
                                                                 | pts when pts > 200 && pts <= 300 -> ".././Assets/gold.svg"
-                                                                | pts when pts > 300  -> ".././Assets/diamond.svg"
+                                                                | pts when pts > 300 && pts <= 400 -> ".././Assets/platinum.svg"
+                                                                | pts when pts > 400  -> ".././Assets/diamond.svg"
                                                                 | _ -> "" // You may want to handle a case when pts is out of your range, or negative
                                                             Html.img [
-                                                                prop.style [style.width 40; style.height 40]
+                                                                prop.style [style.width 30; style.height 30]
                                                                 prop.src (ptsIcon totalActualPoints)
                                                                 //prop.alt "messaging icon"
-                                                                prop.classes [classes.MessagingIcon;"image"; "is-rounded"]
+                                                                prop.classes ["image"]
                                                             ]
                                                         ]
                                                     ]
@@ -680,7 +683,8 @@ let PatientHome (props:PatientHomeData) =
                                                                 | pts when pts >= 0 && pts <= 100 -> "Bronze"
                                                                 | pts when pts > 100 && pts <= 200 -> "Silver"
                                                                 | pts when pts > 200 && pts <= 300 -> "Gold"
-                                                                | pts when pts > 300  -> "Diamond"
+                                                                | pts when pts > 300 && pts <= 400 -> "Platinum"
+                                                                | pts when pts > 400  -> "Diamond"
                                                                 | _ -> "" // You may want to handle a case when pts is out of your range, or negative
                                                             Html.h3 [
                                                                 prop.classes ["appointmentViewerList__name"; "has-text-weight-bold"; "p-2" ]
