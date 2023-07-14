@@ -51,6 +51,7 @@
     "bulma": "^0.9.3",
     "bulma-checkradio": "^2.1.3",
     "bulma-responsive-tables": "^1.2.5",
+    "bulma-timeline": "^3.0.5",
     "bulmaswatch": "^0.8.1",
     "fuse.js": "^6.5.3",
     "luxon": "^2.3.1",

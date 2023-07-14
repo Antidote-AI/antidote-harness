@@ -9,6 +9,8 @@
     <Compile Include="CssModules.fs" />
 
     <!-- COMPONENTS -->
+    <Compile Include="Components/PhysicianOverview.fs" />
+    <Compile Include="Components/Proposal.fs" />
     <Compile Include="Components/Sample.fs" />
     <Compile Include="Components/AppointmentViewerList.fs" />
     <Compile Include="Components/BMICalculator.fs" />
@@ -20,6 +22,7 @@
     <Compile Include="Components/PhysicianOverview.fs" />
     <Compile Include="Components/Profile.fs" />
     <Compile Include="Components/SpinWheel.fs" />
+
 
     <!-- TOP LEVEL APP -->
     <!-- <Compile Include="App.fs" /> -->

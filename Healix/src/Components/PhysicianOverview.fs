@@ -24,32 +24,26 @@ let private classes : CssModules.Components.PhysicianOverview = import "default"
 
 type Review = {
     User: string
+    Date: DateTime
     Rating: float
     Comment: string
+    ImgSrc: string
 }
 
-let reviewsData = [
-    { User = "Alex"; Rating = 5; Comment = "Great service, really enjoyed my experience!" }
-    { User = "Beth"; Rating = 3; Comment = "Average experience, nothing exceptional." }
-    { User = "Charlie"; Rating = 5; Comment = "Amazing! Best experience I've ever had." }
-    { User = "Diana"; Rating = 2; Comment = "Was not satisfied with the service, needs improvement." }
-    { User = "Eric"; Rating = 4; Comment = "Good experience overall, just a few minor issues." }
-    { User = "Fiona"; Rating = 4; Comment = "Excellent service, would definitely recommend!" }
-    { User = "Greg"; Rating = 3; Comment = "Decent experience, but I've had better." }
-    { User = "Hannah"; Rating = 5; Comment = "Nearly perfect! Just a small hiccup with delivery." }
-    { User = "Ivan"; Rating = 2; Comment = "The product was fine, but the service was lacking." }
-    { User = "Julia"; Rating = 5; Comment = "Couldn't ask for a better experience! Absolutely fantastic." }
-    { User = "Alex"; Rating = 5; Comment = "Great service, really enjoyed my experience!" }
-    { User = "Beth"; Rating = 3; Comment = "Average experience, nothing exceptional." }
-    { User = "Charlie"; Rating = 5; Comment = "Amazing! Best experience I've ever had." }
-    { User = "Diana"; Rating = 2; Comment = "Was not satisfied with the service, needs improvement." }
-    { User = "Eric"; Rating = 4; Comment = "Good experience overall, just a few minor issues." }
-    { User = "Fiona"; Rating = 4; Comment = "Excellent service, would definitely recommend!" }
-    { User = "Greg"; Rating = 3; Comment = "Decent experience, but I've had better." }
-    { User = "Hannah"; Rating = 5; Comment = "Nearly perfect! Just a small hiccup with delivery." }
-    { User = "Ivan"; Rating = 2; Comment = "The product was fine, but the service was lacking." }
-    { User = "Julia"; Rating = 5; Comment = "Couldn't ask for a better experience! Absolutely fantastic." }
-]
+let reviewsData =
+    [
+        { User = "Alex Campo"; Date = DateTime(2023, 7, 1); Rating = 4.0; Comment = "Very attentive and knowledgeable."; ImgSrc = ".././Assets/me.jpeg" }
+        { User = "Linda Ferguson"; Date = DateTime(2023, 6, 25); Rating = 5.0; Comment = "Great experience! Highly recommended."; ImgSrc = ".././Assets/user2.jpeg" }
+        { User = "John Simmons"; Date = DateTime(2023, 6, 20); Rating = 4.5; Comment = "Prompt service and clear explanations."; ImgSrc = ".././Assets/user3.jpeg" }
+        { User = "Mary Patterson"; Date = DateTime(2023, 6, 15); Rating = 3.0; Comment = "Average service. Room for improvement."; ImgSrc = ".././Assets/user4.jpeg" }
+        { User = "Robert Adams"; Date = DateTime(2023, 6, 10); Rating = 4.8; Comment = "Exceptional care and treatment."; ImgSrc = ".././Assets/user5.jpeg" }
+        { User = "Patricia Clark"; Date = DateTime(2023, 6, 5); Rating = 4.2; Comment = "Good, but the wait time was too long."; ImgSrc = ".././Assets/user6.jpeg" }
+        { User = "Michael Thompson"; Date = DateTime(2023, 5, 30); Rating = 5.0; Comment = "Top notch care! Very pleased."; ImgSrc = ".././Assets/user7.jpeg" }
+        { User = "Jennifer Martinez"; Date = DateTime(2023, 5, 25); Rating = 4.7; Comment = "Friendly staff and competent doctor."; ImgSrc = ".././Assets/user8.jpeg" }
+        { User = "James Lewis"; Date = DateTime(2023, 5, 20); Rating = 3.5; Comment = "Decent. But I've been to better."; ImgSrc = ".././Assets/user9.jpeg" }
+        { User = "Lisa Williams"; Date = DateTime(2023, 5, 15); Rating = 4.9; Comment = "Couldn't ask for a better service."; ImgSrc = ".././Assets/user10.jpeg" }
+    ]
+
 
 type Tab =
     | About
@@ -168,11 +162,10 @@ let reviewBar =
                     style.width (length.percent 80)
                     style.justifyContent.center
                     style.alignItems.center
-                    style.marginTop 10
                 ]
                 prop.children [
                     Html.div [
-                        prop.style [style.marginRight 5]
+                        prop.style [style.marginRight 5; style.color.gray; style.fontWeight 475; style.fontSize 15]
                         prop.children [
                             Html.text (string rating)
                         ]
@@ -180,8 +173,8 @@ let reviewBar =
                     Html.img [
                         prop.src ".././Assets/star-yellow.svg"
                         prop.style [
-                            style.width 20
-                            style.height 20
+                            style.width 15
+                            style.height 15
                             style.marginRight 5
                         ]
                     ]
@@ -201,54 +194,52 @@ let reviewBar =
         )
 
 [<ReactComponent>]
-let reviews () =
+let reviewCard (review: Review) =
     Html.div [
-        prop.className [classes.parentContainer]
+        prop.className [classes.widthNinety]
+        prop.style [ style.display.flex; style.flexDirection.column; style.justifyContent.center; style.alignItems.center ;style.marginBottom 15; style.border(1, borderStyle.solid, color.whiteSmoke);style.minWidth (length.px 250); style.marginRight 10; style.marginLeft 15] // row direction for this container
         prop.children [
             Html.div [
-                //prop.style [style.backgroundColor.green]
-                prop.className [classes.widthThirty]
+                prop.style [style.width (length.perc 100)]
+                prop.classes ["appointmentViewerList__container-content"; "is-flex"; "is-flex-direction-row"; "m-1"; "is-justify-content-space-between"]
                 prop.children [
                     Html.div [
-                        //prop.className [classes.widthThirty]
-                        prop.classes ["is-flex"; "is-align-items-center"; "is-justify-content-center"; "full-height"]
-                        prop.style [style.display.flex; style.justifyContent.center; style.flexDirection.column]
+                        prop.style [ style.display.flex; style.alignItems.center; style.justifyContent.spaceBetween; style.width (length.perc 100); style.flexGrow 1 ]
+                        // added justifyContent.spaceBetween and style.width.pct 100 to stretch the container
                         prop.children [
                             Html.div [
-                                prop.classes ["has-background-primary"]
-                                prop.style [
-                                    style.display.flex
-                                    style.justifyContent.center
-                                    style.alignItems.center
-                                    style.width 75
-                                    style.height 75
-                                    //style.backgroundColor "#00d1b2"
-                                    style.borderRadius 50
-                                    style.color "#ffffff"
-                                    style.fontSize 25
-                                    style.fontWeight.bold
-                                    style.marginTop 15
-                                    style.marginBottom 10
-                                ]
-                                prop.text "4.5" // Your rating here
-                            ]
-                            Html.div [
-                                prop.style [style.display.flex; style.flexDirection.row;style.width 20; style.height 20; style.justifyContent.center]
+                                prop.style [ style.display.flex; style.alignItems.center]
                                 prop.children [
-                                    Html.img [prop.src ".././Assets/star-yellow.svg"]
-                                    Html.img [prop.src ".././Assets/star-yellow.svg"]
-                                    Html.img [prop.src ".././Assets/star-yellow.svg"]
-                                    Html.img [prop.src ".././Assets/star-yellow.svg"]
-                                    Html.img [prop.src ".././Assets/star-yellow.svg"]
-                                ]
-                            ]
-                            Html.div [
-                                prop.children [
-                                    Html.p [
-                                        prop.classes ["appointmentViewerList__messaging"; "p-2"]
-                                        prop.style [style.fontFamily "Inter"; style.fontSize 12; style.color.dimGray; style.fontWeight 550; style.marginTop 5]
+                                    Html.div [
                                         prop.children [
-                                            Html.text (("126") + " " + ("Reviews"))
+                                            Html.img [
+                                                prop.style [style.marginLeft 10; style.width 48; style.height 48]
+                                                prop.src review.ImgSrc
+                                                //prop.alt "messaging icon"
+                                                prop.classes [classes.MessagingIcon;"image"; "is-rounded"]
+                                            ]
+                                        ]
+                                    ]
+                                    Html.div [
+                                        prop.classes ["appointmentViewerList__container-content"]
+                                        prop.children [
+                                            Html.h3 [
+                                                prop.classes ["appointmentViewerList__name"; "has-text-weight-bold"; "p-2" ]
+                                                prop.text review.User
+                                                prop.style [style.fontFamily "Inter"; style.fontWeight.bold; style.fontSize 17;style.marginBottom -20; style.marginLeft 7; style.color.black]
+                                            ]
+                                            Html.div [
+                                                prop.children [
+                                                    Html.p [
+                                                        prop.classes ["appointmentViewerList__messaging"; "p-2"]
+                                                        prop.style [style.fontFamily "Inter"; style.marginLeft 7; style.fontSize 14; style.color.gray]
+                                                        prop.children [
+                                                            let dateString = DateTime.Now.ToString("MMM dd yyyy")
+                                                            Html.text (review.Date.ToString("MMM/dd/yyyy")) // adjust formatting as needed
+                                                        ]
+                                                    ]
+                                                ]
+                                            ]
                                         ]
                                     ]
                                 ]
@@ -258,17 +249,110 @@ let reviews () =
                 ]
             ]
             Html.div [
-                prop.style [
-                    style.display.flex
-                    style.justifyContent.center
-                    style.alignItems.center
-                    style.flexDirection.column
+                prop.style [ style.display.flex;
+                            style.flexDirection.row; style.flexWrap.wrap; style.justifyContent.spaceBetween; style.gap 10]
+                prop.classes ["appointmentViewerList__container-button"; "is-flex"; "is-justify-content-space-evenly";"has-border-top"; ]
+                prop.children [
+                    Html.div [
+                        prop.style [style.display.flex; style.alignItems.center; style.marginTop 7; style.marginBottom 7] // Added alignItems.center to align items vertically
+                        prop.children [
+                            Html.div [
+                                prop.style [style.fontSize 15; style.fontFamily "Inter"; style.color.black; style.marginLeft 10; style.color.black; style.fontWeight 390]
+                                prop.children [
+                                    Html.text review.Comment
+                                ]
+                            ]
+                        ]
+                    ]
                 ]
-                prop.className [classes.widthSeventy]
-                prop.children reviewBar
             ]
         ]
     ]
+
+[<ReactComponent>]
+let reviewList (reviews: Review list) =
+    Html.div [
+        prop.style [ style.display.flex; style.flexDirection.row; style.overflowX.scroll]
+        prop.children (List.map reviewCard reviews)
+    ]
+
+
+
+[<ReactComponent>]
+let reviews () =
+    Html.div [
+        prop.children [
+            Html.div [
+                prop.className [classes.parentContainer]
+                prop.children [
+                    Html.div [
+                        //prop.style [style.backgroundColor.green]
+                        prop.className [classes.widthThirty]
+                        prop.children [
+                            Html.div [
+                                //prop.className [classes.widthThirty]
+                                prop.classes ["is-flex"; "is-align-items-center"; "is-justify-content-center"; "full-height"]
+                                prop.style [style.display.flex; style.justifyContent.center; style.flexDirection.column]
+                                prop.children [
+                                    Html.div [
+                                        prop.classes ["has-background-primary"]
+                                        prop.style [
+                                            style.display.flex
+                                            style.justifyContent.center
+                                            style.alignItems.center
+                                            style.width 75
+                                            style.height 75
+                                            //style.backgroundColor "#00d1b2"
+                                            style.borderRadius 50
+                                            style.color "#ffffff"
+                                            style.fontSize 25
+                                            style.fontWeight.bold
+                                            style.marginTop 15
+                                            style.marginBottom 10
+                                        ]
+                                        prop.text "4.5" // Your rating here
+                                    ]
+                                    Html.div [
+                                        prop.style [style.display.flex; style.flexDirection.row;style.width 20; style.height 20; style.justifyContent.center]
+                                        prop.children [
+                                            Html.img [prop.src ".././Assets/star-yellow.svg"]
+                                            Html.img [prop.src ".././Assets/star-yellow.svg"]
+                                            Html.img [prop.src ".././Assets/star-yellow.svg"]
+                                            Html.img [prop.src ".././Assets/star-yellow.svg"]
+                                            Html.img [prop.src ".././Assets/star-yellow.svg"]
+                                        ]
+                                    ]
+                                    Html.div [
+                                        prop.children [
+                                            Html.p [
+                                                prop.classes ["appointmentViewerList__messaging"; "p-2"]
+                                                prop.style [style.fontFamily "Inter"; style.fontSize 12; style.color.dimGray; style.fontWeight 550; style.marginTop 5]
+                                                prop.children [
+                                                    Html.text (("126") + " " + ("Reviews"))
+                                                ]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                    Html.div [
+                        prop.style [
+                            style.display.flex
+                            style.justifyContent.center
+                            style.alignItems.center
+                            style.flexDirection.column
+                        ]
+                        prop.className [classes.widthSeventy]
+                        prop.children reviewBar
+                    ]
+                ]
+            ]
+            reviewList reviewsData
+        ]
+    ]
+
 
 
 

@@ -75,3 +75,8 @@
 .custom-progress {
     height: 20px; // Adjust this value according to your preference
 }
+
+.width-ninety {
+    width: 90% !important;
+    //box-sizing: border-box !important; /* this makes sure padding and border are included in the width */
+}
