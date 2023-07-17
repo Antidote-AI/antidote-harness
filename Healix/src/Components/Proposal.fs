@@ -348,54 +348,47 @@ let predictiveModels =
     ]
 
 let table =
-    Html.div [
+    Bulma.container [
         prop.className "container"
         prop.children [
-            Html.table [
-                Html.thead [
+            Bulma.table [
+                Bulma.thead [
                     Html.tr [
-                        Html.th "Column 1"
-                        Html.th "Column 2"
-                        Html.th "Column 3"
-                        Html.th "Column 4"
-                        Html.th "Column 5"
+                        Html.th "Label"
+                        Html.th "Data"
+
                     ]
                 ]
                 Html.tbody [
                     Html.tr [
-                        Html.td "Cell 1"
-                        Html.td "Cell 2"
-                        Html.td "Cell 3"
-                        Html.td "Cell 4"
-                        Html.td "Cell 5"
+                        Html.td "Reimbursement Base"
+                        Html.td "$526.62"
+
                     ]
                     Html.tr [
-                        Html.td "Cell 1"
-                        Html.td "Cell 2"
-                        Html.td "Cell 3"
-                        Html.td "Cell 4"
-                        Html.td "Cell 5"
+                        Html.td "Monthly Premium Increase"
+                        Html.td "$10,005.72"
+
                     ]
                     Html.tr [
-                        Html.td "Cell 1"
-                        Html.td "Cell 2"
-                        Html.td "Cell 3"
-                        Html.td "Cell 4"
-                        Html.td "Cell 5"
+                        Html.td "Average LOS"
+                        Html.td "12 Mo"
+
                     ]
                     Html.tr [
-                        Html.td "Cell 1"
-                        Html.td "Cell 2"
-                        Html.td "Cell 3"
-                        Html.td "Cell 4"
-                        Html.td "Cell 5"
+                        Html.td "Proj Total"
+                        Html.td "$120,068.68"
+
                     ]
                     Html.tr [
-                        Html.td "Cell 1"
-                        Html.td "Cell 2"
-                        Html.td "Cell 3"
-                        Html.td "Cell 4"
-                        Html.td "Cell 5"
+                        Html.td "Extrapolated Centers"
+                        Html.td "35"
+
+                    ]
+                    Html.tr [
+                        Html.td "Readjusted Proj"
+                        Html.td "$4,202,403"
+
                     ]
                 ]
             ]
@@ -465,7 +458,7 @@ let caseStudy =
                             ]
                             Html.div [
                                 prop.children [
-                                    table2()
+                                    table
                                 ]
                             ]
                         ]
@@ -515,7 +508,7 @@ let steps () =
                         prop.children [
                             Bulma.tabs [
                                 tabs.isCentered
-                                prop.className [classes.circularTabs]  // Here
+                                //prop.className [classes.circularTabs]  // Here
                                 prop.children [
                                     Html.ul [
                                         Bulma.tab [
@@ -578,10 +571,10 @@ let Proposal () =
         prop.children [
             title ()
             //scope
-            steps ()
+            //steps ()
             //effectiveIn
             //predictiveModels
             //table
-            //caseStudy
+            caseStudy
         ]
     ]
