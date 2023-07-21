@@ -347,53 +347,53 @@ let predictiveModels =
         ]
     ]
 
-let table =
-    Bulma.container [
-        prop.className "container"
-        prop.children [
-            Bulma.table [
-                Bulma.thead [
-                    Html.tr [
-                        Html.th "Label"
-                        Html.th "Data"
+// let table =
+//     Bulma.container [
+//         prop.className "container"
+//         prop.children [
+//             Bulma.table [
+//                 Bulma.thead [
+//                     Html.tr [
+//                         Html.th "Label"
+//                         Html.th "Data"
 
-                    ]
-                ]
-                Html.tbody [
-                    Html.tr [
-                        Html.td "Reimbursement Base"
-                        Html.td "$526.62"
+//                     ]
+//                 ]
+//                 Html.tbody [
+//                     Html.tr [
+//                         Html.td "Reimbursement Base"
+//                         Html.td "$526.62"
 
-                    ]
-                    Html.tr [
-                        Html.td "Monthly Premium Increase"
-                        Html.td "$10,005.72"
+//                     ]
+//                     Html.tr [
+//                         Html.td "Monthly Premium Increase"
+//                         Html.td "$10,005.72"
 
-                    ]
-                    Html.tr [
-                        Html.td "Average LOS"
-                        Html.td "12 Mo"
+//                     ]
+//                     Html.tr [
+//                         Html.td "Average LOS"
+//                         Html.td "12 Mo"
 
-                    ]
-                    Html.tr [
-                        Html.td "Proj Total"
-                        Html.td "$120,068.68"
+//                     ]
+//                     Html.tr [
+//                         Html.td "Proj Total"
+//                         Html.td "$120,068.68"
 
-                    ]
-                    Html.tr [
-                        Html.td "Extrapolated Centers"
-                        Html.td "35"
+//                     ]
+//                     Html.tr [
+//                         Html.td "Extrapolated Centers"
+//                         Html.td "35"
 
-                    ]
-                    Html.tr [
-                        Html.td "Readjusted Proj"
-                        Html.td "$4,202,403"
+//                     ]
+//                     Html.tr [
+//                         Html.td "Readjusted Proj"
+//                         Html.td "$4,202,403"
 
-                    ]
-                ]
-            ]
-        ]
-    ]
+//                     ]
+//                 ]
+//             ]
+//         ]
+//     ]
 
 let caseStudy =
     Html.div [
@@ -456,11 +456,11 @@ let caseStudy =
 
                                 ]
                             ]
-                            Html.div [
-                                prop.children [
-                                    table
-                                ]
-                            ]
+                            // Html.div [
+                            //     prop.children [
+                            //         table
+                            //     ]
+                            // ]
                         ]
                     ]
                 ]

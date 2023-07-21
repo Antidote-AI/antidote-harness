@@ -22,6 +22,8 @@
     <Compile Include="Components/PhysicianOverview.fs" />
     <Compile Include="Components/Profile.fs" />
     <Compile Include="Components/SpinWheel.fs" />
+    <Compile Include="Components/PatientCard.fs" />
+    <Compile Include="Components/Table.fs" />
 
 
     <!-- TOP LEVEL APP -->
