@@ -80,3 +80,21 @@
     width: 90% !important;
     //box-sizing: border-box !important; /* this makes sure padding and border are included in the width */
 }
+
+.my-div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between; /* this is for larger screens */
+}
+
+@media (max-width: 600px) {
+    .my-div {
+        justify-content: center; /* this is for smaller screens */
+    }
+    .marginTop {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+}

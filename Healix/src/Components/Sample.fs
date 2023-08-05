@@ -11,7 +11,6 @@ open Fable.Core.JsInterop
 let Sample () =
 
     Html.div [
-        // prop.className classes.sampleBackdrop_hero
         prop.children [
             Bulma.box [
                 prop.children [
@@ -19,28 +18,28 @@ let Sample () =
                         prop.children [
                             Html.p [
                                 prop.style [ style.fontSize 50 ]
-                                prop.text "Welcome to the Antidote Harness!"
+                                prop.text "Proposal"
                             ]
                         ]
                     ]
-                    Html.button [
-                        prop.classes [
-                            "button"
-                            "is-fullwidth"
-                            "is-rounded"
-                            "is-antidote-orange"
-                        ]
-                        prop.onClick (
-                            fun _ ->
-                                debuglog "Clicked the sample button"
-                        )
-                        prop.children [
-                            Html.span [
-                                prop.style [ style.textIndent 3]
-                                prop.text "Sample Button"
-                            ]
-                        ]
-                    ]
+                    // Html.button [
+                    //     prop.classes [
+                    //         "button"
+                    //         "is-fullwidth"
+                    //         "is-rounded"
+                    //         "is-antidote-orange"
+                    //     ]
+                    //     prop.onClick (
+                    //         fun _ ->
+                    //             debuglog "Clicked the sample button"
+                    //     )
+                    //     prop.children [
+                    //         Html.span [
+                    //             prop.style [ style.textIndent 3]
+                    //             prop.text "Sample Button"
+                    //         ]
+                    //     ]
+                    // ]
                 ]
             ]
         ]
