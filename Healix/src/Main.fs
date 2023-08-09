@@ -19,6 +19,10 @@ open Healix.Components.SpinWheel
 open Healix.Components.Proposal
 open Healix.Components.Table
 open Healix.Components.PatientCard
+open Healix.Components.Counter
+open Healix.Components.MedicationCard
+open Healix.Components.LabResults
+open Healix.Components.LabDetails
 
 open Fable.Core.JsInterop
 
@@ -26,6 +30,6 @@ emitJsStatement () "import React from \"react\""
 importSideEffects "./index.scss"
 
 ReactDOM.render(
-    PatientCard(),
+    render(),
     document.getElementById("root")
 )

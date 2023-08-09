@@ -9,6 +9,7 @@
     <Compile Include="CssModules.fs" />
 
     <!-- COMPONENTS -->
+    <Compile Include="Components/Counter.fs" />
     <Compile Include="Components/PhysicianOverview.fs" />
     <Compile Include="Components/Proposal.fs" />
     <Compile Include="Components/Sample.fs" />
@@ -24,6 +25,9 @@
     <Compile Include="Components/SpinWheel.fs" />
     <Compile Include="Components/PatientCard.fs" />
     <Compile Include="Components/Table.fs" />
+    <Compile Include="Components/MedicationCard.fs" />
+    <Compile Include="Components/LabResults.fs" />
+    <Compile Include="Components/LabDetails.fs" />
 
 
     <!-- TOP LEVEL APP -->

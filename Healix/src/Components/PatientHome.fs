@@ -537,7 +537,6 @@ let CompletedAssessments (myAssessments: Assessment list)=
     Html.div [ prop.children assessmentsElements ]
 
 
-
 [<ReactComponent>]
 let PatientHome (props:PatientHomeData) =
 
