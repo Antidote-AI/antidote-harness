@@ -2,5 +2,29 @@
 
 .range-indicator {
     height: 100%;
-    background-color: green;
+    background-color: #23D160;
 }
+
+.transform {
+    transform: translateX(-50%)
+}
+// .range-bar {
+//     width: 100%;
+//     height: 20px;
+//     background-color: grey;
+//     display: flex;               /* added */
+//     justify-content: center;    /* added */
+//     align-items: center;
+// }
+
+// .range-container {
+//     position: relative;
+//     width: 100%;
+//     height: 30px;  /* Adjust based on your needs */
+// }
+
+// .arrow-indicator {
+//     position: absolute;
+//     bottom: 20px;  /* Adjust to position the arrow below the range bar */
+//     transform: translateX(-50%); /* Center the arrow at its position */
+// }
