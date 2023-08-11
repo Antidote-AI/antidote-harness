@@ -2,11 +2,32 @@
 
 .range-indicator {
     height: 100%;
-    background-color: #23D160;
+    background-color: #1fad50;
 }
 
 .transform {
     transform: translateX(-50%)
+}
+
+.centered-div {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 20px;
+}
+
+.yellow {
+    background-color: #ffd119;
+}
+
+.centeredContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -20px;
 }
 // .range-bar {
 //     width: 100%;

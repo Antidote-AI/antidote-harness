@@ -30,6 +30,6 @@ emitJsStatement () "import React from \"react\""
 importSideEffects "./index.scss"
 
 ReactDOM.render(
-    render(),
+    render (),
     document.getElementById("root")
 )
