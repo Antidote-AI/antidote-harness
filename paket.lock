@@ -279,6 +279,7 @@ NUGET
       System.IO.Pipelines (>= 6.0.3)
     Microsoft.Bcl.AsyncInterfaces (7.0)
     Microsoft.CodeCoverage (17.4.1)
+    Microsoft.CognitiveServices.Speech (1.31)
     Microsoft.CSharp (4.7)
     Microsoft.Extensions.DependencyInjection (7.0)
       Microsoft.Extensions.DependencyInjection.Abstractions (>= 7.0)

@@ -20,3 +20,5 @@ Glutinum.Feliz.Iconify
 Glutinum.IconifyIcons.Mdi
 Fable.Browser.Dom
 FSharp.Data
+Microsoft.CognitiveServices.Speech
+Fable.SimpleHttp

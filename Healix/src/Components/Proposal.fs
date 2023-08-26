@@ -4,7 +4,7 @@ open Antidote.Core.V2.Utils.JS
 open Feliz
 open Feliz.Bulma
 open Fable.Core.JsInterop
-open Healix.Components.PhysicianOverview
+//open Healix.Components.PhysicianOverview
 open Fable.Core.JS
 open Feliz.Plotly
 

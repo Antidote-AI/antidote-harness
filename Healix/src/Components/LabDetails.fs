@@ -35,7 +35,7 @@ type LabDetails = {
 let LabData =
     {
         labName = "Hemoglobin A1c"
-        labValue = 25.0
+        labValue = 60.0
         labRange = "4.0 - 6.0"
         labDate = "12/12/2020"
         labUnit = "%"
