@@ -25,6 +25,8 @@ open Healix.Components.LabResults
 open Healix.Components.LabDetails
 open Healix.Components.ConvoCare
 open Healix.Components.Messages
+open Healix.Components.PhysicianPanel
+
 
 open Fable.Core.JsInterop
 
@@ -34,6 +36,6 @@ importSideEffects "./index.scss"
 ReactDOM.render(
     //render (),
     //MedicationCard(),
-    ConvoCare (),
+    Page (),
     document.getElementById("root")
 )
