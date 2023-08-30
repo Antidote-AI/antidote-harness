@@ -44,106 +44,106 @@ let private classes : CssModules.Components.AppointmentViewerList = import "defa
 
 [<ReactComponent>]
 let PhysicianPanel () =
-    // Html.section [
-    //     prop.classes ["appointmentViewerList"; "card"; "m-4"]
-    //     prop.children [
-    //         Html.div [
-    //             prop.classes ["appointmentViewerList__container-content"; "is-flex"; "is-flex-direction-row"; "m-4"; "is-justify-content-space-between";]
-    //             prop.children [
-    //                 Html.div [
-    //                     prop.style [ style.display.flex; style.justifyContent.spaceBetween ] // setting flexbox layout for parent div
-    //                     prop.children [
-    //                         Html.div [
-    //                             prop.style [style.alignItems.center]
-    //                             prop.classes ["appointmentViewerList__container-image"; "is-flex"; "is-align-items-center"; "is-justify-content-center"; "image"; "is-128x128"]
-    //                             prop.children [
-    //                                 Html.img [
-    //                                     prop.src ".././Assets/alan-katz.jpg"
-    //                                     prop.alt "doctor's profile logo"
-    //                                     prop.classes [ classes.DoctorImage; "image"; "p-2"]
-    //                                     prop.style [style.borderRadius 10; style.width 100; style.height 120; style.marginLeft -50]
-    //                                 ]
-    //                             ]
-    //                         ]
-    //                         Html.div [
-    //                             prop.classes ["appointmentViewerList__container-content"; ]
-    //                             prop.style [style.marginLeft -40]
-    //                             prop.children [
-    //                                 Html.h2 [
-    //                                     prop.classes ["appointmentViewerList__name"; "has-text-weight-bold"; "p-2" ]
-    //                                     prop.text "Dr. Alan Katz"
-    //                                     prop.style [style.fontWeight.bold; style.fontSize 20]
-    //                                 ]
-    //                                 Html.p [
-    //                                     prop.classes ["appointmentViewerList__messaging"; "p-2"]
-    //                                     prop.style [style.color.gray]
-    //                                     prop.children [
-    //                                         Html.text ("Psychiatrist" + "    |    " + "HARC")
-    //                                         // Html.span [
-    //                                         //     Bulma.button.button [
-    //                                         //         prop.classes ["button"; "is-outlined"; "is-primary"; "is-small"; "mb-1"]
-    //                                         //         prop.text "Upcoming"
-    //                                         //         prop.style [style.borderRadius 6; style.alignItems.center; style.height 25; style.marginLeft 3]
-    //                                         //     ]
-    //                                         // ]
-    //                                     ]
-    //                                 ]
-    //                                 Html.p [
-    //                                     prop.style [style.color.gray]
-    //                                     prop.classes ["appointmentViewerList__availability"; "p-2"]
-    //                                     prop.text "Today  |  16:00PM"
-    //                                 ]
-    //                             ]
-    //                         ]
-    //                     ]
-    //                 ]
-    //             ]
-    //         ]
-    //     ]
-    // ]
 
-    Bulma.card [
-        Bulma.cardImage [
-            Bulma.image [
-                Bulma.image.is4by3
+    let (heartSelected, setHeartSelected) = React.useState(false)
+
+    Html.section [
+        prop.classes ["card"; "m-4"]
+        prop.children [
+            Html.div [
+                prop.style [style.custom("boxShadow", "rgba(0, 0, 0, 0.16) 0px 1px 4px")]
+                prop.classes ["is-flex"; "is-flex-direction-row"; "is-justify-content-space-between";]
                 prop.children [
-                    Html.img [
-                        prop.alt "Placeholder image"
-                        prop.src "https://bulma.io/images/placeholders/1280x960.png"
+                    Html.div [
+                        prop.children [
+                            Html.img [
+                                prop.src ".././Assets/alan-katz.jpg"
+                                prop.alt "doctor's profile logo"
+                                prop.classes [ classes.DoctorImage; "image"; "p-1"; "ml-1"]
+                                prop.style [style.borderRadius 10; style.width 60; style.height 70; style.marginTop 5; style.marginBottom 5; style.marginRight 5]
+                            ]
+                        ]
                     ]
-                ]
-            ]
-        ]
-        Bulma.cardContent [
-            Bulma.media [
-                Bulma.mediaLeft [
-                    Bulma.cardImage [
-                        Bulma.image [
-                            Bulma.image.is48x48
-                            prop.children [
-                                Html.img [
-                                    prop.alt "Placeholder image"
-                                    prop.src "https://bulma.io/images/placeholders/96x96.png"
+                    Html.div [
+                        prop.style [style.flexGrow 1; style.display.flex; style.justifyContent.center; style.flexDirection.column]
+                        prop.children [
+                            Html.div [
+                                prop.style [ style.borderBottom(1, borderStyle.solid, "#F0F0F0"); style.width (length.perc 97); style.alignItems.center ]
+                                prop.classes ["is-flex"; "is-flex-direction-row"; "is-justify-content-space-between"]
+                                prop.children [
+                                    Html.h2 [
+                                        prop.classes ["has-text-weight-bold"]
+                                        prop.text "Dr. Alan Katz"
+                                        prop.style [style.fontWeight.bold; style.fontSize 16]
+                                    ]
+                                    Bulma.icon [
+                                        Bulma.icon.isRight
+                                        prop.style [style.marginTop 5]
+                                        prop.onClick (fun _ -> setHeartSelected (not heartSelected))
+                                        prop.children [
+                                            if heartSelected then
+
+                                                Icon [
+                                                    icon.icon mdi.heart
+                                                    icon.color "#1e4d8a"
+                                                    icon.width 18
+                                                ]
+                                            else
+                                                Icon [
+                                                    icon.icon mdi.heartOutline
+                                                    icon.color "#1e4d8a"
+                                                    icon.width 18
+                                                ]
+
+                                        ]
+                                    ]
+                                ]
+                            ]
+                            Html.p [
+                                //prop.classes ["ml-1"]
+                                prop.style [style.color.dimGray; style.fontSize 13; style.display.flex; style.flexDirection.row]
+                                prop.children [
+                                    Html.p [
+                                        prop.style [style.marginLeft 0;]
+                                        prop.text "Psychiatrist"
+                                    ]
+                                    Html.p [
+                                        prop.style [style.marginLeft 5;]
+                                        prop.text "|"
+                                    ]
+                                    Html.p [
+                                        prop.style [style.marginLeft 5;]
+                                        prop.text "HARC"
+                                    ]
+                                ]
+                            ]
+                            Html.div [
+                                prop.style [style.display.flex; style.flexDirection.row; style.alignItems.center]
+                                prop.children [
+                                    Html.img [
+                                        prop.src ".././Assets/star-yellow.svg"
+                                        prop.style [
+                                            style.width 15
+                                            style.height 15
+                                        ]
+                                    ]
+                                    Html.p [
+                                        prop.style [style.color.black; style.fontSize 12; style.marginLeft 3; style.fontWeight.bold]
+                                        prop.text "4.9"
+                                    ]
+                                    Html.p [
+                                        prop.style [style.color.gray; style.fontSize 12; style.marginLeft 8]
+                                        prop.text "(4,279 reviews)"
+                                    ]
                                 ]
                             ]
                         ]
                     ]
                 ]
-                Bulma.mediaContent [
-                    Bulma.title.p [
-                        Bulma.title.is4
-                        prop.text "Feliz Bulma"
-                        prop.style [style.color.black]
-                    ]
-                    Bulma.subtitle.p [
-                        Bulma.title.is6
-                        prop.text "@feliz.bulma"
-                    ]
-                ]
             ]
-            Bulma.content "Lorem ipsum dolor sit ... nec iaculis mauris."
         ]
     ]
+
 
 
 

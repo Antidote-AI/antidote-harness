@@ -36,6 +36,6 @@ importSideEffects "./index.scss"
 ReactDOM.render(
     //render (),
     //MedicationCard(),
-    Page (),
+    PhysicianPanel (),
     document.getElementById("root")
 )
