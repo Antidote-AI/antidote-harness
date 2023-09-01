@@ -30,6 +30,7 @@
     <Compile Include="Components/LabDetails.fs" />
     <Compile Include="Components/ConvoCare.fs" />
     <Compile Include="Components/PhysicianPanel.fs" />
+    <Compile Include="Components/Review.fs" />
 
 
     <!-- TOP LEVEL APP -->
