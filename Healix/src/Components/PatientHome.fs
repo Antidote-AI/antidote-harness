@@ -46,7 +46,7 @@ type PatientHomeData =
         //UpcomingAppointments: AssessmentType list
     }
 
-let patientData =  { FirstName = "Alex"; LastName = "Campo" ; DOB = "03/06/1995"; Gender = "Male"; UpcomingAssessments = []; CompletedAssessments = []; Avatar = ".././Assets/alan-katz.jpg" }
+let patientData: PatientHomeData =  { FirstName = "Alex"; LastName = "Campo" ; DOB = "03/06/1995"; Gender = "Male"; UpcomingAssessments = []; CompletedAssessments = []; Avatar = ".././Assets/alan-katz.jpg" }
 
 
 type Tab =
