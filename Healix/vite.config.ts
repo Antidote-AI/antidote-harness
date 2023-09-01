@@ -82,7 +82,7 @@ export default defineConfig({
             cert: fs.readFileSync('./localhost.pem'),
         },
         host: '::',
-        port: 3000,
+        port: 3010,
         watch: {
             ignored: [
                 "**/*.fs"
