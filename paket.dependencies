@@ -74,6 +74,7 @@ nuget Microsoft.AspNetCore.TestHost ~> 6
 nuget Fable.Remoting.DotnetClient
 nuget Fable.Remoting.AspNetCore
 
+nuget Microsoft.CognitiveServices.Speech
 
 # Migrations
 nuget Microsoft.Extensions.Logging.Debug

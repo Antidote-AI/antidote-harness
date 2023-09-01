@@ -26,13 +26,21 @@ let private classes : CssModules.Components.BMICalculator = import "default" "./
 [<Measure>] type m
 [<Measure>] type cm
 
+let ONE_FOOT_IN_INCHES = 12.0<inch/ft>
+let ONE_POUND_IN_OUNCES = 16.0<oz/lb>
+let ONE_KILOGRAM_IN_OUNCES = 35.274<oz/kg>
+let OUNE_IN_KILOGRAM = 0.02834952<kg/oz>
+let ONE_INCH_IN_METERS = 0.0254<m/inch>
+
 type WeightType =
-    | Lbs of (float<lb>) option
+    | Lbs of (float<lb> * float<oz>) option
     | Kg of (float<kg> * float<oz>) option
 
 type Height =
-    | Feet of (int<ft> * int<inch>) option
+    | Feet of (float<ft> * float<inch>) option
     | Meters of float<m> option
+
+type WeightHeight = WeightHeight of Height * WeightType
 
 //Converters
 let feetToInches (x: float<ft>) : float<inch> = x * 12.0<inch/ft>
@@ -46,7 +54,35 @@ let lbsToKg (x: float<lb>) : float<kg> = x / 2.20462<lb/kg>
 let meterToFeet (x: float<m>) : float<ft> = x * 3.28084<ft/m>
 let feetToMeter (x: float<ft>) : float<m> = x / 3.28084<ft/m>
 
-let feetInchesToMeters (x: int<ft>, y: int<inch>) : float<m> =
+
+let kilogramsToPoundsAndOunces (kilograms : float<kg>) : float<lb> * float<oz> =
+    let totalWeightInOunces = kilograms / OUNE_IN_KILOGRAM
+    let pounds = System.Math.Round (float (totalWeightInOunces / ONE_POUND_IN_OUNCES), 0) * 1.0<lb>
+    let ounces = System.Math.Round(float( totalWeightInOunces - pounds * ONE_POUND_IN_OUNCES), 0) * 1.0<oz>
+    pounds , ounces
+
+let metersToFeetAndInches (meters : float<m>) : float<ft> * float<inch> =
+    let totalLengthInInches = meters / ONE_INCH_IN_METERS
+    let roundedFeet = System.Math.Round(float (totalLengthInInches / ONE_FOOT_IN_INCHES), 0) * 1.0<ft>
+    let inches = System.Math.Round(float (totalLengthInInches - roundedFeet * ONE_FOOT_IN_INCHES), 0) * 1.0<inch>
+    roundedFeet , inches
+
+let poundsToKilograms (pounds : float<lb>) (ounces : float<oz>) : float<kg> =
+    let totalWeightInOunces = pounds * ONE_POUND_IN_OUNCES + ounces
+    System.Math.Round(float (totalWeightInOunces * OUNE_IN_KILOGRAM), 2) * 1.0<kg>
+
+let feetAndInchesToMeters (feet : float<ft>) (inches : float<inch>) : float<m> =
+    let totalLengthInInches = feet * ONE_FOOT_IN_INCHES + inches
+    System.Math.Round(float (totalLengthInInches * ONE_INCH_IN_METERS) , 2) * 1.0<m>
+
+let feetInchesToString ((feet : float<ft>), (inches : float<inch>)) =
+    sprintf $"{feet} Feet, {inches} Inches"
+
+let poundsOuncesToString ((pounds : float<lb>), (ounces : float<oz>)) =
+    sprintf $"{pounds} Pounds, {ounces} Ounces"
+
+
+let feetInchesToMeters (x: float<ft>, y: float<inch>) : float<m> =
     let totalInches = ((int x) * 12) + (int y) //* 1<inch>
     let totalMeters = (float totalInches) / 39.3701
     totalMeters * 1.0<m>
@@ -55,7 +91,21 @@ let metersToFeetInches (x: float<m>) =
     let totalInches = x * 39.3701<inch/m>
     let totalFeet = (totalInches / 12.0<inch/ft>)
     let remainingInches = (float totalInches) - (float ((int totalFeet) *  12))
-    (int totalFeet * 1<ft>, int remainingInches * 1<inch>)
+    (float totalFeet * 1.0<ft>, float remainingInches * 1.0<inch>)
+
+let calculateBmi (weightHeight : WeightHeight) =
+    match weightHeight with
+    | WeightHeight(Height.Meters(Some meters), WeightType.Kg(Some (kilograms, _))) ->
+        kilograms / (meters * meters)
+    | WeightHeight(Height.Feet(Some (feet , inches)), WeightType.Lbs(Some (pounds, ounces))) ->
+        let mtrs = feetAndInchesToMeters feet inches
+        poundsToKilograms pounds ounces / (mtrs * mtrs)
+    | WeightHeight(Height.Feet(Some (feet, inches)), WeightType.Kg(Some (kilograms,_))) ->
+        let mtrs = feetAndInchesToMeters feet inches
+        kilograms / (mtrs * mtrs)
+    | WeightHeight(Height.Meters(Some meters), WeightType.Lbs(Some (pounds, ounces))) ->
+        poundsToKilograms pounds ounces / (meters * meters)
+    | _ -> failwith "Invalid or missing weight or height data"
 
 
 type State = {
@@ -93,7 +143,7 @@ let update msg state =
         | Lbs lbs ->
             match lbs with
             | Some lbs ->
-                let kg = lbsToKg lbs
+                let kg = lbsToKg (lbs |> fst)
                 let kgRounded = (System.Math.Round((float kg), 2)) * 1.0<kg>
                 { state with Weight = Kg (Some (kgRounded, 0.0<oz>)) }, Cmd.none
             | None -> { state with Weight = Kg None }, Cmd.none
@@ -101,8 +151,10 @@ let update msg state =
             match kg with
             | Some kg ->
                 let lbs = kgToLbs (kg |> fst)
+                let oz = (kg |> snd)
                 let lbsRounded = (System.Math.Round((float lbs), 2)) * 1.0<lb>
-                { state with Weight = Lbs (Some lbsRounded) }, Cmd.none
+                let ozRounded = System.Math.Round((float oz), 2) * 1.0<oz>
+                { state with Weight = Lbs (Some (lbsRounded, ozRounded)) }, Cmd.none
             | None -> { state with Weight = Lbs None }, Cmd.none
 
     | ChangeHeightType ->
@@ -126,28 +178,28 @@ let update msg state =
 
     | SetFeet feet ->
         console.log $"SetFeet {feet}"
-        let feet = int feet
+        let feet = float feet
         match state.Height with
         | Feet ftInch ->
             match ftInch with
             | Some ftInch ->
                 let inches = snd ftInch
-                { state with Height = Feet (Some (feet * 1<ft>, inches)) }, Cmd.none
+                { state with Height = Feet (Some (feet * 1.0<ft>, inches)) }, Cmd.none
             | None ->
-                { state with Height = Feet (Some (feet * 1<ft>, 0 * 1<inch>)) }, Cmd.none
+                { state with Height = Feet (Some (feet * 1.0<ft>, 0.0 * 0.0<inch>)) }, Cmd.none
         | _ -> state, Cmd.none
 
     | SetInches inches ->
         console.log $"SetFeet {inches}"
-        let inches = int inches
+        let inches = float inches
         match state.Height with
         | Feet ftInch ->
             match ftInch with
             | Some ftInch ->
                 let feet = fst ftInch
-                { state with Height = Feet (Some (feet, inches * 1<inch>)) }, Cmd.none
+                { state with Height = Feet (Some (feet, inches * 1.0<inch>)) }, Cmd.none
             | None ->
-                { state with Height = Feet (Some (0 * 1<ft>, inches * 1<inch>)) }, Cmd.none
+                { state with Height = Feet (Some (0.0 * 1.0<ft>, inches * 1.0<inch>)) }, Cmd.none
         | _ -> state, Cmd.none
 
     | SetMeters meters ->
@@ -158,7 +210,7 @@ let update msg state =
     | SetLbs lbs ->
         console.log $"SetLbs {lbs}"
         let lbs = float lbs
-        { state with Weight = Lbs (Some (lbs * 1.0<lb>)) }, Cmd.none
+        { state with Weight = Lbs (Some (lbs * 1.0<lb>, 0.0<oz> )) }, Cmd.none //idk if this line is correct, it needs revision
 
     | SetWeight weight -> { state with Weight = weight }, Cmd.none
     | SetHeight height ->

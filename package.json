@@ -55,6 +55,7 @@
     "bulmaswatch": "^0.8.1",
     "fuse.js": "^6.5.3",
     "luxon": "^2.3.1",
+    "microsoft-cognitiveservices-speech-sdk": "^1.31.0",
     "nouislider-react": "^3.4.1",
     "pako": "^2.1.0",
     "papaparse": "^5.3.1",

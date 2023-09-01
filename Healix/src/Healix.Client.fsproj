@@ -9,8 +9,9 @@
     <Compile Include="CssModules.fs" />
 
     <!-- COMPONENTS -->
+    <Compile Include="Components/PaymentMethod.fs" />
+    <Compile Include="Components/Messages.fs" />
     <Compile Include="Components/Counter.fs" />
-    <Compile Include="Components/PhysicianOverview.fs" />
     <Compile Include="Components/Proposal.fs" />
     <Compile Include="Components/Sample.fs" />
     <Compile Include="Components/AppointmentViewerList.fs" />
@@ -19,7 +20,6 @@
     <Compile Include="Components/PatientHome.fs" />
     <Compile Include="Components/Notifications.fs" />
     <Compile Include="Components/Messaging.fs" />
-    <Compile Include="Components/Notifications.fs" />
     <Compile Include="Components/PhysicianOverview.fs" />
     <Compile Include="Components/Profile.fs" />
     <Compile Include="Components/SpinWheel.fs" />
@@ -28,6 +28,8 @@
     <Compile Include="Components/MedicationCard.fs" />
     <Compile Include="Components/LabResults.fs" />
     <Compile Include="Components/LabDetails.fs" />
+    <Compile Include="Components/ConvoCare.fs" />
+    <Compile Include="Components/PhysicianPanel.fs" />
 
 
     <!-- TOP LEVEL APP -->
