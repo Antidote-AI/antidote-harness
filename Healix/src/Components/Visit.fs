@@ -132,7 +132,7 @@ let Visit () =
                                         prop.style [style.display.flex; style.flexDirection.column; style.justifyContent.center; style.width (length.perc 80)]
                                         prop.children [
                                             Html.div [
-                                                Html.strong " Schedule New Patient Office Visit"
+                                                Html.strong " Schedule Video Visit"
                                             ]
                                             Html.div [
                                                 prop.style [style.color.gray; style.fontSize 14]
