@@ -9,7 +9,7 @@
     <Compile Include="CssModules.fs" />
 
     <!-- COMPONENTS -->
-    <Compile Include="Components/PaymentMethod.fs" />
+    <!-- <Compile Include="Components/PaymentMethod.fs" /> -->
     <Compile Include="Components/Messages.fs" />
     <Compile Include="Components/Counter.fs" />
     <Compile Include="Components/Proposal.fs" />

@@ -477,18 +477,21 @@ type Step =
 let steps () =
     let (currentStep, setStep) = React.useState Step.Step1
 
-    let stepImage = match currentStep with
+    let stepImage =
+        match currentStep with
         | Step1 -> Html.img [prop.src "../Assets/step1.png"; prop.style [style.width 300; style.height 300]]
         | Step2 -> Html.img [prop.src "../Assets/step2.png"; prop.style [style.width 300; style.height 300]]
         | Step3 -> Html.img [prop.src "../Assets/step3.png"; prop.style [style.width 300; style.height 300]]
 
     // Text for each step
-    let stepText = match currentStep with
+    let stepText =
+        match currentStep with
         | Step1 -> "Upload Patient Rosters"
         | Step2 -> "Some text for Step 2"
         | Step3 -> "Some text for Step 3"
 
-    let stepDesc = match currentStep with
+    let stepDesc =
+        match currentStep with
         | Step1 -> "Utilizing the power of our advanced models and cutting-edge technology, we have the capability to efficiently process and upload patient rosters within an impressively short timeframe of just one day. With our streamlined processes and optimized algorithms, we ensure swift and accurate handling of the data."
         | Step2 -> "Setup what you want to be sent out to patients. We have templates forms that you can start using immediately."
         | Step3 -> "Our user-friendly dashboards offer a comprehensive suite of tools designed to effortlessly monitor and evaluate results, enabling businesses to gain valuable insights and effectively track their return on investment (ROI)."
