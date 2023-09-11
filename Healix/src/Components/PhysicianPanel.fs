@@ -60,7 +60,7 @@ let PhysicianPanel () =
                                 prop.src ".././Assets/alan-katz.jpg"
                                 prop.alt "doctor's profile logo"
                                 prop.classes [ classes.DoctorImage; "image"; "p-1"; "ml-1"]
-                                prop.style [style.borderRadius 10; style.width 60; style.height 70; style.marginTop 5; style.marginBottom 5; style.marginRight 5]
+                                prop.style [style.borderRadius 10; style.width 60; style.height 70; style.marginTop 5; style.marginBottom 5; style.marginRight 5; style.custom("boxShadow", "rgba(0, 0, 0, 0.16) 0px 1px 4px")]
                             ]
                         ]
                     ]

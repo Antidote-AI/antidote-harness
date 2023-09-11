@@ -44,36 +44,39 @@ let StarRating() =
     let (rating, setRating) = React.useState(0)
 
     Html.div [
-        // Render stars
-        for i in 1..5 do
-            if i <= rating then
-                Html.i [
-                    prop.onClick (fun _ -> setRating i)
-                    prop.children [
-                        Icon [
-                            icon.icon mdi.star
-                            icon.width 40
-                            icon.height 40
-                            icon.color "#f4c430"
+        prop.style [style.paddingBottom 15; style.borderBottom(1, borderStyle.solid, color.whiteSmoke)]
+        prop.children [
+            for i in 1..5 do
+                if i <= rating then
+                    Html.i [
+                        prop.onClick (fun _ -> setRating i)
 
+                        prop.children [
+                            Icon [
+                                icon.icon mdi.star
+                                icon.width 40
+                                icon.height 40
+                                icon.color "#f4c430"
+
+                            ]
                         ]
+
                     ]
 
-                ]
+                else
+                    Html.i [
+                        prop.onClick (fun _ -> setRating i)
+                        prop.children [
+                            Icon [
+                                icon.icon mdi.starOutline
+                                icon.width 40
+                                icon.height 40
+                                icon.color "#f4c430"
 
-            else
-                Html.i [
-                    prop.onClick (fun _ -> setRating i)
-                    prop.children [
-                        Icon [
-                            icon.icon mdi.starOutline
-                            icon.width 40
-                            icon.height 40
-                            icon.color "#f4c430"
-
+                            ]
                         ]
                     ]
-                ]
+        ]
     ]
 
 [<ReactComponent>]
@@ -101,7 +104,7 @@ let Review () =
                                 prop.src ".././Assets/alan-katz.jpg"
                                 prop.alt "doctor's profile logo"
                                 prop.classes [ classes.DoctorImage; "image"; "p-1"; "ml-1"]
-                                prop.style [style.borderRadius 10; style.width 90; style.height 100; style.marginTop 5; style.marginBottom 5; style.marginRight 5]
+                                prop.style [style.borderRadius 10; style.width 130; style.height 160; style.marginTop 5; style.marginBottom 5; style.marginRight 5]
                             ]
                         ]
                     ]
@@ -109,32 +112,37 @@ let Review () =
                         prop.children [
                             Bulma.title [
                                 prop.classes ["is-size-6"]
-                                prop.style [style.color.black; style.maxWidth 250; style.textAlign.center; style.margin 5]
+                                prop.style [style.color.black; style.maxWidth 250; style.textAlign.center; style.margin 5; style.margin 15]
                                 prop.text "How was your experience with Dr. Henry Katz?"
                             ]
                         ]
                     ]
                     StarRating()
-                    Html.div [
-                        prop.style [style.margin 10; style.maxWidth 600]
-                        prop.children [
-                            Bulma.title [
-                                title.is6
-                                prop.style [style.color.black; style.marginBottom 0; style.marginLeft 5]
-                                prop.text "Write a review"
-                            ]
-                            Bulma.textarea [
-                                prop.classes ["textarea"]
-                                prop.style [style.width 300; style.height 100; style.margin 5]
-                                prop.placeholder "Your review here..."
-                            ]
-                        ]
+                    // Html.div [
+                    //     Html.hr [
+                    //         prop.style [style.color.black; style.width (length.perc 90)]
+                    //     ]
+                    // ]
+                ]
+            ]
+            Html.div [
+                prop.style [style.margin 15; style.maxWidth (length.perc 98)]
+                prop.children [
+                    Bulma.title [
+                        title.is6
+                        prop.style [style.color.black; style.marginBottom 0; style.marginLeft 5]
+                        prop.text "Write a review"
+                    ]
+                    Bulma.textarea [
+                        prop.classes ["textarea"]
+                        prop.style [style.width 300; style.height 100; style.margin 5]
+                        prop.placeholder "Your review here..."
                     ]
                 ]
             ]
             Html.div [
                 //prop.className "container"
-                prop.style [style.display.flex; style.flexDirection.column; style.marginLeft 40]
+                prop.style [style.display.flex; style.flexDirection.column; style.marginLeft 40; style.margin 10]
                 prop.children [
                     Bulma.title [
                         title.is6
@@ -142,26 +150,29 @@ let Review () =
                         prop.style [style.color.black; style.marginBottom 0]
                     ]
                     Html.form [
-                        Html.label [
-                            Html.input [
-                                prop.type' "radio"
-                                prop.name "radio"
-                                prop.isChecked true
+                        prop.style [style.margin 5]
+                        prop.children [
+                            Html.label [
+                                Html.input [
+                                    prop.type' "radio"
+                                    prop.name "radio"
+                                    //prop.isChecked true
+                                ]
+                                Html.span "Yes"
                             ]
-                            Html.span "Yes"
-                        ]
-                        Html.label [
-                            Html.input [
-                                prop.type' "radio"
-                                prop.name "radio"
+                            Html.label [
+                                Html.input [
+                                    prop.type' "radio"
+                                    prop.name "radio"
+                                ]
+                                Html.span "No"
                             ]
-                            Html.span "No"
                         ]
                     ]
                 ]
             ]
             Html.div [
-                prop.style [style.display.flex; style.flexDirection.row]
+                prop.style [style.display.flex; style.flexDirection.row; style.justifyContent.center; style.margin 150]
                 prop.children [
                     Html.div [
                         prop.style [
@@ -172,11 +183,12 @@ let Review () =
                                 Bulma.button.isRounded
                                 Bulma.button.isInverted
                                 Bulma.color.isPrimary
+                                //prop.classes ["has-background-primary-light"; "has-text-primary"]
                                 //prop.onClick (fun _ -> dispatch LoadAppointments )
                                 prop.text "Cancel"
                                 prop.style [
                                     style.borderColor "var(--antidote-blue-primary)"
-                                    style.width 100
+                                    style.width 150
                                     style.fontSize 17
                                     ]
                             ]
@@ -191,7 +203,7 @@ let Review () =
                             // )
                             prop.text "Submit"
                             prop.style [
-                                style.width 100
+                                style.width 150
                                 style.fontSize 17
                             ]
                         ]
