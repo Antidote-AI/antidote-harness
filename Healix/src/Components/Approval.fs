@@ -136,7 +136,7 @@ let AboutMe () =
 
     Html.div [
         prop.className [classes.marginLess]
-        prop.style [style.marginTop 15]
+        prop.style [style.marginTop 15; style.paddingBottom 70]
         prop.children [
             Html.strong [
                 prop.classes ["is-size-5"; "has-text-weight-bold"]
@@ -191,93 +191,9 @@ let reviewBar =
             ]
         )
 
-[<ReactComponent>]
-let reviewCard (review: Review) =
-    Html.div [
-        prop.className [classes.widthNinety]
-        prop.style [ style.display.flex; style.flexDirection.column; style.justifyContent.center; style.alignItems.center ;style.marginBottom 15; style.border(1, borderStyle.solid, color.whiteSmoke);style.minWidth (length.px 250); style.marginRight 10; style.marginLeft 15] // row direction for this container
-        prop.children [
-            Html.div [
-                prop.style [style.width (length.perc 100)]
-                prop.classes ["appointmentViewerList__container-content"; "is-flex"; "is-flex-direction-row"; "m-1"; "is-justify-content-space-between"]
-                prop.children [
-                    Html.div [
-                        prop.style [ style.display.flex; style.alignItems.center; style.justifyContent.spaceBetween; style.width (length.perc 100); style.flexGrow 1 ]
-                        // added justifyContent.spaceBetween and style.width.pct 100 to stretch the container
-                        prop.children [
-                            Html.div [
-                                prop.style [ style.display.flex; style.alignItems.center]
-                                prop.children [
-                                    Html.div [
-                                        prop.children [
-                                            Html.img [
-                                                prop.style [style.marginLeft 10; style.width 48; style.height 48]
-                                                prop.src review.ImgSrc
-                                                //prop.alt "messaging icon"
-                                                prop.classes [classes.MessagingIcon;"image"; "is-rounded"]
-                                            ]
-                                        ]
-                                    ]
-                                    Html.div [
-                                        prop.classes ["appointmentViewerList__container-content"]
-                                        prop.children [
-                                            Html.h3 [
-                                                prop.classes ["appointmentViewerList__name"; "has-text-weight-bold"; "p-2" ]
-                                                prop.text review.User
-                                                prop.style [style.fontFamily "Inter"; style.fontWeight.bold; style.fontSize 17;style.marginBottom -20; style.marginLeft 7; style.color.black]
-                                            ]
-                                            Html.div [
-                                                prop.children [
-                                                    Html.p [
-                                                        prop.classes ["appointmentViewerList__messaging"; "p-2"]
-                                                        prop.style [style.fontFamily "Inter"; style.marginLeft 7; style.fontSize 14; style.color.gray]
-                                                        prop.children [
-                                                            let dateString = DateTime.Now.ToString("MMM dd yyyy")
-                                                            Html.text (review.Date.ToString("MMM/dd/yyyy")) // adjust formatting as needed
-                                                        ]
-                                                    ]
-                                                ]
-                                            ]
-                                        ]
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            ]
-            Html.div [
-                prop.style [ style.display.flex;
-                            style.flexDirection.row; style.flexWrap.wrap; style.justifyContent.spaceBetween; style.gap 10]
-                prop.classes ["appointmentViewerList__container-button"; "is-flex"; "is-justify-content-space-evenly";"has-border-top"; ]
-                prop.children [
-                    Html.div [
-                        prop.style [style.display.flex; style.alignItems.center; style.marginTop 7; style.marginBottom 7] // Added alignItems.center to align items vertically
-                        prop.children [
-                            Html.div [
-                                prop.style [style.fontSize 15; style.fontFamily "Inter"; style.color.black; style.marginLeft 10; style.color.black; style.fontWeight 390]
-                                prop.children [
-                                    Html.text review.Comment
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            ]
-        ]
-    ]
 
 [<ReactComponent>]
-let reviewList (reviews: Review list) =
-    Html.div [
-        prop.style [ style.display.flex; style.flexDirection.row; style.overflowX.scroll]
-        prop.children (List.map reviewCard reviews)
-    ]
-
-
-
-[<ReactComponent>]
-let reviews () =
+let info () =
     Html.div [
         prop.children [
             Html.div [
@@ -375,9 +291,6 @@ let reviews () =
                 ]
             ]
         ]
-
-
-
 
 let patientsIcon = { image = ".././Assets/people.svg"; number = "1,000+"; title = "Patients" }
 let yearsExpIcon = { image = ".././Assets/diagram.svg"; number = "10+ Years"; title = "Experience" }
@@ -489,12 +402,12 @@ let WorkingHoursComp() =
             ]
         ]
 
-let BookAppointment() =
+let Buttons() =
     Html.div [
-        prop.style [style.position.absolute; style.bottom 0; style.width (length.perc 100); style.backgroundColor "#ffffff"; style.padding 10]
+        prop.className [classes.elementToPin]
         prop.children [
             Html.div [
-                prop.style [style.display.flex; style.flexDirection.row]
+                prop.style [style.display.flex; style.flexDirection.row; style.height (length.perc 10)]
                 prop.children [
                     Bulma.button.button [
                         prop.classes ["has-text-weight-bold"]
@@ -545,7 +458,7 @@ let TabComponent() =
         match currentTab with
         | About -> AboutMe
         | WorkingHours -> WorkingHoursComp
-        | Ratings -> reviews
+        | Ratings -> info
         // | Schedule -> CompletedAssessments myAssessments
         | _ -> (fun _ -> Html.span "Error")
 
@@ -601,6 +514,6 @@ let Approval () =
             TabComponent()
             // AboutMe()
             // WorkingHoursComp()
-            BookAppointment()
+            Buttons()
         ]
     ]

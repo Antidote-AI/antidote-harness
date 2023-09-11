@@ -80,3 +80,11 @@
     width: 90% !important;
     //box-sizing: border-box !important; /* this makes sure padding and border are included in the width */
 }
+
+.element-to-pin {
+    position: fixed;
+    bottom: 0;
+    left: 0;   /* To align it to the left side, you can adjust or remove if not needed */
+    width: 100%; /* To make it span the full width, adjust or remove if not needed */
+    background-color: rgba(255, 255, 255, 0.9)
+}
