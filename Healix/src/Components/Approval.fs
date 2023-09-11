@@ -407,7 +407,7 @@ let Buttons() =
         prop.className [classes.elementToPin]
         prop.children [
             Html.div [
-                prop.style [style.display.flex; style.flexDirection.row; style.height (length.perc 10)]
+                prop.style [style.display.flex; style.flexDirection.row; style.paddingBottom 10; style.paddingTop 10]
                 prop.children [
                     Bulma.button.button [
                         prop.classes ["has-text-weight-bold"]
@@ -423,8 +423,8 @@ let Buttons() =
                             style.fontSize 17
                             style.display.flex
                             style.justifyContent.center
-                            style.marginTop 30
-                            style.marginBottom 10
+                            // style.marginTop 30
+                            // style.marginBottom 10
                         ]
                     ]
                     Bulma.button.button [
@@ -441,8 +441,8 @@ let Buttons() =
                             style.fontSize 17
                             style.display.flex
                             style.justifyContent.center
-                            style.marginTop 30
-                            style.marginBottom 10
+                            // style.marginTop 30
+                            // style.marginBottom 10
                         ]
                     ]
                 ]

@@ -34,6 +34,7 @@
     <Compile Include="Components/Reschedule.fs" />
     <Compile Include="Components/Cancellation.fs" />
     <Compile Include="Components/Approval.fs" />
+    <Compile Include="Components/Visit.fs" />
 
 
 
