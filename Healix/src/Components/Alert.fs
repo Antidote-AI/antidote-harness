@@ -16,6 +16,9 @@ open Fable.Core.JS
 
 let private classes : CssModules.Components.Alert = import "default" "./Alert.module.scss"
 
+
+type Message = { title: string; icon: string }
+
 [<ReactComponent>]
 let Alert () =
 

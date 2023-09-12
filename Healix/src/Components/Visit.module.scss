@@ -27,3 +27,21 @@
     width: 30%;
 }
 
+.align {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: baseline !important;
+    //vertical-align: baseline;
+}
+
+.center-width {
+    width: 95vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-container {
+    width: 100%;
+    margin: auto;  /* This will center the div within its parent */
+    justify-content: center;
+}
