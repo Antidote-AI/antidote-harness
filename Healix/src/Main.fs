@@ -40,6 +40,6 @@ importSideEffects "./index.scss"
 ReactDOM.render(
     //render (),
     //MedicationCard(),
-    Visit (),
+    Page (),
     document.getElementById("root")
 )

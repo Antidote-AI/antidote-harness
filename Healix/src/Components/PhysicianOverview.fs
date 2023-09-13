@@ -427,17 +427,38 @@ let PhysicianOverview () =
                                             ]
                                         ]
                                     ]
+                                    // Html.div [
+                                    //     prop.children [
+                                    //         Html.p [
+                                    //             prop.classes ["appointmentViewerList__messaging"; "p-2"]
+                                    //             prop.style [style.fontFamily "Inter"; style.fontSize 14; style.color.gray; style.textAlign.center]
+                                    //             prop.children [
+                                    //                 Html.text ("Patient")
+                                    //             ]
+                                    //         ]
+                                    //     ]
+                                    // ]
                                     Html.div [
+                                        prop.style [style.display.flex; style.flexDirection.row; style.alignItems.center; style.marginTop 12; style.marginBottom 10]
                                         prop.children [
-                                            Html.p [
-                                                prop.classes ["appointmentViewerList__messaging"; "p-2"]
-                                                prop.style [style.fontFamily "Inter"; style.fontSize 14; style.color.gray; style.textAlign.center]
-                                                prop.children [
-                                                    Html.text ("Patient")
+                                            Html.img [
+                                                prop.src ".././Assets/star-yellow.svg"
+                                                prop.style [
+                                                    style.width 15
+                                                    style.height 15
                                                 ]
+                                            ]
+                                            Html.p [
+                                                prop.style [style.color.black; style.fontSize 14; style.marginLeft 3; style.fontWeight.bold]
+                                                prop.text "4.9"
+                                            ]
+                                            Html.p [
+                                                prop.style [style.color.gray; style.fontSize 14; style.marginLeft 8]
+                                                prop.text "(4,279 reviews)"
                                             ]
                                         ]
                                     ]
+
                                 ]
                             ]
                         ]
@@ -543,13 +564,106 @@ let TabComponent() =
         ]
     ]
 
+[<ReactComponent>]
+let Details () =
+    Html.div [
+        prop.style [
+            style.width (length.perc 100);
+            //style.height (length.vh 100);  // Ensure the container takes up the full viewport height
+            style.display.flex;
+            style.flexDirection.column;
+            style.justifyContent.center;
+            style.alignItems.center;
+            style.marginTop -10
+            style.marginBottom 10
+        ]
+        prop.children [
+            Html.div [
+                prop.style [
+                    style.width (length.perc 95);  // Set a max width for better appearance
+                    style.display.flex;
+                    style.justifyContent.spaceAround  // Distribute space around the two items (address and phone)
+                ]
+                prop.children [
+                    Html.div [
+                        prop.style [style.display.flex; style.flexDirection.column; style.alignItems.center; style.maxWidth (length.perc 45)]
+                        prop.children [
+                            Html.div [
+                                prop.style [style.display.flex]
+                                prop.children [
+                                    Html.i [
+                                        prop.style [style.marginRight 5; style.alignItems.center]
+                                        prop.children [
+                                            Icon [
+                                                icon.icon mdi.location
+                                                icon.width 20
+                                                icon.height 20
+                                                icon.color "black"
+                                            ]
+                                        ]
+                                    ]
+                                    Html.div [
+                                        prop.style [style.fontWeight.bold;]
+                                        prop.children [
+                                            Html.text "Address"
+                                        ]
+                                    ]
+                                ]
+                            ]
 
+                            Html.div [
+                                prop.style [style.textAlign.center; style.color.dimGray; style.fontWeight 500; style.fontSize 15]
+                                prop.children [
+                                    Html.text "2020 N Bayshore Drive 1806"
+                                ]
+                            ]
+                        ]
+                    ]
+                    Html.div [
+                        prop.style [style.display.flex; style.flexDirection.column; style.alignItems.center; style.maxWidth (length.perc 45)]
+                        prop.children [
+                            Html.div [
+                                prop.style [style.display.flex]
+                                prop.children [
+                                    Html.i [
+                                        prop.style [style.marginRight 5; style.alignItems.center]
+                                        prop.children [
+                                            Icon [
+                                                icon.icon mdi.phone
+                                                icon.width 20
+                                                icon.height 20
+                                                icon.color "black"
+                                            ]
+                                        ]
+                                    ]
+                                    Html.div [
+                                        prop.style [style.fontWeight.bold;]
+                                        prop.children [
+                                            Html.text "Phone"
+                                        ]
+                                    ]
+                                ]
+                            ]
+
+                            Html.div [
+                                prop.style [style.textAlign.center; style.color.dimGray; style.fontWeight 500; style.fontSize 15]
+                                prop.children [
+                                    Html.text "(305)-206-4761"
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
 
 [<ReactComponent>]
 let Page () =
     Html.div [
         prop.children [
             PhysicianOverview()
+            Details()
             PhysicianMetrics()
             TabComponent()
             // AboutMe()

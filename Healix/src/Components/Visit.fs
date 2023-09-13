@@ -13,7 +13,6 @@ open type Offline.Exports
 open Glutinum.IconifyIcons.Mdi
 open Elmish
 open Fable.Core.JS
-// open Antidote.Core.V2.Utils.JS
 
 emitJsStatement () "import React from \"react\""
 
@@ -24,6 +23,11 @@ type WarningProps = {
     WarningTitle: string
     WarningMessage: string
 }
+
+type AppointmentType =
+    | OfficeVisit
+    | VideoVisit
+    | NoneSelected
 
 type BehavioralHealthOptions =
     | AnxietyDisorder
@@ -164,83 +168,98 @@ let warningMessage = [{ WarningTitle = "Warning"; WarningMessage = "Please be aw
 
 
 [<ReactComponent>]
+let steps () =
+    let (step, setStep) = React.useState "step1"
 
-let WarningCard(props:WarningProps) =
-    Bulma.card [
-        prop.className classes.centerWidth
+    let nextStep() =
+        match step with
+        | "step1" ->
+            // apply logic for transitioning from step1 to step2
+            setStep "step2"
+        | "step2" ->
+            // apply logic for transitioning from step2 to step3
+            setStep "step3"
+        | "step3" ->
+            // apply logic for transitioning from step3 to step4
+            setStep "step4"
+        | "step4" ->
+            // apply logic for completing the steps
+            setStep "complete"
+        | _ -> ()
+
+    let progressBarColor() =
+        match step with
+        | "step1" -> "grey"   // Replace with your desired color for step1
+        | "step2" -> "#027f00"   // This is the brand primary color
+        | "step3" -> "#027f00"   // This is the brand primary color
+        | "step4" -> "#027f00"   // This is the brand primary color
+        | _ -> "grey"
+
+    Html.div [
+        prop.className "container-fluid"
         prop.children [
-            Bulma.cardHeader [
-                prop.classes [ "is-danger"; "is-light"; "has-background-danger" ]
+            Html.ul [
+                prop.classes [classes.multiSteps] //[ "list-unstyled"; "multi-steps" ]
                 prop.children [
-                    Html.div [
-                        prop.className [classes.align]
-                        prop.classes ["align"]
-                        prop.style [style.display.flex; style.alignItems.center]
+                    Html.li [
+                        prop.className (if step = "step1" then classes.isActive else "")
+                        prop.id "step-1"
                         prop.children [
-                            Html.span [
-                                prop.className ["icon"]
-                                prop.style [style.marginRight 7]
-                                prop.children [
-                                    Icon [
-                                        icon.icon mdi.alert
-                                        icon.width 25
-                                        icon.height 25
-                                        icon.color "#FFFFFF"
-                                    ]
-                                ]
-                            ]
-                            Html.text props.WarningTitle
-                        ]
-                    ]
-                ]
-                prop.style [style.display.flex; style.justifyContent.center; style.alignItems.center; style.color "#FFFFFF"; style.fontSize 25; style.fontWeight.bold; style.paddingTop 10]
-            ]
-
-            Bulma.cardContent [
-                prop.classes [ "is-danger"; "is-light"; "has-background-danger-light" ]
-                prop.style [style.display.flex; style.justifyContent.center]
-                prop.children [
-                    Html.div [
-                        prop.className [classes.textContainer]
-                        prop.style [style.fontSize 17; style.color "#FF3366"]
-                        prop.children [
-                            Html.text props.WarningMessage
-                        ]
-                    ]
-                ]
-            ]
-            Bulma.level [
-                prop.classes [ "has-background-danger-light" ]
-                prop.children [
-                    Bulma.levelItem [
-                        prop.style [
-                            style.marginRight 10
-                            style.marginBottom 20
-                        ]
-                        prop.children [
+                            Html.text "Start"
                             Html.div [
-                                prop.className [classes.align]
-                                prop.classes ["align"]
-                                prop.style [style.display.flex; style.alignItems.center; style.color "#FF3366"; style.fontWeight.bold]
+                                prop.classes [classes.progressBar]
+                                prop.style [ style.backgroundColor (progressBarColor()) ]  // Set the background color here
                                 prop.children [
-                                    Html.span [
-                                        prop.style [style.display.flex; style.alignItems.center]
-                                        prop.className ["icon"]
-                                        prop.style [style.marginRight 7]
-                                        prop.children [
-                                            Icon [
-                                                icon.icon mdi.phone
-                                                icon.width 20
-                                                icon.height 20
-                                                icon.color "#FF3366"
-                                            ]
-                                        ]
+                                    Html.div [
+                                        prop.className classes.progressBar_bar
                                     ]
-                                    Html.text "(850) 487-1111"
                                 ]
                             ]
                         ]
                     ]
+                    Html.li [
+                        prop.id "step-2"
+                        prop.className (if step = "step2" then classes.isActive else "")
+                        prop.children [
+                            Html.text "First Step"
+                            Html.div [
+                                prop.classes [classes.progressBar]
+                                prop.style [ style.backgroundColor (progressBarColor()) ]  // Set the background color here
+                                prop.children [
+                                    Html.div [
+                                        prop.className classes.progressBar_bar
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                    Html.li [
+                        prop.id "step-3"
+                        prop.className (if step = "step3" then classes.isActive else "")
+                        prop.children [
+                            Html.text "Middle Stage"
+                            Html.div [
+                                prop.classes [classes.progressBar]
+                                prop.style [ style.backgroundColor (progressBarColor()) ]  // Set the background color here
+                                prop.children [
+                                    Html.div [
+                                        prop.className classes.progressBar_bar
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                    Html.li [
+                        prop.className (if step = "step4" then classes.isActive else "")
+                        prop.id "step-4"
+                        prop.text "Finish"
+                    ]
+                ]
+            ]
+            Html.div[
+                Html.button [
+                    prop.text "Next"
+                    prop.onClick (fun _ -> nextStep())
                 ]
             ]
         ]
@@ -253,56 +272,15 @@ let WarningCard(props:WarningProps) =
 let Visit () =
     let (selectedOption, setSelectedOption) = React.useState<string option>(None)
     let (isDropdownActive, setIsDropdownActive) = React.useState false
+    let (selectedAppointment, setSelectedAppointment) = React.useState<AppointmentType option>(None)
+
 
     Html.section [
         prop.children [
             Html.div [
-                prop.style [style.display.flex; style.flexDirection.row]
+                prop.style [style.display.flex;style.flexDirection.row]
                 prop.children [
-                    Html.div [
-                        prop.classes ["has-background-primary-light"]
-                        prop.children [
-                            Html.img [
-                                prop.src ".././Assets/medicalbag.svg"
-                                prop.alt "doctor's profile logo"
-                                prop.classes [ classes.DoctorImage; "image"; "p-1"; "ml-1"]
-                                prop.style [style.width 40; style.height 40; style.width (length.vw 25); style.display.flex; style.justifyContent.center]
-                            ]
-                        ]
-                    ]
-                    Html.div [
-                        //prop.classes ["has-background-primary-light"]
-                        prop.children [
-                            Html.img [
-                                prop.src ".././Assets/clinic.svg"
-                                prop.alt "doctor's profile logo"
-                                prop.classes [ classes.DoctorImage; "image"; "p-1"; "ml-1"]
-                                prop.style [style.width 40; style.height 40; style.width (length.vw 25); style.display.flex; style.justifyContent.center; style.opacity 0.2]
-                            ]
-                        ]
-                    ]
-                    Html.div [
-                        //prop.classes ["has-background-primary-light"]
-                        prop.children [
-                            Html.img [
-                                prop.src ".././Assets/clock1.svg"
-                                prop.alt "doctor's profile logo"
-                                prop.classes [ classes.DoctorImage; "image"; "p-1"; "ml-1"]
-                                prop.style [style.width 40; style.height 40; style.width (length.vw 25); style.display.flex; style.justifyContent.center; style.opacity 0.2]
-                            ]
-                        ]
-                    ]
-                    Html.div [
-                        //prop.classes ["has-background-primary-light"]
-                        prop.children [
-                            Html.img [
-                                prop.src ".././Assets/january.svg"
-                                prop.alt "doctor's profile logo"
-                                prop.classes [ classes.DoctorImage; "image"; "p-1"; "ml-1"]
-                                prop.style [style.width 40; style.height 40; style.width (length.vw 25); style.display.flex; style.justifyContent.center; style.opacity 0.2]
-                            ]
-                        ]
-                    ]
+                    steps ()
                 ]
 
             ]
@@ -310,80 +288,123 @@ let Visit () =
                 prop.style [
                     style.display.flex
                     style.justifyContent.center
+                    style.alignItems.center
                     //style.flexDirection.column
                 ]
                 prop.children [
                     Html.div [
                         prop.style [
-                            style.width (length.perc 100)
+                            style.width (length.vw 98)
                             style.display.flex
                             style.justifyContent.center
                             style.flexDirection.column
                         ]
                         prop.children [
                             Html.div [
-                                prop.style [style.marginTop 20; style.display.flex; style.marginLeft (length.perc 1)]
+                                prop.style [style.marginTop 20; style.display.flex]
                                 prop.children [
                                     Html.strong "What type of appointment are you scheduling?"
                                 ]
                             ]
                             Html.div [
-                                prop.style [style.display.flex; style.margin 10; style.custom("boxShadow", "rgba(0, 0, 0, 0.16) 0px 1px 4px")]
+                                prop.style [style.display.flex; style.justifyContent.spaceBetween;style.display.flex;style.marginTop 5; style.custom("boxShadow", "rgba(0, 0, 0, 0.16) 0px 1px 4px")]
+                                prop.onClick (fun _ -> setSelectedAppointment (Some OfficeVisit))
                                 prop.children [
-                                    Html.img [
-                                            prop.classes ["m-3"]
-                                            prop.alt "Placeholder image"
-                                            prop.src "/images/doctor.svg"
-                                            prop.style [style.width 40; style.height 40; style.display.flex; style.alignContent.center]
-                                        ]
                                     Html.div [
-                                        prop.style [style.display.flex; style.flexDirection.column; style.justifyContent.center; style.width (length.perc 80)]
+                                        prop.style [style.display.flex]
                                         prop.children [
+                                            Html.img [
+                                                    prop.classes ["m-3"]
+                                                    prop.alt "Placeholder image"
+                                                    prop.src "/images/doctor.svg"
+                                                    prop.style [style.width 40; style.height 40; style.display.flex; style.alignContent.center]
+                                                ]
                                             Html.div [
-                                                Html.strong " Schedule New Patient Office Visit"
-                                            ]
-                                            Html.div [
-                                                prop.style [style.color.gray; style.fontSize 14]
+                                                prop.style [style.display.flex; style.flexDirection.column; style.justifyContent.center]
                                                 prop.children [
-                                                    Html.text " Schedule a general visit as a new patient"
+                                                    Html.div [
+                                                        Html.strong " Schedule an Office Visit"
+                                                    ]
+                                                    Html.div [
+                                                        prop.style [style.color.gray; style.fontSize 14]
+                                                        prop.children [
+                                                            Html.text " Schedule an in person office visit"
+                                                        ]
+                                                    ]
                                                 ]
                                             ]
                                         ]
                                     ]
-
+                                    if selectedAppointment = Some OfficeVisit then
+                                        Html.div [
+                                            prop.style [style.display.flex; style.justifyContent.flexEnd; style.alignItems.center; style.marginRight 10]
+                                            prop.children [
+                                                Html.label [
+                                                    Html.input [
+                                                        prop.type' "radio"
+                                                        prop.name "radio"
+                                                        prop.isChecked true
+                                                    ]
+                                                    //Html.span "I scheduled the wrong time"
+                                                ]
+                                            ]
+                                        ]
+                                    else Html.none
                                 ]
                             ]
+
                             Html.div [
-                                prop.style [style.display.flex; style.margin 10; style.custom("boxShadow", "rgba(0, 0, 0, 0.16) 0px 1px 4px")]
+                                prop.style [style.display.flex; style.justifyContent.spaceBetween;style.display.flex;style.marginTop 5; style.custom("boxShadow", "rgba(0, 0, 0, 0.16) 0px 1px 4px")]
+                                prop.onClick (fun _ -> setSelectedAppointment (Some VideoVisit))
                                 prop.children [
-                                    Html.img [
-                                            prop.classes ["m-3"]
-                                            prop.alt "Placeholder image"
-                                            prop.src "/images/laptop.svg"
-                                            prop.style [style.width 40; style.height 40; style.display.flex; style.alignContent.center]
-                                        ]
                                     Html.div [
-                                        prop.style [style.display.flex; style.flexDirection.column; style.justifyContent.center; style.width (length.vw 99)]
+                                        prop.style [style.display.flex]
                                         prop.children [
+                                            Html.img [
+                                                    prop.classes ["m-3"]
+                                                    prop.alt "Placeholder image"
+                                                    prop.src "/images/laptop.svg"
+                                                    prop.style [style.width 40; style.height 40; style.display.flex; style.alignContent.center]
+                                                ]
                                             Html.div [
-                                                Html.strong " Schedule Video Visit"
-                                            ]
-                                            Html.div [
-                                                prop.style [style.color.gray; style.fontSize 14]
+                                                prop.style [style.display.flex; style.flexDirection.column; style.justifyContent.center]
                                                 prop.children [
-                                                    Html.text " Schedule a general visit as a new patient"
+                                                    Html.div [
+                                                        Html.strong " Schedule Video Visit"
+                                                    ]
+                                                    Html.div [
+                                                        prop.style [style.color.gray; style.fontSize 14]
+                                                        prop.children [
+                                                            Html.text " Schedule a video visit"
+                                                        ]
+                                                    ]
                                                 ]
                                             ]
                                         ]
                                     ]
-
+                                    if selectedAppointment = Some VideoVisit then
+                                        Html.div [
+                                            prop.style [style.display.flex; style.justifyContent.flexEnd; style.alignItems.center; style.marginRight 10]
+                                            prop.children [
+                                                Html.label [
+                                                    Html.input [
+                                                        prop.type' "radio"
+                                                        prop.name "radio"
+                                                        prop.isChecked true
+                                                    ]
+                                                    //Html.span "I scheduled the wrong time"
+                                                ]
+                                            ]
+                                        ]
+                                    else Html.none
                                 ]
                             ]
+
                             Html.div [
                                 //prop.style [style.display.flex; style.justifyContent.center; style.flexDirection.column; style.width (length.perc 100); style.alignContent.center; style.alignItems.center]
                                 prop.children [
                                     Html.div [
-                                        prop.style [style.marginTop 20; style.display.flex; style.marginLeft (length.perc 1)]
+                                        prop.style [style.marginTop 20; style.display.flex]
                                         prop.children [
                                             Html.strong "What is the reason for your visit?"
                                         ]
@@ -453,29 +474,60 @@ let Visit () =
                             //         Html.text "If you are experiencing a medical emergency, any thoughts of suicide, self harm, or harming someone else please call 911 for immediate assistance."
                             //     ]
                             // ]
-                            if selectedOption.IsSome && (not isDropdownActive) then
-                                Html.div [
-                                    prop.style [style.maxWidth (length.perc 99); style.display.flex; style.alignItems.center]
-                                    prop.children [
-                                        // Bulma.title [
-                                        //     title.is6
-                                        //     prop.style [style.color.black; style.marginBottom 0; style.marginLeft 5]
-                                        //     prop.text "Write a review"
-                                        // ]
-                                        Bulma.textarea [
-                                            prop.classes ["textarea"]
-                                            prop.style [ style.height 100]
-                                            prop.placeholder "Describe the reason for visit here..."
-                                        ]
-                                    ]
-                                ]
-                            else
-                                Html.none
-
-
                         ]
                     ]
                 ]
             ]
+            if selectedOption.IsSome && (not isDropdownActive) && selectedAppointment.IsSome then
+                // Html.div [
+                //     prop.style [style.display.flex; style.justifyContent.center; style.alignItems.center; style.width (length.vw 98); style.alignContent.center]
+                //     prop.children [
+                //         // Bulma.title [
+                //         //     title.is6
+                //         //     prop.style [style.color.black; style.marginBottom 0; style.marginLeft 5]
+                //         //     prop.text "Write a review"
+                //         // ]
+                //         Bulma.textarea [
+                //             prop.classes ["textarea"]
+                //             prop.style [ style.height 100; style.display.flex; style.justifyContent.center; style.alignContent.center]
+                //             prop.placeholder "Describe the reason for visit here..."
+                //         ]
+                //     ]
+                // ]
+                Html.div [
+                    prop.style [style.display.flex; style.justifyContent.center; style.width (length.perc 98)]
+                    prop.children [
+                        Bulma.textarea [
+                            prop.style [style.marginLeft (length.perc 2); style.marginTop 10]
+                            prop.placeholder "Describe the reason for visit here..."
+                        ]
+                    ]
+                ]
+                Html.div [
+                    prop.style[style.display.flex; style.justifyContent.center]
+                    prop.children [
+                        Bulma.button.button [
+                            Bulma.button.isRounded
+                            Bulma.color.isPrimary
+                            //prop.className [classes.buttonContainer]
+                            prop.style [
+                                style.width (length.perc 50)
+                                style.fontSize 17
+                                style.fontWeight.bold
+                                style.display.flex
+                                style.justifyContent.center
+                                style.position.absolute
+                                style.bottom 0
+                                style.marginBottom 20
+                            ]
+                            prop.children [
+                                Html.text "Next"
+                            ]
+                        ]
+                    ]
+
+                ]
+            else
+                Html.none
         ]
     ]
