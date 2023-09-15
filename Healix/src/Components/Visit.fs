@@ -166,108 +166,6 @@ let allBehavioralHealthOptions = [
 let warningMessage = [{ WarningTitle = "Warning"; WarningMessage = "Please be aware the self-pay cost for a visit can range from $250.00 to $600.000 depensing on services provided"}]
 
 
-
-[<ReactComponent>]
-let steps () =
-    let (step, setStep) = React.useState "step1"
-
-    let nextStep() =
-        match step with
-        | "step1" ->
-            // apply logic for transitioning from step1 to step2
-            setStep "step2"
-        | "step2" ->
-            // apply logic for transitioning from step2 to step3
-            setStep "step3"
-        | "step3" ->
-            // apply logic for transitioning from step3 to step4
-            setStep "step4"
-        | "step4" ->
-            // apply logic for completing the steps
-            setStep "complete"
-        | _ -> ()
-
-    let progressBarColor() =
-        match step with
-        | "step1" -> "grey"   // Replace with your desired color for step1
-        | "step2" -> "#027f00"   // This is the brand primary color
-        | "step3" -> "#027f00"   // This is the brand primary color
-        | "step4" -> "#027f00"   // This is the brand primary color
-        | _ -> "grey"
-
-    Html.div [
-        prop.className "container-fluid"
-        prop.children [
-            Html.ul [
-                prop.classes [classes.multiSteps] //[ "list-unstyled"; "multi-steps" ]
-                prop.children [
-                    Html.li [
-                        prop.className (if step = "step1" then classes.isActive else "")
-                        prop.id "step-1"
-                        prop.children [
-                            Html.text "Start"
-                            Html.div [
-                                prop.classes [classes.progressBar]
-                                prop.style [ style.backgroundColor (progressBarColor()) ]  // Set the background color here
-                                prop.children [
-                                    Html.div [
-                                        prop.className classes.progressBar_bar
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ]
-                    Html.li [
-                        prop.id "step-2"
-                        prop.className (if step = "step2" then classes.isActive else "")
-                        prop.children [
-                            Html.text "First Step"
-                            Html.div [
-                                prop.classes [classes.progressBar]
-                                prop.style [ style.backgroundColor (progressBarColor()) ]  // Set the background color here
-                                prop.children [
-                                    Html.div [
-                                        prop.className classes.progressBar_bar
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ]
-                    Html.li [
-                        prop.id "step-3"
-                        prop.className (if step = "step3" then classes.isActive else "")
-                        prop.children [
-                            Html.text "Middle Stage"
-                            Html.div [
-                                prop.classes [classes.progressBar]
-                                prop.style [ style.backgroundColor (progressBarColor()) ]  // Set the background color here
-                                prop.children [
-                                    Html.div [
-                                        prop.className classes.progressBar_bar
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ]
-                    Html.li [
-                        prop.className (if step = "step4" then classes.isActive else "")
-                        prop.id "step-4"
-                        prop.text "Finish"
-                    ]
-                ]
-            ]
-            Html.div[
-                Html.button [
-                    prop.text "Next"
-                    prop.onClick (fun _ -> nextStep())
-                ]
-            ]
-        ]
-    ]
-
-
-
-
 [<ReactComponent>]
 let Visit () =
     let (selectedOption, setSelectedOption) = React.useState<string option>(None)
@@ -277,13 +175,6 @@ let Visit () =
 
     Html.section [
         prop.children [
-            Html.div [
-                prop.style [style.display.flex;style.flexDirection.row]
-                prop.children [
-                    steps ()
-                ]
-
-            ]
             Html.div [
                 prop.style [
                     style.display.flex
@@ -465,35 +356,11 @@ let Visit () =
                                     ]
                                 ]
                             ]
-                            // Html.div [
-                            //     Html.p "Please be aware the self-pay cost for a visit can range from $250.00 to $600.000 depending on services provided"
-                            // ]
-                            // Html.div [
-                            //     prop.style [style.display.flex; style.justifyContent.center; style.textAlign.left;style.color.gray]
-                            //     prop.children [
-                            //         Html.text "If you are experiencing a medical emergency, any thoughts of suicide, self harm, or harming someone else please call 911 for immediate assistance."
-                            //     ]
-                            // ]
                         ]
                     ]
                 ]
             ]
             if selectedOption.IsSome && (not isDropdownActive) && selectedAppointment.IsSome then
-                // Html.div [
-                //     prop.style [style.display.flex; style.justifyContent.center; style.alignItems.center; style.width (length.vw 98); style.alignContent.center]
-                //     prop.children [
-                //         // Bulma.title [
-                //         //     title.is6
-                //         //     prop.style [style.color.black; style.marginBottom 0; style.marginLeft 5]
-                //         //     prop.text "Write a review"
-                //         // ]
-                //         Bulma.textarea [
-                //             prop.classes ["textarea"]
-                //             prop.style [ style.height 100; style.display.flex; style.justifyContent.center; style.alignContent.center]
-                //             prop.placeholder "Describe the reason for visit here..."
-                //         ]
-                //     ]
-                // ]
                 Html.div [
                     prop.style [style.display.flex; style.justifyContent.center; style.width (length.perc 98)]
                     prop.children [
@@ -529,5 +396,111 @@ let Visit () =
                 ]
             else
                 Html.none
+        ]
+    ]
+
+[<ReactComponent>]
+let steps () =
+
+    let (step, setStep) = React.useState "step1"
+
+    let nextStep() =
+        match step with
+        | "step1" ->
+            // apply logic for transitioning from step1 to step2
+            setStep "step2"
+        | "step2" ->
+            // apply logic for transitioning from step2 to step3
+            setStep "step3"
+        | "step3" ->
+            // apply logic for transitioning from step3 to step4
+            setStep "step4"
+        | "step4" ->
+            // apply logic for completing the steps
+            setStep "complete"
+        | _ -> ()
+
+    let progressBarColor() =
+        match step with
+        | "step1" -> "grey"   // Replace with your desired color for step1
+        | "step2" -> "#027f00"   // This is the brand primary color
+        | "step3" -> "#027f00"   // This is the brand primary color
+        | "step4" -> "#027f00"   // This is the brand primary color
+        | _ -> "grey"
+
+    Html.div [
+        prop.style [style.marginTop 20]
+        prop.className "container-fluid"
+        prop.children [
+            Html.ul [
+                prop.classes [classes.multiSteps] //[ "list-unstyled"; "multi-steps" ]
+                prop.children [
+                    Html.li [
+                        prop.className (if step = "step1" then classes.isActive else "")
+                        prop.id "step-1"
+                        prop.children [
+                            Html.text "Start"
+                            Html.div [
+                                prop.classes [classes.progressBar]
+                                prop.style [ style.backgroundColor (progressBarColor()) ]  // Set the background color here
+                                prop.children [
+                                    Html.div [
+                                        prop.className classes.progressBar_bar
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                    Html.li [
+                        prop.id "step-2"
+                        prop.className (if step = "step2" then classes.isActive else "")
+                        prop.children [
+                            Html.text "First Step"
+                            Html.div [
+                                prop.classes [classes.progressBar]
+                                prop.style [ style.backgroundColor (progressBarColor()) ]  // Set the background color here
+                                prop.children [
+                                    Html.div [
+                                        prop.className classes.progressBar_bar
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                    Html.li [
+                        prop.id "step-3"
+                        prop.className (if step = "step3" then classes.isActive else "")
+                        prop.children [
+                            Html.text "Middle Stage"
+                            Html.div [
+                                prop.classes [classes.progressBar]
+                                prop.style [ style.backgroundColor (progressBarColor()) ]  // Set the background color here
+                                prop.children [
+                                    Html.div [
+                                        prop.className classes.progressBar_bar
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                    Html.li [
+                        prop.className (if step = "step4" then classes.isActive else "")
+                        prop.id "step-4"
+                        prop.text "Finish"
+                    ]
+                ]
+            ]
+            // Html.div [
+            //     Html.button [
+            //         prop.text "Next"
+            //         prop.onClick (fun _ -> nextStep())
+            //     ]
+            // ]
+            Html.div [
+                prop.children [
+                    Visit ()
+                ]
+            ]
+
         ]
     ]

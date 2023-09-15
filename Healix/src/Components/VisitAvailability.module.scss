@@ -1,0 +1,184 @@
+.DoctorImage {
+    border-radius: 12px;
+}
+
+.MessagingIcon{
+    border-radius: 50%;
+}
+
+.border {
+    border: 1px solid !important;
+}
+
+.button-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0; /* This will ensure the button stretches across the width of the screen */
+    width: 100%; /* This will ensure the button takes up the full width */
+    z-index: 9999; /* This ensures the button appears on top of other content */
+}
+
+
+.button-container2 button {
+    flex-grow: 1;
+    box-sizing: border-box;
+}
+
+.width {
+    width: 30%;
+}
+
+.align {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: baseline !important;
+    //vertical-align: baseline;
+}
+
+.center-width {
+    width: 95vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-container {
+    width: 100%;
+    margin: auto;  /* This will center the div within its parent */
+    justify-content: center;
+}
+
+.bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0; /* This will ensure the button stretches across the width of the screen */
+    width: 100%; /* This will ensure the button takes up the full width */
+    z-index: 9999; /* This ensures the button appears on top of other content */
+}
+
+$brand-primary: #027f00;
+$white: #fff;
+$grey-light: #e1e1e1;
+$orange-light: #FFB732;
+$smooth: cubic-bezier(0, 0.72, 0.58, 1);
+%remain-steps{
+  &:before {
+    content: counter(stepNum);
+    font-family: inherit;
+    font-weight: 600;
+  }
+  &:after{
+    background-color: $grey-light;
+  }
+}
+.multi-steps{
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  > li{
+    counter-increment: stepNum;
+    text-align: center;
+    display: table-cell;
+    position: relative;
+    color: $brand-primary;
+
+    &:before{
+      content: '\f00c';
+      content: '\2713;';
+      content: '\10003';
+      content: '\10004';
+      content: '\2713';
+      display: block;
+      margin: 2px auto;
+      background-color: $brand-primary;
+      width: 25px;
+      height: 25px;
+      line-height: 21px;
+      text-align: center;
+      font-weight: bold;
+      border:{
+        width: 2px;
+        style: solid;
+        color: $brand-primary;
+        radius: 50%;
+      }
+      color:white;
+    }
+
+    &:last-child{
+      &:after{
+        display: none;
+      }
+    }
+
+    &.is-active{
+      @extend %remain-steps;
+      &:before{
+        background-color: $white;
+        border-color: $brand-primary;
+        color: $brand-primary;
+        animation: pulse 2s infinite;
+      }
+
+      ~ li{
+        color: #808080;
+        @extend %remain-steps;
+        &:before{
+          background-color: $grey-light;
+          border-color: $grey-light;
+          color: #808080;
+        }
+      }
+    }
+  }
+}
+
+.is-complete {
+    background: linear-gradient(to right, $brand-primary 50%, $grey-light 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all .5s ease-out;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 #027f0070;
+  }
+  100% {
+    box-shadow: 0 0 0 10px #027f0000;
+  }
+}
+
+@keyframes nextStep {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+// just for demo purposes
+.progress-bar {
+  cursor: pointer;
+  user-select: none; }
+
+.progress-bar {
+  background-color: $grey-light;
+  height: 7px;
+  overflow: hidden;
+  position: absolute;
+  left: 50%;
+  bottom: calc(50% + 7px);
+  width: 100%;
+  z-index: -1;
+}
+
+.progress-bar-success { background-color: $brand-primary; }
+
+.progress-bar__bar {
+  background-color: $grey-light;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: all 500ms ease-out;
+}

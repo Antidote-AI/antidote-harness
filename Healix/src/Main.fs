@@ -31,6 +31,7 @@ open Healix.Components.Reschedule
 open Healix.Components.Cancellation
 open Healix.Components.Approval
 open Healix.Components.Visit
+open Healix.Components.VisitAvailability
 
 open Fable.Core.JsInterop
 
@@ -40,6 +41,6 @@ importSideEffects "./index.scss"
 ReactDOM.render(
     //render (),
     //MedicationCard(),
-    Page (),
+    VisitAvailability (),
     document.getElementById("root")
 )
