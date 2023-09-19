@@ -17,7 +17,6 @@ open Fable.Core.JS
 
 emitJsStatement () "import React from \"react\""
 
-
 let private classes : CssModules.Components.Approval = import "default" "./Approval.module.scss"
 
 type Review = {
