@@ -37,6 +37,7 @@
     <Compile Include="Components/Approval.fs" />
     <Compile Include="Components/Visit.fs" />
     <Compile Include="Components/VisitAvailability.fs" />
+    <Compile Include="Components/ePrescribeOrderTable.fs" />
 
 
 

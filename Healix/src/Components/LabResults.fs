@@ -38,16 +38,6 @@ let LabResults () =
                 ]
             ]
         ]
-        // Bulma.panelTabs [
-        //     Html.a [
-        //         prop.className "is-active"
-        //         prop.text "All"
-        //     ]
-        //     Html.a [ prop.text "Public" ]
-        //     Html.a [ prop.text "Private" ]
-        //     Html.a [ prop.text "Sources" ]
-        //     Html.a [ prop.text "Forks" ]
-        // ]
         Bulma.panelBlock.div [
             prop.className "is-active"
             //prop.style [style.width (length.perc 100)]

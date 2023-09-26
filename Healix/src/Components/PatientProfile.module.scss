@@ -1,0 +1,76 @@
+
+
+.MessagingIcon{
+    border-radius: 50%;
+}
+
+
+.my-div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between; /* this is for larger screens */
+}
+
+@media (max-width: 600px) {
+    .my-div {
+        justify-content: center; /* this is for smaller screens */
+    }
+    .marginTop {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .responsive-flex-container {
+        flex-direction: column !important;
+        align-items: center !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .flex-to-center {
+        display: flex !important;
+        justify-content: center !important; /* use !important to override any inline styles */
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .stack {
+        flex-direction: column !important; /* use !important to override any inline styles */
+        align-items: center; /* to center-align the child elements */
+    }
+}
+
+@media (max-width: 768px) {
+    .flexGroup {
+        flex-basis: 50%; /* Each flex group takes up half the width of the parent */
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .nameAndTags {
+        flex-direction: column !important; /* Stack children vertically */
+        align-items: center !important; /* Align items to the start */
+        justify-content: center !important; /* Center items vertically */
+        width: 100%; /* Take up the full width of the parent */
+    }
+}
+
+@media (max-width: 768px) {
+    .marginBottom {
+        margin-bottom: 5px; /* Take up the full width of the parent */
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .editButton {
+        position: static; /* Reset the position on larger screens */
+    }
+}
