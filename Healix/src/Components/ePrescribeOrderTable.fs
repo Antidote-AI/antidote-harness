@@ -67,7 +67,62 @@ let rowData: ePrescribeElement list = [
         status = Depleted;
         prescriber = "Luis Ortiz";
         dateWritten = "9/25/2023"
+    };
+    {
+        medication = "ibuprofen lysine 10 MG/ML in 2 ML Injection";
+        quantity = "1 ct / 2 day";
+        patient = "Patient Antidote";
+        fills = "0 of 4";
+        status = Pending;
+        prescriber = "Luis Ortiz";
+        dateWritten = "9/25/2023"
+    };
+    {
+        medication = "Abilify Asimtufii 720 MG in 2.4 ML Extended Release Prefilled Syringe";
+        quantity = "4 ct / 4 day";
+        patient = "Alex Campo";
+        fills = "0 of 5";
+        status = Depleted;
+        prescriber = "Luis Ortiz";
+        dateWritten = "9/25/2023"
+    };
+    {
+        medication = "Bayer Aspirin (Acetylsalicylic Acid 325 mg/1) Oral tablet, coated";
+        quantity = "3 ct / 3 day";
+        patient = "Luis Ortiz";
+        fills = "0 of 4";
+        status = Depleted;
+        prescriber = "Luis Ortiz";
+        dateWritten = "9/25/2023"
+    };
+    {
+        medication = "ibuprofen lysine 10 MG/ML in 2 ML Injection";
+        quantity = "1 ct / 2 day";
+        patient = "Patient Antidote";
+        fills = "0 of 4";
+        status = Pending;
+        prescriber = "Luis Ortiz";
+        dateWritten = "9/25/2023"
+    };
+    {
+        medication = "Abilify Asimtufii 720 MG in 2.4 ML Extended Release Prefilled Syringe";
+        quantity = "4 ct / 4 day";
+        patient = "Alex Campo";
+        fills = "0 of 5";
+        status = Depleted;
+        prescriber = "Luis Ortiz";
+        dateWritten = "9/25/2023"
+    };
+    {
+        medication = "Bayer Aspirin (Acetylsalicylic Acid 325 mg/1) Oral tablet, coated";
+        quantity = "3 ct / 3 day";
+        patient = "Luis Ortiz";
+        fills = "0 of 4";
+        status = Depleted;
+        prescriber = "Luis Ortiz";
+        dateWritten = "9/25/2023"
     }
+
 ]
 
 
