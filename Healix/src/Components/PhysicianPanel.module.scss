@@ -25,3 +25,17 @@
 .width {
     width: 30%;
 }
+
+@media (max-width: 768px) {
+    .mobile-flex-wrap {
+        flex-wrap: wrap !important;
+    }
+    .mobile-border-top {
+        border-top: 1px solid #F0F0F0; /* Adjust color as needed */
+    }
+    .centerDiv {
+        display: flex !important;
+        justify-content: center !important;
+        flex-direction: column !important;
+    }
+}

@@ -35,6 +35,7 @@ open Healix.Components.VisitAvailability
 open Healix.Components.PatientProfile
 open Healix.Components.ePrescribeOrderTable
 open Healix.Components.ePrescribeOrderDetail
+open Healix.Components.ReferralOnboarding
 
 open Fable.Core.JsInterop
 
@@ -44,6 +45,6 @@ importSideEffects "./index.scss"
 ReactDOM.render(
     //render (),
     //MedicationCard(),
-    renderOrderDetail (),
+    PhysicianPanel (),
     document.getElementById("root")
 )

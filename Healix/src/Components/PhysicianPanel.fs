@@ -18,7 +18,7 @@ open Fable.Core.JS
 emitJsStatement () "import React from \"react\""
 
 
-let private classes : CssModules.Components.AppointmentViewerList = import "default" "./AppointmentViewerList.module.scss"
+let private classes : CssModules.Components.PhysicianPanel = import "default" "./PhysicianPanel.module.scss"
 
 // type ListItemProps = {|
 //     ListItemIcon: string
@@ -51,7 +51,7 @@ let PhysicianPanel () =
         prop.classes ["card"; "m-4"]
         prop.children [
             Html.div [
-                prop.style [style.custom("boxShadow", "rgba(0, 0, 0, 0.16) 0px 1px 4px")]
+                //prop.style [style.custom("boxShadow", "rgba(0, 0, 0, 0.16) 0px 1px 4px")]
                 prop.classes ["is-flex"; "is-flex-direction-row"; "is-justify-content-space-between";]
                 prop.children [
                     Html.div [
@@ -60,7 +60,7 @@ let PhysicianPanel () =
                                 prop.src ".././Assets/alan-katz.jpg"
                                 prop.alt "doctor's profile logo"
                                 prop.classes [ classes.DoctorImage; "image"; "p-1"; "ml-1"]
-                                prop.style [style.borderRadius 10; style.width 60; style.height 70; style.marginTop 5; style.marginBottom 5; style.marginRight 5; style.custom("boxShadow", "rgba(0, 0, 0, 0.16) 0px 1px 4px")]
+                                prop.style [style.borderRadius 10; style.width 65; style.height 75; style.marginTop 5; style.marginBottom 5; style.marginRight 5]
                             ]
                         ]
                     ]
@@ -74,7 +74,7 @@ let PhysicianPanel () =
                                     Html.h2 [
                                         prop.classes ["has-text-weight-bold"]
                                         prop.text "Dr. Alan Katz"
-                                        prop.style [style.fontWeight.bold; style.fontSize 16]
+                                        prop.style [style.fontWeight.bold; style.fontSize 20]
                                     ]
                                     Bulma.icon [
                                         Bulma.icon.isRight
@@ -86,54 +86,100 @@ let PhysicianPanel () =
                                                 Icon [
                                                     icon.icon mdi.heart
                                                     icon.color "#1e4d8a"
-                                                    icon.width 18
+                                                    icon.width 22
                                                 ]
                                             else
                                                 Icon [
                                                     icon.icon mdi.heartOutline
                                                     icon.color "#1e4d8a"
-                                                    icon.width 18
+                                                    icon.width 22
                                                 ]
 
                                         ]
                                     ]
                                 ]
                             ]
-                            Html.p [
-                                //prop.classes ["ml-1"]
-                                prop.style [style.color.dimGray; style.fontSize 13; style.display.flex; style.flexDirection.row]
-                                prop.children [
-                                    Html.p [
-                                        prop.style [style.marginLeft 0;]
-                                        prop.text "Psychiatrist"
-                                    ]
-                                    Html.p [
-                                        prop.style [style.marginLeft 5;]
-                                        prop.text "|"
-                                    ]
-                                    Html.p [
-                                        prop.style [style.marginLeft 5;]
-                                        prop.text "HARC"
-                                    ]
-                                ]
-                            ]
                             Html.div [
-                                prop.style [style.display.flex; style.flexDirection.row; style.alignItems.center]
+                                prop.style [style.display.flex; style.justifyContent.spaceBetween; style.width (length.perc 97)]
                                 prop.children [
-                                    Html.img [
-                                        prop.src ".././Assets/star-yellow.svg"
-                                        prop.style [
-                                            style.width 15
-                                            style.height 15
+                                    Html.div [
+                                        prop.children [
+                                            Html.p [
+                                                //prop.classes ["ml-1"]
+                                                prop.style [style.color.dimGray; style.fontSize 16; style.display.flex; style.flexDirection.row]
+                                                prop.children [
+                                                    Html.p [
+                                                        prop.style [style.marginLeft 0;]
+                                                        prop.text "Psychiatrist"
+                                                    ]
+                                                    Html.p [
+                                                        prop.style [style.marginLeft 5;]
+                                                        prop.text "|"
+                                                    ]
+                                                    Html.p [
+                                                        prop.style [style.marginLeft 5;]
+                                                        prop.text "HARC"
+                                                    ]
+                                                ]
+                                            ]
+                                            Html.div [
+                                                prop.style [style.display.flex; style.flexDirection.row; style.alignItems.center]
+                                                prop.children [
+                                                    Html.img [
+                                                        prop.src ".././Assets/star-yellow.svg"
+                                                        prop.style [
+                                                            style.width 15
+                                                            style.height 15
+                                                        ]
+                                                    ]
+                                                    Html.p [
+                                                        prop.style [style.color.black; style.fontSize 16; style.marginLeft 3; style.fontWeight.bold]
+                                                        prop.text "4.9"
+                                                    ]
+                                                    Html.p [
+                                                        prop.style [style.color.gray; style.fontSize 16; style.marginLeft 8]
+                                                        prop.text "(4,279 reviews)"
+                                                    ]
+                                                ]
+                                            ]
                                         ]
                                     ]
-                                    Html.p [
-                                        prop.style [style.color.black; style.fontSize 12; style.marginLeft 3; style.fontWeight.bold]
-                                        prop.text "4.9"
-                                    ]
-                                    Html.p [
-                                        prop.style [style.color.gray; style.fontSize 12; style.marginLeft 8]
-                                        prop.text "(4,279 reviews)"
+                                    Html.div [
+                                        prop.children [
+                                            Html.div [
+                                                prop.style [style.display.flex; style.flexDirection.row; style.alignItems.center; style.justifyContent.flexEnd; style.color.black; style.fontSize 16]
+                                                prop.children [
+                                                    Html.i [
+                                                        prop.style [style.marginRight 3; style.paddingTop 4]
+                                                        prop.children [
+                                                            Icon [
+                                                                icon.icon mdi.location
+                                                                icon.color "black"
+                                                                icon.width 18
+                                                            ]
+                                                        ]
+                                                    ]
+                                                    Html.text "7.2 Miles"
+                                                ]
+                                            ]
+                                            Html.div [
+                                                prop.className [classes.mobileFlexWrap; classes.mobileBorderTop]
+                                                prop.style [style.display.flex; style.flexDirection.row; style.alignItems.center; style.justifyContent.flexEnd; style.color.black; style.color.black; style.fontSize 16]
+                                                prop.children [
+                                                    Html.i [
+                                                        prop.style [style.marginRight 3; style.paddingTop 4]
+                                                        prop.children [
+                                                            Icon [
+                                                                icon.icon mdi.hospitalBuilding
+                                                                icon.color "black"
+                                                                icon.width 18
+                                                            ]
+                                                        ]
+                                                    ]
+                                                    Html.text "2020 N Bayshore Drive, Miami, FL 33137"
+                                                ]
+                                            ]
+                                        ]
                                     ]
                                 ]
                             ]
