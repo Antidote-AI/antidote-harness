@@ -36,6 +36,29 @@
     .centerDiv {
         display: flex !important;
         justify-content: center !important;
+    }
+    .centerText {
+        text-align: center !important;
+    }
+    .columnStyle {
         flex-direction: column !important;
+    }
+    .mobile-center-image {
+        display: flex !important;
+        justify-content: center !important;
+        width: 100% !important;
+    }
+    .mobile-center-content {
+        justify-content: center !important;
+        width : 50% !important;
+    }
+    .imageResizing {
+        width: 80px !important; /* Adjust to your desired size */
+        height: 90px !important; /* Adjust to your desired size */
+    }
+    .mobile-center-items {
+        display: flex !important;
+        justify-content: space-between !important;
+        margin:auto !important;
     }
 }
