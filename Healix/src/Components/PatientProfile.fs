@@ -14,6 +14,8 @@ open Glutinum.IconifyIcons.Mdi
 open Elmish
 open Fable.Core.JS
 open Healix.Components.LabResults
+open Healix.Components.EditableTag
+open Healix.Components.EditablePatientProfileCard
 
 emitJsStatement () "import React from \"react\""
 
@@ -33,6 +35,8 @@ type PatientData = {
     MemberID : string
 }
 
+
+
 type EditableNameProps = {
     InitialName: string
 }
@@ -42,355 +46,12 @@ type EditableNameState = {
     IsEditing: bool
 }
 
-[<ReactComponent>]
-let PatientProfileCard () =
-    Html.div [
-        prop.style [ style.display.flex; style.justifyContent.center; style.flexDirection.column; style.width (length.perc 100); style.flexGrow 1; style.custom("boxShadow", "rgba(0, 0, 0, 0.16) 0px 1px 4px")]
-        prop.children [
-            Html.div [
-                prop.className [classes.myDiv]
-                prop.children [
-                    Html.div [
-                        prop.className [classes.responsiveFlexContainer]
-                        prop.style [ style.display.flex; style.flexDirection.row; style.alignItems.center; style.marginTop 10; style.marginBottom 10; style.flexWrap.wrap; style.width (length.perc 100)]
-                        prop.children [
-                            Html.div [
-                                prop.children [
-                                    Html.img [
-                                        prop.style [style.marginLeft 10; style.width 75; style.height 75; style.custom ("boxShadow", "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px");style.border(3, borderStyle.solid, color.white)]
-                                        prop.src ".././Assets/alan-katz.jpg"
-                                        prop.classes [classes.MessagingIcon;"image"; "is-rounded"]
-                                    ]
-                                ]
-                            ]
-                            Html.div [
-                                prop.style [style.width (length.perc 90)]
-                                prop.classes ["appointmentViewerList__container-content"]
-                                prop.children [
-                                    Html.div [
-                                        prop.className [classes.flexToCenter]
-                                        prop.classes ["appointmentViewerList__name"; "has-text-weight-bold"; "p-2" ]
-                                        prop.className [classes.flexToCenter]
-                                        prop.style [
-                                            style.fontFamily "Inter";
-                                            style.fontWeight.bold;
-                                            style.fontSize 17;
-                                            style.color.black;
-                                            style.display.flex;
-                                            style.justifyContent.flexStart;
-                                            style.alignItems.center;
-                                        ]
-                                        prop.children [
-                                            Html.div [
-                                                prop.style [
-                                                    style.display.flex;
-                                                    style.justifyContent.spaceBetween;
-                                                    style.alignItems.center;
-                                                    style.flexWrap.wrap; (* This ensures wrapping behavior *)
-                                                    style.width (length.perc 100)
-                                                ]
-                                                prop.children [
-                                                    Html.div [
-                                                        prop.className classes.nameAndTags (* This class will be targeted in the media query for mobile adjustments *)
-                                                        prop.style [style.display.flex; style.alignItems.center]
-                                                        prop.children [
-                                                            // if isEditMode then
-                                                            //     Html.span [
-                                                            //         "Hello"
-                                                            //         // prop.value patientData.FirstName
-                                                            //         // prop.style [style.fontFamily "Inter"; style.fontSize 17; style.color.black; style.border(0, borderStyle.none, color.transparent); style.marginRight 5]
-                                                            //         // prop.onInput (fun e -> setPatientData {patientData with FirstName = e.target?value})
-                                                            //     ]
-                                                            // else
-                                                            //     Html.span [
-                                                            //         prop.text ("Alex" + " " + "Campo")
-                                                            //     ]
-                                                            Html.span "Hello"
-
-                                                            Html.div [
-                                                                prop.style [ style.display.flex; style.flexDirection.row; style.justifyContent.flexEnd; style.alignItems.center; style.marginLeft 5 ]
-                                                                prop.className [classes.marginTop; classes.nameAndTags]
-                                                                prop.children [
-                                                                    Bulma.tag [
-                                                                        Bulma.color.isPrimary
-                                                                        Bulma.color.isLight
-                                                                        prop.classes ["has-text-primary"; "has-text-weight-bold"]
-                                                                        prop.className classes.marginBottom
-                                                                        prop.style [style.marginRight 10]
-                                                                        prop.children [
-                                                                            Icon [
-                                                                                icon.icon mdi.email
-                                                                                icon.width 14
-                                                                                icon.height 14
-                                                                            ]
-                                                                            Html.p [
-                                                                                prop.text "alexcampo3695@gmail.com"
-                                                                                prop.style [style.marginLeft 5]
-                                                                            ]
-                                                                        ]
-                                                                    ]
-                                                                    Bulma.tag [
-                                                                        Bulma.color.isPrimary
-                                                                        Bulma.color.isLight
-                                                                        prop.classes ["has-text-primary"; "has-text-weight-bold"]
-                                                                        prop.style [style.marginRight 5]
-                                                                        prop.children [
-                                                                            Icon [
-                                                                                icon.icon mdi.phone
-                                                                                icon.width 14
-                                                                                icon.height 14
-                                                                            ]
-                                                                            Html.p [
-                                                                                prop.text "305-206-4761"
-                                                                                prop.style [style.marginLeft 5]
-                                                                            ]
-                                                                        ]
-                                                                    ]
-                                                                ]
-                                                            ]
-                                                        ]
-                                                    ]
-                                                    Html.div [
-                                                        prop.className [classes.nameAndTags; classes.editButton]
-                                                        prop.style [
-                                                            style.position.absolute; (* This positions the button *)
-                                                            style.top 20;             (* Aligns the button to the top of the container *)
-                                                            style.right 10;           (* Aligns the button to the right of the container *)
-                                                        ]
-                                                        prop.children [
-                                                            Bulma.button.button [
-                                                                Bulma.color.isPrimary
-                                                                Bulma.button.isInverted
-                                                                Bulma.button.isSmall
-                                                                prop.classes [ "has-text-weight-bold"]
-                                                                prop.style [style.marginRight 10; style.border(1, borderStyle.solid, color.dimGray); style.color.black]
-                                                                prop.children [
-                                                                    Icon [
-                                                                        icon.icon mdi.squareEditOutline
-                                                                        icon.width 20
-                                                                        icon.height 20
-                                                                        icon.color color.dimGray
-                                                                    ]
-                                                                    Html.p [
-                                                                        prop.text "Edit"
-                                                                        prop.style [style.marginLeft 5]
-                                                                    ]
-                                                                ]
-                                                            ]
-                                                            Bulma.button.button [
-                                                                Bulma.color.isPrimary
-                                                                Bulma.button.isInverted
-                                                                Bulma.button.isSmall
-                                                                prop.classes [ "has-text-weight-bold"]
-                                                                prop.style [style.marginRight 10; style.border(1, borderStyle.solid, color.dimGray); style.color.black]
-                                                                prop.children [
-                                                                    Icon [
-                                                                        icon.icon mdi.ellipsisHorizontal
-                                                                        icon.width 20
-                                                                        icon.height 20
-                                                                        icon.color color.dimGray
-                                                                    ]
-                                                                    Html.p [
-                                                                        prop.text "Actions"
-                                                                        prop.style [style.marginLeft 5]
-                                                                    ]
-                                                                ]
-                                                            ]
-                                                        ]
-                                                    ]
-                                                ]
-                                            ]
-                                        ]
-                                    ]
-                                    Html.div [
-                                        prop.classes [classes.flexToCenter]
-                                        prop.style [style.display.flex; style.flexWrap.wrap]
-                                        prop.children [
-                                            Html.div [
-                                                prop.classes ["flexGroup"]
-                                                prop.style [style.display.flex; style.flexWrap.wrap]
-                                                prop.children [
-                                                    Html.p [
-                                                        prop.classes ["appointmentViewerList__messaging"; "p-2"]
-                                                        prop.style [style.fontFamily "Inter"; style.fontSize 14; style.color.dimGray]
-                                                        prop.children [
-                                                            Html.i [
-                                                                prop.classes [ "fas"; "fa-calendar"]
-                                                                prop.style [style.marginRight 5; style.color.black]
-                                                            ]
-                                                            Html.text ("03/06/1995")
-                                                        ]
-                                                    ]
-                                                ]
-                                            ]
-                                            Html.div [
-                                                prop.classes ["flexGroup"]
-                                                prop.style [style.display.flex; style.flexWrap.wrap]
-                                                prop.children [
-                                                    Html.p [
-                                                        prop.classes ["appointmentViewerList__messaging"; "p-2"]
-                                                        prop.style [style.fontFamily "Inter"; style.fontSize 14; style.color.dimGray]
-                                                        prop.children [
-                                                            Html.i [
-                                                                prop.classes [ "fas"; "fa-user"]
-                                                                prop.style [style.marginRight 5; style.color.black]
-                                                            ]
-                                                            Html.text ("Male")
-                                                        ]
-                                                    ]
-                                                ]
-                                            ]
-                                            Html.div [
-                                                prop.classes ["flexGroup"]
-                                                prop.style [style.display.flex; style.flexWrap.wrap]
-                                                prop.children [
-                                                    Html.p [
-                                                        prop.classes ["appointmentViewerList__messaging"; "p-2"]
-                                                        prop.style [style.fontFamily "Inter"; style.fontSize 14; style.color.dimGray]
-                                                        prop.children [
-                                                            Html.i [
-                                                                prop.classes [ "fas"; "fa-globe"]
-                                                                prop.style [style.marginRight 5; style.color.black]
-                                                            ]
-                                                            Html.text ("English")
-                                                        ]
-                                                    ]
-                                                ]
-                                            ]
-                                            Html.div [
-                                                prop.classes ["flexGroup"]
-                                                prop.style [style.display.flex; style.flexWrap.wrap]
-                                                prop.children [
-                                                    Html.p [
-                                                        prop.classes ["appointmentViewerList__messaging"; "p-2"]
-                                                        prop.style [style.fontFamily "Inter"; style.fontSize 14; style.color.dimGray]
-                                                        prop.children [
-                                                            Html.i [
-                                                                prop.classes [ "fas"; "fa-location-arrow"]
-                                                                prop.style [style.marginRight 5; style.color.black]
-                                                            ]
-                                                            Html.text ("2020 N bayshore Drive, 1806")
-                                                        ]
-                                                    ]
-                                                ]
-                                            ]
-                                        ]
-                                    ]
-                                    Html.div [
-                                        prop.classes [classes.flexToCenter]
-                                        prop.style [style.display.flex; style.flexWrap.wrap]
-                                        prop.children [
-                                            Html.div [
-                                                prop.classes ["flexGroup"]
-                                                prop.style [style.display.flex; style.flexWrap.wrap]
-                                                prop.children [
-                                                    Html.p [
-                                                        prop.classes ["appointmentViewerList__messaging"; "p-2"]
-                                                        prop.style [style.fontFamily "Inter"; style.fontSize 14; style.color.dimGray]
-                                                        prop.children [
-                                                            Html.i [
-                                                                prop.classes [ "fas"; "fa-hospital"]
-                                                                prop.style [style.marginRight 5; style.color.black]
-                                                            ]
-                                                            Html.text ("Aetna")
-                                                        ]
-                                                    ]
-                                                ]
-                                            ]
-                                            Html.div [
-                                                prop.classes ["flexGroup"]
-                                                prop.style [style.display.flex; style.flexWrap.wrap]
-                                                prop.children [
-                                                    Html.p [
-                                                        prop.classes ["appointmentViewerList__messaging"; "p-2"]
-                                                        prop.style [style.fontFamily "Inter"; style.fontSize 14; style.color.dimGray]
-                                                        prop.children [
-                                                            Html.i [
-                                                                prop.classes [ "fas"; "fa-check"]
-                                                                prop.style [style.marginRight 5; style.color.black]
-                                                            ]
-                                                            Html.text ("Aetna Open ACC Mngd")
-                                                        ]
-                                                    ]
-                                                ]
-                                            ]
-                                            Html.div [
-                                                prop.classes ["flexGroup"]
-                                                prop.style [style.display.flex;style.flexWrap.wrap]
-                                                prop.children [
-                                                    Html.div [
-                                                        prop.classes ["appointmentViewerList__messaging"; "p-2"]
-                                                        prop.style [style.fontFamily "Inter"; style.fontSize 14; style.display.flex]
-                                                        prop.children [
-                                                            Html.div [
-                                                                prop.style [style.fontWeight.bold; style.color.black]
-                                                                prop.children [
-                                                                    Html.text ("Group ID:")
-                                                                ]
-                                                            ]
-                                                            Html.div [
-                                                                prop.style [style.color.dimGray; style.marginLeft 5]
-                                                                prop.children [
-                                                                    Html.text ("123456789")
-                                                                ]
-                                                            ]
-                                                        ]
-                                                    ]
-                                                ]
-                                            ]
-                                            Html.div [
-                                                prop.classes ["flexGroup"]
-                                                prop.style [style.display.flex;style.flexWrap.wrap]
-                                                prop.children [
-                                                    Html.div [
-                                                        prop.classes ["appointmentViewerList__messaging"; "p-2"]
-                                                        prop.style [style.fontFamily "Inter"; style.fontSize 14; style.display.flex]
-                                                        prop.children [
-                                                            Html.div [
-                                                                prop.style [style.fontWeight.bold; style.color.black]
-                                                                prop.children [
-                                                                    Html.text ("Member ID:")
-                                                                ]
-                                                            ]
-                                                            Html.div [
-                                                                prop.style [style.color.dimGray; style.marginLeft 5]
-                                                                prop.children [
-                                                                    Html.text ("123456789")
-                                                                ]
-                                                            ]
-                                                        ]
-                                                    ]
-                                                ]
-                                            ]
-                                        ]
-                                    ]
-
-                                    // Html.div [
-                                    //     prop.className [classes.flexToCenter; classes.stack]
-                                    //     prop.style [style.display.flex]
-                                    //     prop.children [
-
-                                    //         Html.p [
-                                    //             prop.classes ["appointmentViewerList__messaging"; "p-2"]
-                                    //             prop.style [style.fontFamily "Inter"; style.fontSize 14; style.color.dimGray]
-                                    //             prop.children [
-                                    //                 Html.i [
-                                    //                     prop.classes [ "fas"; "fa-location-arrow"]
-                                    //                     prop.style [style.marginRight 5; style.color.black]
-                                    //                 ]
-                                    //                 Html.text ("2020 N Bayshore Drive, 1806")
-                                    //             ]
-                                    //         ]
-                                    //     ]
-                                    // ]
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            ]
-        ]
-    ]
+type MedicalHistoryData = {
+    Title: string
+    ImgSrc: string
+    Width: int
+    //Height: int
+}
 
 let headers: string list = ["Medication"; "Dosage"; "Frequency"; "Notes"]
 
@@ -411,6 +72,16 @@ let rowData: string list list = [
 let headerAssessment: string list = ["Assessment"; "Date"; "Score"; "Severity"]
 
 let assessmentData: string list list = [
+    ["Temperature"; "TMP"; "4"; "High"];
+    ["Temperature"; "TMP"; "3"; "Critical"];
+    ["Respiration Rate"; "RR"; "10"; "Moderate"];
+    ["Blood Pressure"; "BP"; "7"; "Critical"];
+    ["Temperature"; "TMP"; "6"; "Low"];
+    ["Heart Rate"; "HR"; "8"; "High"];
+    ["Temperature"; "TMP"; "9"; "Moderate"];
+    ["Respiration Rate"; "RR"; "2"; "Low"];
+    ["Oxygen Saturation"; "OS"; "4"; "Critical"];
+    ["Heart Rate"; "HR"; "4"; "Moderate"];
     ["Temperature"; "TMP"; "4"; "High"];
     ["Temperature"; "TMP"; "3"; "Critical"];
     ["Respiration Rate"; "RR"; "10"; "Moderate"];
@@ -506,7 +177,7 @@ let MedicationCard () =
 
 let AssessmentCard () =
     Html.div [
-        prop.style [style.width (length.perc 25); style.custom("boxShadow", "rgba(0, 0, 0, 0.16) 0px 1px 4px"); style.borderRadius 12]
+        prop.style [style.width (length.perc 25); style.custom("boxShadow", "rgba(0, 0, 0, 0.16) 0px 1px 4px"); style.borderRadius 12; style.height 400;  style.overflowY.auto]
         prop.children [
             Html.div [
                 prop.style [style.borderBottom(1, borderStyle.solid, color.lightGray); style.display.flex;style.justifyContent.spaceBetween; style.flexDirection.row; style.display.flex; style.alignItems.center]
@@ -581,6 +252,147 @@ let AssessmentCard () =
         ]
     ]
 
+
+
+let MedicalHistoryComponent (props:MedicalHistoryData) =
+    let (tags, setTags) = React.useState List.empty  // Initial state is an empty array
+    let (isEditing, setEditing) = React.useState false
+    let (isDeletable, setDeletable) = React.useState false
+    let (newTagText, setNewTagText) = React.useState ""
+
+    let handleKeyDown (event: Browser.Types.KeyboardEvent) =
+        if event.key = "Enter" && newTagText.Length > 0 then
+            setTags (newTagText :: tags)  // Add the new tag to the array
+            setNewTagText ""  // Clear the new tag text
+            setEditing false  // Exit editing mode
+
+    let handleInputChange value =
+        setNewTagText value
+
+    let handleTagButtonClick () =
+        setEditing true
+
+    let handleEditButtonClick () =
+        setDeletable true
+
+    let handleDeleteTag tagText =
+        setTags (tags |> List.filter (fun tag -> tag <> tagText))
+
+    Html.div [
+        prop.style [style.display.flex; style.width (length.perc props.Width); style.border(1, borderStyle.solid, color.whiteSmoke); style.borderRadius 5]
+        prop.children [
+            Bulma.image [
+                prop.style [ style.margin 10]
+                Bulma.image.is32x32
+                prop.children [
+                    Html.img [
+                        prop.alt "Placeholder image"
+                        prop.src props.ImgSrc
+                    ]
+                ]
+            ]
+            Html.div [
+                prop.style [style.display.flex; style.flexDirection.column; style.width (length.perc 100)]
+                prop.children [
+                    Html.div [
+                        prop.style [style.display.flex; style.alignItems.center; style.justifyContent.spaceBetween; style.width (length.perc 100); style.marginTop 5]
+                        prop.children [
+                            Html.span [
+                                prop.text (props.Title)
+                                prop.style [style.fontFamily "Inter"; style.fontWeight 400; style.fontSize 13; style.color.black; style.border(0, borderStyle.none, color.transparent); style.marginRight 5]
+
+                            ]
+                            Html.div [
+                                prop.style [style.display.flex; style.flexDirection.row; style.alignItems.center]
+                                prop.children [
+                                    Bulma.icon [
+                                        Bulma.icon.isSmall
+                                        prop.style [style.marginRight 5; style.display.flex; style.alignItems.center]
+                                        prop.onClick (fun _ -> handleTagButtonClick ())
+                                        prop.children [
+                                            Icon [
+                                                icon.icon mdi.addCircle
+                                                icon.color "#2868bd"
+                                                icon.width 18
+                                            ]
+                                        ]
+                                    ]
+                                    Html.div [
+                                        prop.style [style.color.gray; style.fontSize 13; style.marginRight 10]
+                                        prop.onClick (fun _ -> handleEditButtonClick ())
+                                        prop.children [
+                                            Html.text "Edit"
+                                        ]
+                                    ]
+
+                                ]
+                            ]
+                        ]
+                    ]
+                    Html.div [
+                        prop.style [style.display.flex;style.alignItems.center]
+                        prop.children [
+                            if isEditing then
+                                Html.input [
+                                    prop.style [
+                                        style.custom("boxShadow", "rgba(0, 0, 0, 0.16) 0px 1px 4px");
+                                        style.width (length.perc 30)
+                                        style.borderRadius 12
+                                        style.fontSize 12
+                                    ]
+                                    prop.defaultValue newTagText
+                                    prop.className classes.inputTag
+                                    prop.autoFocus true
+                                    prop.onChange handleInputChange
+                                    prop.onKeyDown (fun event -> handleKeyDown event)
+                                ]
+                            Html.div [
+                                prop.style [style.fontWeight.bold; style.alignItems.center]
+                                prop.children (
+                                    tags
+                                    |> List.map (fun tagText ->
+                                        Bulma.tag [
+                                            Bulma.color.isWhite
+                                            Bulma.tag.isRounded
+                                            prop.text tagText
+                                            prop.style [style.marginRight 3; style.custom("boxShadow", "rgba(0, 0, 0, 0.16) 0px 1px 4px"); style.color.black]
+                                            prop.children [
+                                                if isDeletable then
+                                                    Html.div [
+                                                        prop.style [style.marginRight 3]
+                                                        prop.text tagText
+                                                    ]
+                                                    Bulma.icon [  // Add a delete icon to each tag
+                                                        Bulma.icon.isSmall
+                                                        prop.onClick (fun _ -> handleDeleteTag tagText)  // Wire up the delete handler
+                                                        prop.children [
+                                                            Icon [
+                                                                icon.icon mdi.closeCircle
+                                                                icon.color "#FF3860"
+                                                                icon.width 15
+                                                            ]
+                                                        ]
+                                                    ]
+                                                    else
+                                                        Html.div [
+                                                            prop.text tagText
+                                                    ]
+                                            ]
+                                        ])
+                                )
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+
+
+
+
+
+
 [<ReactComponent>]
 let MedicalHistory () =
     Html.div [
@@ -590,7 +402,7 @@ let MedicalHistory () =
                 prop.style [style.borderBottom(1, borderStyle.solid, color.lightGray); style.display.flex;style.justifyContent.spaceBetween; style.flexDirection.row; style.display.flex; style.alignItems.center]
                 prop.children [
                     Html.div [
-                        prop.style [style.display.flex; style.flexDirection.row; style.alignItems.center]
+                        prop.style [style.display.flex; style.flexDirection.row; style.alignItems.center; style.marginTop 10]
                         prop.children [
                             Html.div [
                                 prop.children [
@@ -620,7 +432,7 @@ let MedicalHistory () =
                         prop.children [
                             Bulma.button.button [
                                 Bulma.button.isRounded
-                                Bulma.color.isPrimary
+                                Bulma.color.isWhite
                                 Bulma.button.isSmall
                                 prop.classes [ "has-text-weight-bold"]
                                 //prop.style [ style.border(1, borderStyle.solid, color.dimGray); style.color.black]
@@ -642,66 +454,54 @@ let MedicalHistory () =
                 ]
             ]
             Html.div [
-                prop.style [style.display.flex; style.flexDirection.row; style.justifyContent.spaceAround; style.marginTop 10]
+                prop.style [style.display.flex; style.flexDirection.row; style.justifyContent.spaceAround; style.marginTop 10; style.minHeight (length.perc 20)]
                 prop.children [
-                    Html.div [
-                        prop.style [style.display.flex; style.width (length.perc 45); style.border(1, borderStyle.solid, color.lightGray); style.borderRadius 5]
-                        prop.children [
-                            Bulma.image [
-                                prop.style [ style.margin 10]
-                                Bulma.image.is32x32
-                                prop.children [
-                                    Html.img [
-                                        prop.alt "Placeholder image"
-                                        prop.src ".././Assets/heart-disease.svg"
-                                    ]
-                                ]
-                            ]
-                            Html.div [
-                                prop.style [style.marginLeft 5; style.display.flex; style.flexDirection.column]
-                                prop.children [
-                                    Html.span [
-                                        prop.text "Chronic Diseases"
-                                        prop.style [style.fontFamily "Inter"; style.fontWeight 500 ;style.fontSize 17; style.color.gray; style.border(0, borderStyle.none, color.transparent); style.marginRight 5]
-
-                                    ]
-                                    Html.strong [
-                                        prop.text "Hello"
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ]
-                    Html.div [
-                        prop.style [style.display.flex; style.width (length.perc 45); style.border(1, borderStyle.solid, color.lightGray); style.borderRadius 5]
-                        prop.children [
-                            Bulma.image [
-                                prop.style [style.marginLeft 5]
-                                Bulma.image.is24x24
-                                prop.children [
-                                    Html.img [
-                                        prop.alt "Placeholder image"
-                                        prop.src ".././Assets/medical-history.svg"
-                                    ]
-                                ]
-                            ]
-                            Html.div [
-                                prop.style [style.marginLeft 5; style.display.flex; style.flexDirection.column]
-                                prop.children [
-                                    Html.strong [
-                                        prop.text "Medical History"
-                                        prop.style [style.fontFamily "Inter"; style.fontSize 17; style.color.gray; style.border(0, borderStyle.none, color.transparent); style.marginRight 5]
-
-                                    ]
-                                    Html.strong [
-                                        prop.text "Hello"
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ]
+                    MedicalHistoryComponent (
+                        {
+                            Title = "Chronic Diseases";
+                            ImgSrc = ".././Assets/heart-rate.svg"
+                            Width = 45
+                        }
+                    )
+                    MedicalHistoryComponent (
+                        {
+                            Title = "Family History";
+                            ImgSrc = ".././Assets/family.svg"
+                            Width = 45
+                        }
+                    )
                 ]
-
+            ]
+            Html.div [
+                prop.style [style.display.flex; style.flexDirection.row; style.justifyContent.spaceAround; style.marginTop 10; style.minHeight (length.perc 20)]
+                prop.children [
+                    MedicalHistoryComponent (
+                        {
+                            Title = "Allergies";
+                            ImgSrc = ".././Assets/allergies.svg"
+                            Width = 45
+                        }
+                    )
+                    MedicalHistoryComponent (
+                        {
+                            Title = "Health Barriers";
+                            ImgSrc = ".././Assets/shield.svg"
+                            Width = 45
+                        }
+                    )
+                ]
+            ]
+            Html.div [
+                prop.style [style.display.flex; style.flexDirection.row; style.justifyContent.spaceAround; style.marginTop 10; style.minHeight (length.perc 35)]
+                prop.children [
+                    MedicalHistoryComponent (
+                        {
+                            Title = "Tasks";
+                            ImgSrc = ".././Assets/allergies.svg"
+                            Width = 95
+                        }
+                    )
+                ]
             ]
         ]
     ]
@@ -731,14 +531,11 @@ let PatientProfile () =
         GroupID = "123456789";
         MemberID = "123456789";
     }
-    let (patientData, setPatientData) = React.useState initialPatientData
-    let (isEditMode, setEditMode) = React.useState false
-    let handleEditClick _ =
-        setEditMode (not isEditMode)
+
 
     Html.div [
         prop.children [
-            PatientProfileCard ()
+            EditablePatientProfileCard ()
             Html.div [
                 prop.style [style.display.flex; style.justifyContent.spaceAround; style.marginTop 20]
                 prop.children [
@@ -747,7 +544,7 @@ let PatientProfile () =
                 ]
             ]
             Html.div [
-                prop.style [style.display.flex; style.justifyContent.spaceAround; style.marginTop 20]
+                prop.style [style.display.flex; style.justifyContent.spaceAround; style.marginTop 20; style.marginBottom 20]
                 prop.children [
                     AssessmentCard ()
                     MedicalHistory ()
