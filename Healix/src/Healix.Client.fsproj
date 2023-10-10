@@ -43,6 +43,7 @@
     <Compile Include="Components/ePrescribeOrderTable.fs" />
     <Compile Include="Components/ePrescribeOrderDetail.fs" />
     <Compile Include="Components/ReferralOnboarding.fs" />
+    <Compile Include="Components/TestImage.fs" />
 
 
 

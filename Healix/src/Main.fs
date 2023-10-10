@@ -38,6 +38,7 @@ open Healix.Components.ePrescribeOrderDetail
 open Healix.Components.ReferralOnboarding
 open Healix.Components.EditableTag
 open Healix.Components.EditablePatientProfileCard
+open Healix.Components.TestImage
 
 open Fable.Core.JsInterop
 
@@ -47,6 +48,6 @@ importSideEffects "./index.scss"
 ReactDOM.render(
     //render (),
     //MedicationCard(),
-    PatientProfile (),
+    imageComponent (),
     document.getElementById("root")
 )

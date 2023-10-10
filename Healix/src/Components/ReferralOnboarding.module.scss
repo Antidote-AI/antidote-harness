@@ -22,3 +22,68 @@
     flex-shrink: 1;
     flex-basis: 0;
 }
+
+.fontSize {
+    font-size: 60px !important;
+}
+
+/* Styles for iPad */
+@media (max-width: 768px) {
+    .fontSize {
+        font-size: 45px !important;
+    }
+}
+
+/* Styles for Mobile */
+@media (max-width: 480px) {
+    .fontSize {
+        font-size: 33px !important;
+    }
+}
+
+
+/* Styles for Mobile */
+@media (max-width: 480px) {
+    .textWidth {
+        min-width: 80% !important;
+    }
+}
+
+.imageSize {
+    height: 400px;
+    width: 700px;
+}
+
+/* Styles for iPad */
+@media (max-width: 1200px) {
+    .imageSize {
+        height: 300px !important;
+        width: 500px !important;
+    }
+}
+
+/* Styles for Mobile */
+@media (max-width: 480px) {
+    .imageSize {
+        height: 175px !important;
+        width: 275px !important;
+    }
+}
+
+.subFontText {
+    font-size: 20px !important;
+}
+
+/* Styles for iPad */
+@media (max-width: 1200px) {
+    .subFontText {
+        font-size: 17px !important;
+    }
+}
+
+/* Styles for Mobile */
+@media (max-width: 480px) {
+    .subFontText {
+        font-size: 14px !important;
+    }
+}

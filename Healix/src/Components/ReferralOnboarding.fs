@@ -98,8 +98,8 @@ let ReferralOnboarding () =
                             Html.img [
 
                                 prop.src ".././Assets/medicalimage.png"
-                                prop.style [style.width (length.perc 40); style.height (length.perc 20); style.borderRadius 10]
-                                //prop.className classes.profileImage
+                                //prop.style [style.width (length.perc 40); style.height (length.perc 20); style.borderRadius 10]
+                                prop.className classes.imageSize
                             ]
                         ]
                     ]
@@ -110,17 +110,25 @@ let ReferralOnboarding () =
                             style.justifyContent.center;
                             style.alignItems.center;
                             style.flexBasis (length.perc 50);
-                            style.fontSize 60;
+                            //style.fontSize 60;
+                            style.textAlign.center
                         ]
                         prop.children [
-                            Html.strong "Refer a patient"
+                            Html.div [
+                                prop.classes [classes.fontSize]
+                                prop.children [
+                                    Html.strong "Refer a patient"
+                                ]
+                            ]
                             Html.div [
                                 prop.style [
                                     style.color.lightSlateGray;
                                     style.fontSize 20;
                                     style.marginTop 10;
                                     style.width (length.perc 60);
+                                    style.textAlign.center;
                                 ]
+                                prop.classes [classes.textWidth; classes.subFontText]
                                 prop.children [
                                     Html.text "Quick, secure, and trusted referrals to connect your patients to the behavioral health care they need."
                                 ]
