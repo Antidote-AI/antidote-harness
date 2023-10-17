@@ -99,7 +99,7 @@ let assessmentData: string list list = [
 [<ReactComponent>]
 let MedicationCard () =
     Html.div [
-        prop.style [style.width (length.perc 45); style.custom("boxShadow", "rgba(0, 0, 0, 0.16) 0px 1px 4px"); style.borderRadius 12]
+        prop.style [style.custom("boxShadow", "rgba(0, 0, 0, 0.16) 0px 1px 4px"); style.borderRadius 12]
         prop.children [
             Html.div [
                 prop.style [style.borderBottom(1, borderStyle.solid, color.lightGray); style.display.flex;style.justifyContent.spaceBetween; style.flexDirection.row; style.display.flex; style.alignItems.center]
@@ -177,7 +177,7 @@ let MedicationCard () =
 
 let AssessmentCard () =
     Html.div [
-        prop.style [style.width (length.perc 25); style.custom("boxShadow", "rgba(0, 0, 0, 0.16) 0px 1px 4px"); style.borderRadius 12; style.height 400;  style.overflowY.auto]
+        prop.style [style.custom("boxShadow", "rgba(0, 0, 0, 0.16) 0px 1px 4px"); style.borderRadius 12; style.height 400;  style.overflowY.auto]
         prop.children [
             Html.div [
                 prop.style [style.borderBottom(1, borderStyle.solid, color.lightGray); style.display.flex;style.justifyContent.spaceBetween; style.flexDirection.row; style.display.flex; style.alignItems.center]
@@ -396,7 +396,7 @@ let MedicalHistoryComponent (props:MedicalHistoryData) =
 [<ReactComponent>]
 let MedicalHistory () =
     Html.div [
-        prop.style [style.width (length.perc 70); style.custom("boxShadow", "rgba(0, 0, 0, 0.16) 0px 1px 4px"); style.borderRadius 12]
+        prop.style [ style.custom("boxShadow", "rgba(0, 0, 0, 0.16) 0px 1px 4px"); style.borderRadius 12]
         prop.children [
             Html.div [
                 prop.style [style.borderBottom(1, borderStyle.solid, color.lightGray); style.display.flex;style.justifyContent.spaceBetween; style.flexDirection.row; style.display.flex; style.alignItems.center]
@@ -509,7 +509,7 @@ let MedicalHistory () =
 [<ReactComponent>]
 let Labs () =
     Html.div [
-        prop.style [style.width (length.perc 45); style.custom("boxShadow", "rgba(0, 0, 0, 0.16) 0px 1px 4px"); style.borderRadius 12]
+        prop.style [ style.custom("boxShadow", "rgba(0, 0, 0, 0.16) 0px 1px 4px"); style.borderRadius 12]
         prop.children [
             LabResults ()
         ]
@@ -537,20 +537,36 @@ let PatientProfile () =
         prop.children [
             EditablePatientProfileCard ()
             Html.div [
-                prop.style [style.display.flex; style.justifyContent.spaceAround; style.marginTop 20]
+                prop.style [style.display.flex; style.justifyContent.spaceAround; style.marginTop 20; style.flexWrap.wrap]
                 prop.children [
-                    MedicationCard ()
-                    Labs ()
+                    Html.div [
+                        prop.children [
+                            MedicationCard ()
+                        ]
+                    ]
+                    Html.div [
+                        prop.style [style.flexWrap.wrap]
+                        prop.children [
+                            LabResults ()
+                        ]
+                    ]
                 ]
             ]
             Html.div [
-                prop.style [style.display.flex; style.justifyContent.spaceAround; style.marginTop 20; style.marginBottom 20]
+                prop.style [style.display.flex; style.justifyContent.spaceAround; style.marginTop 20; style.marginBottom 20; style.flexWrap.wrap]
                 prop.children [
-                    AssessmentCard ()
-                    MedicalHistory ()
+                    Html.div [
+                        prop.children [
+                            AssessmentCard ()
+                        ]
+                    ]
+                    Html.div [
+                        prop.style [style.flexWrap.wrap]
+                        prop.children [
+                            MedicalHistory ()
+                        ]
+                    ]
                 ]
             ]
-
-
         ]
     ]

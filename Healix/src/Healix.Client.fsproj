@@ -9,8 +9,8 @@
     <Compile Include="CssModules.fs" />
 
     <!-- COMPONENTS -->
+    <Compile Include="Components/MyAccount.fs" />
     <Compile Include="Components/EditableTag.fs" />
-    <Compile Include="Components/Tasks.fs" />
     <Compile Include="Components/EditablePatientProfileCard.fs" />
     <!-- <Compile Include="Components/PaymentMethod.fs" /> -->
     <Compile Include="Components/Messages.fs" />
@@ -44,6 +44,7 @@
     <Compile Include="Components/ePrescribeOrderDetail.fs" />
     <Compile Include="Components/ReferralOnboarding.fs" />
     <Compile Include="Components/TestImage.fs" />
+
 
 
 
