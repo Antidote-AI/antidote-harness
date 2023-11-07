@@ -9,6 +9,7 @@
     <Compile Include="CssModules.fs" />
 
     <!-- COMPONENTS -->
+    <Compile Include="Components/PhysicianPanelRework.fs" />
     <Compile Include="Components/MyAccount.fs" />
     <Compile Include="Components/EditableTag.fs" />
     <Compile Include="Components/EditablePatientProfileCard.fs" />

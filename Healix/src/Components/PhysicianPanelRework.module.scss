@@ -1,0 +1,20 @@
+/* Mobile-first approach: Stacked cards for mobile */
+.margin {
+    margin: 10px; // Some spacing between cards on mobile
+    background-color: red;
+}
+
+/* Larger screens: 3-card layout */
+@media screen and (min-width: 768px) {
+    .margin {
+        margin: 10px; // Reset spacing
+        background-color: purple;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .margin {
+        margin: 10px;  // or whatever margin you desire at this breakpoint
+        background-color: yellow;
+    }
+}

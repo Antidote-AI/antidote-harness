@@ -40,6 +40,7 @@ open Healix.Components.EditableTag
 open Healix.Components.EditablePatientProfileCard
 open Healix.Components.TestImage
 open Healix.Components.MyAccount
+open Healix.Components.PhysicianPanelRework
 
 open Fable.Core.JsInterop
 
@@ -49,6 +50,6 @@ importSideEffects "./index.scss"
 ReactDOM.render(
     //render (),
     //MedicationCard(),
-    MyAccount (sampleAccountData),
+    PhysicianPanelRework (),
     document.getElementById("root")
 )
